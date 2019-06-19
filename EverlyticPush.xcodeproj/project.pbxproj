@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60390912C58AB6F8E2B6FC57 /* PMASdkConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390587D5B054FCB885AB19 /* PMASdkConfiguration.m */; };
+		60390A08D4ED5A20A14BE22E /* PMAPushSdk.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390B9221C6012D439E90C8 /* PMAPushSdk.m */; };
+		60390C5E47605E8FF9C8D97A /* PMAPushSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390B6FB254B6184B2C2BE5 /* PMAPushSdk.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		60390E4A98A1CA9B7B2E335A /* PMASdkConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 6039020FE81BEE778D0F4340 /* PMASdkConfiguration.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		8AF623DE9C75B830F10311AE /* libPods-EverlyticPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B9FF01AE38E6EEC755B67D /* libPods-EverlyticPush.a */; };
 		963A7F8022B90B1800533D27 /* EverlyticPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963A7F7622B90B1800533D27 /* EverlyticPush.framework */; };
 		963A7F8522B90B1800533D27 /* EverlyticPushTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 963A7F8422B90B1800533D27 /* EverlyticPushTests.m */; };
 		963A7F8722B90B1800533D27 /* EverlyticPush.h in Headers */ = {isa = PBXBuildFile; fileRef = 963A7F7922B90B1800533D27 /* EverlyticPush.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9660628322B90CA400A8CFF4 /* EverlyticPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 9660628222B90CA400A8CFF4 /* EverlyticPush.m */; };
+		CBC89F887946F64D8F255308 /* libPods-EverlyticPushTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A487D3F93D9837A1A9288D /* libPods-EverlyticPushTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +30,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6039020FE81BEE778D0F4340 /* PMASdkConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMASdkConfiguration.h; sourceTree = "<group>"; };
+		60390587D5B054FCB885AB19 /* PMASdkConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMASdkConfiguration.m; sourceTree = "<group>"; };
+		60390B6FB254B6184B2C2BE5 /* PMAPushSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAPushSdk.h; sourceTree = "<group>"; };
+		60390B9221C6012D439E90C8 /* PMAPushSdk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAPushSdk.m; sourceTree = "<group>"; };
+		80A487D3F93D9837A1A9288D /* libPods-EverlyticPushTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EverlyticPushTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81EC5AC74519CDF84BBA6AA1 /* Pods-EverlyticPushTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EverlyticPushTests.release.xcconfig"; path = "Target Support Files/Pods-EverlyticPushTests/Pods-EverlyticPushTests.release.xcconfig"; sourceTree = "<group>"; };
 		963A7F7622B90B1800533D27 /* EverlyticPush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EverlyticPush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		963A7F7922B90B1800533D27 /* EverlyticPush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EverlyticPush.h; sourceTree = "<group>"; };
 		963A7F7A22B90B1800533D27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		963A7F7F22B90B1800533D27 /* EverlyticPushTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EverlyticPushTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		963A7F8422B90B1800533D27 /* EverlyticPushTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EverlyticPushTests.m; sourceTree = "<group>"; };
 		963A7F8622B90B1800533D27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		964A04428D72D0B6837600F2 /* Pods-EverlyticPush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EverlyticPush.debug.xcconfig"; path = "Target Support Files/Pods-EverlyticPush/Pods-EverlyticPush.debug.xcconfig"; sourceTree = "<group>"; };
+		9660628222B90CA400A8CFF4 /* EverlyticPush.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EverlyticPush.m; sourceTree = "<group>"; };
+		C4B9FF01AE38E6EEC755B67D /* libPods-EverlyticPush.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EverlyticPush.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFE6432150EE9A679C73D8F4 /* Pods-EverlyticPush.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EverlyticPush.release.xcconfig"; path = "Target Support Files/Pods-EverlyticPush/Pods-EverlyticPush.release.xcconfig"; sourceTree = "<group>"; };
+		FECED7CC7ED5EC80FCE9FAD0 /* Pods-EverlyticPushTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EverlyticPushTests.debug.xcconfig"; path = "Target Support Files/Pods-EverlyticPushTests/Pods-EverlyticPushTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF623DE9C75B830F10311AE /* libPods-EverlyticPush.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,18 +63,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				963A7F8022B90B1800533D27 /* EverlyticPush.framework in Frameworks */,
+				CBC89F887946F64D8F255308 /* libPods-EverlyticPushTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2230CA74A8E84DAA2097DD71 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				964A04428D72D0B6837600F2 /* Pods-EverlyticPush.debug.xcconfig */,
+				EFE6432150EE9A679C73D8F4 /* Pods-EverlyticPush.release.xcconfig */,
+				FECED7CC7ED5EC80FCE9FAD0 /* Pods-EverlyticPushTests.debug.xcconfig */,
+				81EC5AC74519CDF84BBA6AA1 /* Pods-EverlyticPushTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		963A7F6C22B90B1800533D27 = {
 			isa = PBXGroup;
 			children = (
 				963A7F7822B90B1800533D27 /* EverlyticPush */,
 				963A7F8322B90B1800533D27 /* EverlyticPushTests */,
 				963A7F7722B90B1800533D27 /* Products */,
+				2230CA74A8E84DAA2097DD71 /* Pods */,
+				FE817801A5E5A4DB7AF9383E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,8 +104,13 @@
 		963A7F7822B90B1800533D27 /* EverlyticPush */ = {
 			isa = PBXGroup;
 			children = (
-				963A7F7922B90B1800533D27 /* EverlyticPush.h */,
 				963A7F7A22B90B1800533D27 /* Info.plist */,
+				963A7F7922B90B1800533D27 /* EverlyticPush.h */,
+				9660628222B90CA400A8CFF4 /* EverlyticPush.m */,
+				60390B9221C6012D439E90C8 /* PMAPushSdk.m */,
+				60390B6FB254B6184B2C2BE5 /* PMAPushSdk.h */,
+				60390587D5B054FCB885AB19 /* PMASdkConfiguration.m */,
+				6039020FE81BEE778D0F4340 /* PMASdkConfiguration.h */,
 			);
 			path = EverlyticPush;
 			sourceTree = "<group>";
@@ -86,6 +124,15 @@
 			path = EverlyticPushTests;
 			sourceTree = "<group>";
 		};
+		FE817801A5E5A4DB7AF9383E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4B9FF01AE38E6EEC755B67D /* libPods-EverlyticPush.a */,
+				80A487D3F93D9837A1A9288D /* libPods-EverlyticPushTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -94,6 +141,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				963A7F8722B90B1800533D27 /* EverlyticPush.h in Headers */,
+				60390C5E47605E8FF9C8D97A /* PMAPushSdk.h in Headers */,
+				60390E4A98A1CA9B7B2E335A /* PMASdkConfiguration.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +153,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 963A7F8A22B90B1800533D27 /* Build configuration list for PBXNativeTarget "EverlyticPush" */;
 			buildPhases = (
+				4542484BDEC078F6CBD70484 /* [CP] Check Pods Manifest.lock */,
 				963A7F7122B90B1800533D27 /* Headers */,
 				963A7F7222B90B1800533D27 /* Sources */,
 				963A7F7322B90B1800533D27 /* Frameworks */,
@@ -122,6 +172,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 963A7F8D22B90B1800533D27 /* Build configuration list for PBXNativeTarget "EverlyticPushTests" */;
 			buildPhases = (
+				D755ECC4710BD21AD75A6C21 /* [CP] Check Pods Manifest.lock */,
 				963A7F7B22B90B1800533D27 /* Sources */,
 				963A7F7C22B90B1800533D27 /* Frameworks */,
 				963A7F7D22B90B1800533D27 /* Resources */,
@@ -188,11 +239,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4542484BDEC078F6CBD70484 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EverlyticPush-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D755ECC4710BD21AD75A6C21 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EverlyticPushTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		963A7F7222B90B1800533D27 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60390A08D4ED5A20A14BE22E /* PMAPushSdk.m in Sources */,
+				60390912C58AB6F8E2B6FC57 /* PMASdkConfiguration.m in Sources */,
+				9660628322B90CA400A8CFF4 /* EverlyticPush.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +436,7 @@
 		};
 		963A7F8B22B90B1800533D27 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 964A04428D72D0B6837600F2 /* Pods-EverlyticPush.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -345,6 +447,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = EverlyticPush/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -359,6 +462,7 @@
 		};
 		963A7F8C22B90B1800533D27 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFE6432150EE9A679C73D8F4 /* Pods-EverlyticPush.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -369,6 +473,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = EverlyticPush/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,6 +488,7 @@
 		};
 		963A7F8E22B90B1800533D27 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FECED7CC7ED5EC80FCE9FAD0 /* Pods-EverlyticPushTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2QP283S4J6;
@@ -400,6 +506,7 @@
 		};
 		963A7F8F22B90B1800533D27 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81EC5AC74519CDF84BBA6AA1 /* Pods-EverlyticPushTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2QP283S4J6;

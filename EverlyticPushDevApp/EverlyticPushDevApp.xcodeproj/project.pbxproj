@@ -1,0 +1,479 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9660629222B90E9200A8CFF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9660629122B90E9200A8CFF4 /* AppDelegate.m */; };
+		9660629522B90E9200A8CFF4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9660629422B90E9200A8CFF4 /* ViewController.m */; };
+		9660629822B90E9200A8CFF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9660629622B90E9200A8CFF4 /* Main.storyboard */; };
+		9660629A22B90E9200A8CFF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9660629922B90E9200A8CFF4 /* Assets.xcassets */; };
+		9660629D22B90E9200A8CFF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9660629B22B90E9200A8CFF4 /* LaunchScreen.storyboard */; };
+		966062A022B90E9200A8CFF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9660629F22B90E9200A8CFF4 /* main.m */; };
+		966062AA22B90E9200A8CFF4 /* EverlyticPushDevAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 966062A922B90E9200A8CFF4 /* EverlyticPushDevAppTests.m */; };
+		966062B622B90EA000A8CFF4 /* EverlyticPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966062B522B90EA000A8CFF4 /* EverlyticPush.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		966062A622B90E9200A8CFF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9660628522B90E9200A8CFF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9660628C22B90E9200A8CFF4;
+			remoteInfo = EverlyticPushDevApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9660628D22B90E9200A8CFF4 /* EverlyticPushDevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EverlyticPushDevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9660629022B90E9200A8CFF4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9660629122B90E9200A8CFF4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9660629322B90E9200A8CFF4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9660629422B90E9200A8CFF4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9660629722B90E9200A8CFF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9660629922B90E9200A8CFF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9660629C22B90E9200A8CFF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9660629E22B90E9200A8CFF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9660629F22B90E9200A8CFF4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		966062A522B90E9200A8CFF4 /* EverlyticPushDevAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EverlyticPushDevAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		966062A922B90E9200A8CFF4 /* EverlyticPushDevAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EverlyticPushDevAppTests.m; sourceTree = "<group>"; };
+		966062AB22B90E9200A8CFF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		966062B522B90EA000A8CFF4 /* EverlyticPush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EverlyticPush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9660628A22B90E9200A8CFF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				966062B622B90EA000A8CFF4 /* EverlyticPush.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		966062A222B90E9200A8CFF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9660628422B90E9200A8CFF4 = {
+			isa = PBXGroup;
+			children = (
+				9660628F22B90E9200A8CFF4 /* EverlyticPushDevApp */,
+				966062A822B90E9200A8CFF4 /* EverlyticPushDevAppTests */,
+				9660628E22B90E9200A8CFF4 /* Products */,
+				966062B422B90EA000A8CFF4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9660628E22B90E9200A8CFF4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9660628D22B90E9200A8CFF4 /* EverlyticPushDevApp.app */,
+				966062A522B90E9200A8CFF4 /* EverlyticPushDevAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9660628F22B90E9200A8CFF4 /* EverlyticPushDevApp */ = {
+			isa = PBXGroup;
+			children = (
+				9660629022B90E9200A8CFF4 /* AppDelegate.h */,
+				9660629122B90E9200A8CFF4 /* AppDelegate.m */,
+				9660629322B90E9200A8CFF4 /* ViewController.h */,
+				9660629422B90E9200A8CFF4 /* ViewController.m */,
+				9660629622B90E9200A8CFF4 /* Main.storyboard */,
+				9660629922B90E9200A8CFF4 /* Assets.xcassets */,
+				9660629B22B90E9200A8CFF4 /* LaunchScreen.storyboard */,
+				9660629E22B90E9200A8CFF4 /* Info.plist */,
+				9660629F22B90E9200A8CFF4 /* main.m */,
+			);
+			path = EverlyticPushDevApp;
+			sourceTree = "<group>";
+		};
+		966062A822B90E9200A8CFF4 /* EverlyticPushDevAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				966062A922B90E9200A8CFF4 /* EverlyticPushDevAppTests.m */,
+				966062AB22B90E9200A8CFF4 /* Info.plist */,
+			);
+			path = EverlyticPushDevAppTests;
+			sourceTree = "<group>";
+		};
+		966062B422B90EA000A8CFF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				966062B522B90EA000A8CFF4 /* EverlyticPush.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9660628C22B90E9200A8CFF4 /* EverlyticPushDevApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 966062AE22B90E9200A8CFF4 /* Build configuration list for PBXNativeTarget "EverlyticPushDevApp" */;
+			buildPhases = (
+				9660628922B90E9200A8CFF4 /* Sources */,
+				9660628A22B90E9200A8CFF4 /* Frameworks */,
+				9660628B22B90E9200A8CFF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EverlyticPushDevApp;
+			productName = EverlyticPushDevApp;
+			productReference = 9660628D22B90E9200A8CFF4 /* EverlyticPushDevApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		966062A422B90E9200A8CFF4 /* EverlyticPushDevAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 966062B122B90E9200A8CFF4 /* Build configuration list for PBXNativeTarget "EverlyticPushDevAppTests" */;
+			buildPhases = (
+				966062A122B90E9200A8CFF4 /* Sources */,
+				966062A222B90E9200A8CFF4 /* Frameworks */,
+				966062A322B90E9200A8CFF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				966062A722B90E9200A8CFF4 /* PBXTargetDependency */,
+			);
+			name = EverlyticPushDevAppTests;
+			productName = EverlyticPushDevAppTests;
+			productReference = 966062A522B90E9200A8CFF4 /* EverlyticPushDevAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9660628522B90E9200A8CFF4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Everlytic;
+				TargetAttributes = {
+					9660628C22B90E9200A8CFF4 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					966062A422B90E9200A8CFF4 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 9660628C22B90E9200A8CFF4;
+					};
+				};
+			};
+			buildConfigurationList = 9660628822B90E9200A8CFF4 /* Build configuration list for PBXProject "EverlyticPushDevApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9660628422B90E9200A8CFF4;
+			productRefGroup = 9660628E22B90E9200A8CFF4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9660628C22B90E9200A8CFF4 /* EverlyticPushDevApp */,
+				966062A422B90E9200A8CFF4 /* EverlyticPushDevAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9660628B22B90E9200A8CFF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9660629D22B90E9200A8CFF4 /* LaunchScreen.storyboard in Resources */,
+				9660629A22B90E9200A8CFF4 /* Assets.xcassets in Resources */,
+				9660629822B90E9200A8CFF4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		966062A322B90E9200A8CFF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9660628922B90E9200A8CFF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9660629522B90E9200A8CFF4 /* ViewController.m in Sources */,
+				966062A022B90E9200A8CFF4 /* main.m in Sources */,
+				9660629222B90E9200A8CFF4 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		966062A122B90E9200A8CFF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				966062AA22B90E9200A8CFF4 /* EverlyticPushDevAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		966062A722B90E9200A8CFF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9660628C22B90E9200A8CFF4 /* EverlyticPushDevApp */;
+			targetProxy = 966062A622B90E9200A8CFF4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9660629622B90E9200A8CFF4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9660629722B90E9200A8CFF4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9660629B22B90E9200A8CFF4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9660629C22B90E9200A8CFF4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		966062AC22B90E9200A8CFF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		966062AD22B90E9200A8CFF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		966062AF22B90E9200A8CFF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2QP283S4J6;
+				INFOPLIST_FILE = EverlyticPushDevApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.everlytic.ios.EverlyticPushDevApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		966062B022B90E9200A8CFF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2QP283S4J6;
+				INFOPLIST_FILE = EverlyticPushDevApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.everlytic.ios.EverlyticPushDevApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		966062B222B90E9200A8CFF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2QP283S4J6;
+				INFOPLIST_FILE = EverlyticPushDevAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.everlytic.ios.EverlyticPushDevAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EverlyticPushDevApp.app/EverlyticPushDevApp";
+			};
+			name = Debug;
+		};
+		966062B322B90E9200A8CFF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2QP283S4J6;
+				INFOPLIST_FILE = EverlyticPushDevAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.everlytic.ios.EverlyticPushDevAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EverlyticPushDevApp.app/EverlyticPushDevApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9660628822B90E9200A8CFF4 /* Build configuration list for PBXProject "EverlyticPushDevApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				966062AC22B90E9200A8CFF4 /* Debug */,
+				966062AD22B90E9200A8CFF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		966062AE22B90E9200A8CFF4 /* Build configuration list for PBXNativeTarget "EverlyticPushDevApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				966062AF22B90E9200A8CFF4 /* Debug */,
+				966062B022B90E9200A8CFF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		966062B122B90E9200A8CFF4 /* Build configuration list for PBXNativeTarget "EverlyticPushDevAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				966062B222B90E9200A8CFF4 /* Debug */,
+				966062B322B90E9200A8CFF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9660628522B90E9200A8CFF4 /* Project object */;
+}

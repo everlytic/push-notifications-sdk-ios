@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for EverlyticPush.
-FOUNDATION_EXPORT double EverlyticPushVersionNumber;
+@interface EverlyticPush : NSObject
 
-//! Project version string for EverlyticPush.
-FOUNDATION_EXPORT const unsigned char EverlyticPushVersionString[];
++ (id)initWithPushConfig:(NSString *)pushConfig;
 
-// In this header, you should import all the public headers of your framework using statements like #import <EverlyticPush/PublicHeader.h>
++ (void)promptForNotificationWithUserResponse:(void (^)(BOOL consentGranted))completionHandler;
 
++ (BOOL)hasNotificationConsent;
 
+@end
