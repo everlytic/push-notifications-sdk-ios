@@ -1,15 +1,5 @@
-//
-//  EverlyticPush.m
-//  EverlyticPush
-//
-//  Created by Jason Dantuma on 2019/06/18.
-//  Copyright © 2019 Everlytic. All rights reserved.
-//
-
 #import "EverlyticPush.h"
 #import "PMAPushSdk.h"
-#import <UserNotifications/UserNotifications.h>
-@import Firebase;
 
 PMAPushSdk *sdk;
 
@@ -39,6 +29,11 @@ PMAPushSdk *sdk;
 
 + (BOOL)hasNotificationConsent {
     return NO;
+}
+
++ (void)subscribeUserWithEmail:(NSString *)emailAddress completionHandler:(void (^)(BOOL subscriptionSuccess))handler {
+    NSString *emailTrimmed = [emailAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSLog(@"Should subscribe user with email=%@", emailAddress);
 }
 
 

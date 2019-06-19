@@ -2,87 +2,96 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f03861d5-60b0-4946-a649-37f5972a3440" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/EverlyticPush/EverlyticPush.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPush/PMAPushSdk.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPush/PMAPushSdk.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPush/PMASdkConfiguration.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPush/PMASdkConfiguration.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp.xcodeproj/project.pbxproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/AppDelegate.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/AppDelegate.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/Assets.xcassets/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/Base.lproj/Main.storyboard" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/ViewController.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/ViewController.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/main.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevAppTests/EverlyticPushDevAppTests.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevAppTests/Info.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EverlyticPush/Models/PMAModel.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EverlyticPush/Models/PMA_ApiSubscription.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EverlyticPush/Models/PMA_ApiSubscription.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EverlyticPush/Models/PMA_Subscription.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EverlyticPush/Models/PMA_Subscription.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EverlyticPush/PMAFIRMessagingDelegate.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EverlyticPush/PMAFIRMessagingDelegate.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EverlyticPush/PMAHelpers.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EverlyticPush/PMAHelpers.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EverlyticPush/PMAHttp.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EverlyticPush/PMAHttp.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/Assets.xcassets/LaunchImage-2.launchimage/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/Assets.xcassets/LaunchImage.launchimage/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/EverlyticPushDevApp.entitlements" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/GoogleService-Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EverlyticPush.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/EverlyticPush.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EverlyticPush.xcodeproj/xcuserdata/jason.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/EverlyticPush.xcodeproj/xcuserdata/jason.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EverlyticPush/EverlyticPush.h" beforeDir="false" afterPath="$PROJECT_DIR$/EverlyticPush/EverlyticPush.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EverlyticPush/EverlyticPush.m" beforeDir="false" afterPath="$PROJECT_DIR$/EverlyticPush/EverlyticPush.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EverlyticPush/PMAPushSdk.h" beforeDir="false" afterPath="$PROJECT_DIR$/EverlyticPush/PMAPushSdk.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EverlyticPush/PMAPushSdk.m" beforeDir="false" afterPath="$PROJECT_DIR$/EverlyticPush/PMAPushSdk.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EverlyticPush/PMASdkConfiguration.h" beforeDir="false" afterPath="$PROJECT_DIR$/EverlyticPush/PMASdkConfiguration.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EverlyticPush/PMASdkConfiguration.m" beforeDir="false" afterPath="$PROJECT_DIR$/EverlyticPush/PMASdkConfiguration.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/Base.lproj/LaunchScreen.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/Base.lproj/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/ViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/ViewController.m" afterDir="false" />
     </list>
     <ignored path="$USER_HOME$/Library/Caches/AppCode2019.1/DerivedData/EverlyticPush-gnwuhjvgizeolngufmolnbttzyvs/Build/Intermediates.noindex/" />
+    <ignored path="$USER_HOME$/Library/Caches/AppCode2019.1/DerivedData/EverlyticPush-dkudedwogeneuoaetcfijvjzeqws/Build/Intermediates.noindex/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_B3B8721B-80AB-46CD-B2B6-8999D04C3F19" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_a2c9555ce84f9df181841ea191e47487972a8af6" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EverlyticPush/EverlyticPush.m">
+        <entry file="file://$PROJECT_DIR$/EverlyticPush/Models/PMA_ApiSubscription.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+            <state relative-caret-position="243">
+              <caret line="15" column="15" lean-forward="true" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
               <folding>
-                <element signature="e#145#170#0" expanded="true" />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Library/Caches/AppCode2019.1/DerivedData/EverlyticPush-gnwuhjvgizeolngufmolnbttzyvs/Build/Products/Debug-iphonesimulator/EverlyticPush.framework/Headers/EverlyticPush.h">
+        <entry file="file://$PROJECT_DIR$/EverlyticPush/Models/PMA_Subscription.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            <state relative-caret-position="502">
+              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+              <folding>
+                <element signature="e#1#24#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="appcode.project-settings://9e89f645">
-          <provider selected="true" editor-type-id="AppCode.ProjectSettings" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/AppDelegate.h">
+        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIDevice.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/AppDelegate.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="194">
+              <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EverlyticPush/EverlyticPush.h">
+        <entry file="file://$PROJECT_DIR$/EverlyticPush/Models/PMA_Subscription.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+            <state relative-caret-position="85">
+              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+              <folding>
+                <element signature="e#1#34#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Pods/FirebaseMessaging/Firebase/Messaging/NSError+FIRMessaging.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="311">
+              <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -90,41 +99,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EverlyticPush/PMAPushSdk.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+            <state relative-caret-position="123">
+              <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
               <folding>
-                <element signature="e#104#126#0" expanded="true" />
+                <element signature="e#0#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/EverlyticPush/PMAPushSdk.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="96" selection-start-line="11" selection-start-column="96" selection-end-line="11" selection-end-column="96" />
-              <folding>
-                <element signature="e#104#137#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="5" column="92" lean-forward="true" selection-start-line="5" selection-start-column="92" selection-end-line="5" selection-end-column="92" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EverlyticPush/PMASdkConfiguration.m">
+        <entry file="file://$PROJECT_DIR$/EverlyticPush/Models/PMAModel.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+            <state relative-caret-position="102">
+              <caret line="6" column="60" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EverlyticPush/PMASdkConfiguration.h">
+        <entry file="file://$PROJECT_DIR$/EverlyticPush/PMAHelpers.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+            <state relative-caret-position="85">
+              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EverlyticPush/PMAHelpers.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -137,29 +152,31 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/AppDelegate.m" />
+        <option value="$PROJECT_DIR$/EverlyticPush/EverlyticPush.h" />
+        <option value="$PROJECT_DIR$/EverlyticPush/PMAFIRMessagingDelegate.h" />
+        <option value="$PROJECT_DIR$/EverlyticPush/PMAFIRMessagingDelegate.m" />
         <option value="$PROJECT_DIR$/EverlyticPush/PMASdkConfiguration.h" />
         <option value="$PROJECT_DIR$/EverlyticPush/PMASdkConfiguration.m" />
+        <option value="$PROJECT_DIR$/EverlyticPush/EverlyticPush.m" />
+        <option value="$PROJECT_DIR$/EverlyticPush/PMAHttp.h" />
+        <option value="$PROJECT_DIR$/EverlyticPush/PMAHttp.m" />
+        <option value="$PROJECT_DIR$/EverlyticPush/Models/EverlyticSubscription.h" />
+        <option value="$PROJECT_DIR$/EverlyticPush/Models/PMA_ApiSubscription.h" />
+        <option value="$PROJECT_DIR$/EverlyticPush/Models/PMAModel.h" />
+        <option value="$PROJECT_DIR$/EverlyticPush/PMAHelpers.h" />
+        <option value="$PROJECT_DIR$/EverlyticPush/PMAHelpers.m" />
+        <option value="$PROJECT_DIR$/EverlyticPush/Models/PMA_ApiSubscription.m" />
+        <option value="$PROJECT_DIR$/EverlyticPush/Models/PMA_Subscription.h" />
+        <option value="$PROJECT_DIR$/EverlyticPush/Models/PMA_Subscription.m" />
         <option value="$PROJECT_DIR$/EverlyticPush/PMAPushSdk.m" />
         <option value="$PROJECT_DIR$/EverlyticPush/PMAPushSdk.h" />
-        <option value="$PROJECT_DIR$/EverlyticPush/EverlyticPush.h" />
-        <option value="$PROJECT_DIR$/EverlyticPush/EverlyticPush.m" />
-        <option value="$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/AppDelegate.m" />
       </list>
     </option>
   </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="OCResolveContextSettings">
     <option name="configuration" value="963A7F8B22B90B1800533D27-Simulator - iOS 12.2 (iphonesimulator12.2 12.2)-x86_64" />
-  </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/EverlyticPush.iml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-        <option value="$PROJECT_DIR$/.idea/xcode.xml" />
-      </list>
-    </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="76" />
@@ -168,10 +185,39 @@
     <option name="height" value="983" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Cidr.FilesView" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Cidr.FilesView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="EverlyticPush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EverlyticPush" type="47feb1d3:ProjectViewModuleNode" />
+            </path>
+            <path>
+              <item name="EverlyticPush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EverlyticPush" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="EverlyticPush" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EverlyticPush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EverlyticPush" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="EverlyticPush" type="462c0819:PsiDirectoryNode" />
+              <item name="EverlyticPushDevApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EverlyticPush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EverlyticPush" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="EverlyticPush" type="462c0819:PsiDirectoryNode" />
+              <item name="EverlyticPushDevApp" type="462c0819:PsiDirectoryNode" />
+              <item name="EverlyticPushDevApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -183,6 +229,12 @@
               <item name="" type="efc3779f:XcodeRootNode" />
               <item name="EverlyticPush" type="1d218c8b:XcodeProjectNode" />
               <item name="EverlyticPush" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="EverlyticPush" type="1d218c8b:XcodeProjectNode" />
+              <item name="EverlyticPush" type="fcab9f18:XcodeViewNode" />
+              <item name="Models" type="fcab9f18:XcodeViewNode" />
             </path>
             <path>
               <item name="" type="efc3779f:XcodeRootNode" />
@@ -215,35 +267,33 @@
               <item name="Firebase" type="fcab9f18:XcodeViewNode" />
               <item name="CoreOnly" type="fcab9f18:XcodeViewNode" />
             </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="Pods" type="1d218c8b:XcodeProjectNode" />
+              <item name="Pods" type="fcab9f18:XcodeViewNode" />
+              <item name="FirebaseMessaging" type="fcab9f18:XcodeViewNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Cidr.FilesView">
-        <subPane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Source Files'; set:Project Source Files; class com.jetbrains.cidr.lang.search.scopes.ProjectSourcesScopeProvider$SourceFilesScope">
           <expand>
             <path>
-              <item name="EverlyticPush" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EverlyticPush" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="EverlyticPush" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/code/push-notifications-sdk-ios" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
             <path>
-              <item name="EverlyticPush" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EverlyticPush" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="EverlyticPush" type="462c0819:PsiDirectoryNode" />
+              <item name="EverlyticPush" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/code/push-notifications-sdk-ios" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="EverlyticPushDevApp" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="EverlyticPush" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EverlyticPush" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="EverlyticPush" type="462c0819:PsiDirectoryNode" />
-              <item name="EverlyticPushDevApp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EverlyticPush" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EverlyticPush" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="EverlyticPush" type="462c0819:PsiDirectoryNode" />
-              <item name="EverlyticPushDevApp" type="462c0819:PsiDirectoryNode" />
-              <item name="EverlyticPushDevApp" type="462c0819:PsiDirectoryNode" />
+              <item name="EverlyticPush" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/code/push-notifications-sdk-ios" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="EverlyticPushDevApp" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="EverlyticPushDevApp" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -254,11 +304,12 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="OBJC.PRESERVED_TARGET_SELECTION" value="EverlyticPush" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/EverlyticPush.xcworkspace" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -291,21 +342,22 @@
       <option name="presentableId" value="Default" />
       <updated>1560860875160</updated>
       <workItem from="1560860878003" duration="3832000" />
-      <workItem from="1560923673330" duration="2379000" />
+      <workItem from="1560923673330" duration="2559000" />
+      <workItem from="1560930406021" duration="10792000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6211000" />
+    <option name="totallyTimeSpent" value="17183000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1020" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18957347" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection Results" weight="0.3297414" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -316,7 +368,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.32962137" />
+      <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.3286638" />
+      <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.3297414" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -336,71 +389,195 @@
         </state>
       </provider>
     </entry>
+    <entry file="appcode.project-settings://9e89f645">
+      <provider selected="true" editor-type-id="AppCode.ProjectSettings" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/AppDelegate.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state>
           <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EverlyticPush/PMASdkConfiguration.m">
+    <entry file="file://$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/AppDelegate.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+        <state relative-caret-position="-7">
+          <caret line="27" column="169" selection-start-line="27" selection-start-column="169" selection-end-line="27" selection-end-column="169" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EverlyticPush/PMASdkConfiguration.h">
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/include/objc/objc.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+        <state relative-caret-position="199">
+          <caret line="77" column="17" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="appcode.project-settings://9e89f645">
-      <provider selected="true" editor-type-id="AppCode.ProjectSettings" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EverlyticPush/PMAPushSdk.h">
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include/stdbool.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="96" selection-start-line="11" selection-start-column="96" selection-end-line="11" selection-end-column="96" />
+        <state relative-caret-position="326">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/EverlyticPush.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/PMAFIRMessagingDelegate.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
             <element signature="e#104#137#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EverlyticPush/PMAPushSdk.m">
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/PMASdkConfiguration.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
-          <folding>
-            <element signature="e#104#126#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EverlyticPush/EverlyticPush.h">
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/PMASdkConfiguration.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/EverlyticPush/EverlyticPush.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="e#145#170#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EverlyticPushDevApp/EverlyticPushDevApp/AppDelegate.m">
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/PMAFIRMessagingDelegate.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="17">
+          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/PMAHttp.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/PMAHttp.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/Models/PMA_ApiSubscription.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#1#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pods/FirebaseMessaging/Firebase/Messaging/NSError+FIRMessaging.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-726" />
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSError.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pods/FirebaseMessaging/Firebase/Messaging/NSError+FIRMessaging.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/PMAHelpers.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/Models/PMAModel.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="60" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/PMAHelpers.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/Models/PMA_ApiSubscription.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="15" column="15" lean-forward="true" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/Models/PMA_Subscription.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+          <folding>
+            <element signature="e#1#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIDevice.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/Models/PMA_Subscription.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="e#1#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/PMAPushSdk.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EverlyticPush/PMAPushSdk.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="92" lean-forward="true" selection-start-line="5" selection-start-column="92" selection-end-line="5" selection-end-column="92" />
         </state>
       </provider>
     </entry>

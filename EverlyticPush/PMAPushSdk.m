@@ -1,11 +1,9 @@
-//
-// Created by Jason Dantuma on 2019-06-18.
-// Copyright (c) 2019 Everlytic. All rights reserved.
-//
-
-#import "PMAPushSdk.h"
 #import <UIKit/UIKit.h>
 #import <UserNotifications/UserNotifications.h>
+#import "PMAPushSdk.h"
+#import "PMAFIRMessagingDelegate.h"
+#import "Models/PMA_Subscription.h"
+@import Firebase;
 
 @interface PMAPushSdk () <UNUserNotificationCenterDelegate>
 
@@ -13,7 +11,18 @@
 
 @implementation PMAPushSdk
 
+PMAFIRMessagingDelegate *pmafirMessagingDelegate;
+PMASdkConfiguration *sdkConfiguration;
+
 - (PMAPushSdk *)initWithConfiguration:(PMASdkConfiguration *)configuration {
+    sdkConfiguration = configuration;
+    if ([FIRApp defaultApp] == nil) {
+        NSLog(@"[FIRApp defaultApp] is nil, configuring FIRApp now...");
+        [FIRApp configure];
+        pmafirMessagingDelegate = [[PMAFIRMessagingDelegate alloc] init];
+        [FIRMessaging messaging].delegate = pmafirMessagingDelegate;
+    }
+    
     return self;
 }
 
@@ -44,6 +53,16 @@
 
     [[self application] registerForRemoteNotifications];
 }
+
+- (void)subscribeUserWithEmailAddress:(NSString *)emailAddress {
+
+    PMA_ContactData *contact = [[PMA_ContactData alloc] initWithEmail:emailAddress pushToken:]
+
+    PMA_Subscription *subscription = [[PMA_Subscription alloc]
+            initWithPushProjectUuid:sdkConfiguration.projectId
+            contactData:<#(PMA_ContactData *)contactData#> deviceData:<#(PMA_DeviceData *)deviceData#>];
+}
+
 
 - (UIApplication *)application {
     return [UIApplication sharedApplication];

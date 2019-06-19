@@ -7,10 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6039003238E3619319CF6CC1 /* PMA_ApiSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390E571C40D1EDB829F0C2 /* PMA_ApiSubscription.m */; };
+		60390097C0C0561627F9FF97 /* PMAFIRMessagingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 603907F08B8B04CB0E4EDDB5 /* PMAFIRMessagingDelegate.m */; };
+		6039020AF3CBF3247A1B9B7D /* PMAFIRMessagingDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6039047905EA10D8261AE335 /* PMAFIRMessagingDelegate.h */; };
+		60390423F10DE10F06BA2437 /* PMAHttp.h in Headers */ = {isa = PBXBuildFile; fileRef = 603908E7A6A01BB2C07641F6 /* PMAHttp.h */; };
+		603904F40891ADD01A4B55F4 /* PMAHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 6039068154A424167426B036 /* PMAHelpers.h */; };
+		603905EBA97962A669CA1A17 /* PMAHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390674082D26B35449512F /* PMAHttp.m */; };
+		60390607C025B9138F2ABD30 /* PMA_ApiSubscription.h in Headers */ = {isa = PBXBuildFile; fileRef = 603905E6078EF736BF6233C7 /* PMA_ApiSubscription.h */; };
+		603907B063DD23FA4F2679AE /* PMA_Subscription.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390CF3AE71B38956F96C16 /* PMA_Subscription.h */; };
+		603908E9CDCFEF027D72DBB7 /* PMAHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390EFFEF640F4724985233 /* PMAHelpers.m */; };
 		60390912C58AB6F8E2B6FC57 /* PMASdkConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390587D5B054FCB885AB19 /* PMASdkConfiguration.m */; };
 		60390A08D4ED5A20A14BE22E /* PMAPushSdk.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390B9221C6012D439E90C8 /* PMAPushSdk.m */; };
+		60390BEC0B15178F474C169C /* PMAModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390897C2587D4A3BB565C0 /* PMAModel.h */; };
 		60390C5E47605E8FF9C8D97A /* PMAPushSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390B6FB254B6184B2C2BE5 /* PMAPushSdk.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		60390E4A98A1CA9B7B2E335A /* PMASdkConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 6039020FE81BEE778D0F4340 /* PMASdkConfiguration.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		60390F4B39CD92155CB3ED49 /* PMA_Subscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390F20D74DF71EC774E5B8 /* PMA_Subscription.m */; };
 		8AF623DE9C75B830F10311AE /* libPods-EverlyticPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B9FF01AE38E6EEC755B67D /* libPods-EverlyticPush.a */; };
 		963A7F8022B90B1800533D27 /* EverlyticPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963A7F7622B90B1800533D27 /* EverlyticPush.framework */; };
 		963A7F8522B90B1800533D27 /* EverlyticPushTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 963A7F8422B90B1800533D27 /* EverlyticPushTests.m */; };
@@ -31,9 +42,20 @@
 
 /* Begin PBXFileReference section */
 		6039020FE81BEE778D0F4340 /* PMASdkConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMASdkConfiguration.h; sourceTree = "<group>"; };
+		6039047905EA10D8261AE335 /* PMAFIRMessagingDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAFIRMessagingDelegate.h; sourceTree = "<group>"; };
 		60390587D5B054FCB885AB19 /* PMASdkConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMASdkConfiguration.m; sourceTree = "<group>"; };
+		603905E6078EF736BF6233C7 /* PMA_ApiSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMA_ApiSubscription.h; sourceTree = "<group>"; };
+		60390674082D26B35449512F /* PMAHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAHttp.m; sourceTree = "<group>"; };
+		6039068154A424167426B036 /* PMAHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAHelpers.h; sourceTree = "<group>"; };
+		603907F08B8B04CB0E4EDDB5 /* PMAFIRMessagingDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAFIRMessagingDelegate.m; sourceTree = "<group>"; };
+		60390897C2587D4A3BB565C0 /* PMAModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAModel.h; sourceTree = "<group>"; };
+		603908E7A6A01BB2C07641F6 /* PMAHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAHttp.h; sourceTree = "<group>"; };
 		60390B6FB254B6184B2C2BE5 /* PMAPushSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAPushSdk.h; sourceTree = "<group>"; };
 		60390B9221C6012D439E90C8 /* PMAPushSdk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAPushSdk.m; sourceTree = "<group>"; };
+		60390CF3AE71B38956F96C16 /* PMA_Subscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMA_Subscription.h; sourceTree = "<group>"; };
+		60390E571C40D1EDB829F0C2 /* PMA_ApiSubscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMA_ApiSubscription.m; sourceTree = "<group>"; };
+		60390EFFEF640F4724985233 /* PMAHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAHelpers.m; sourceTree = "<group>"; };
+		60390F20D74DF71EC774E5B8 /* PMA_Subscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMA_Subscription.m; sourceTree = "<group>"; };
 		80A487D3F93D9837A1A9288D /* libPods-EverlyticPushTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EverlyticPushTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81EC5AC74519CDF84BBA6AA1 /* Pods-EverlyticPushTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EverlyticPushTests.release.xcconfig"; path = "Target Support Files/Pods-EverlyticPushTests/Pods-EverlyticPushTests.release.xcconfig"; sourceTree = "<group>"; };
 		963A7F7622B90B1800533D27 /* EverlyticPush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EverlyticPush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +103,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		603906AD993F733B394BA61C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				60390E571C40D1EDB829F0C2 /* PMA_ApiSubscription.m */,
+				603905E6078EF736BF6233C7 /* PMA_ApiSubscription.h */,
+				60390897C2587D4A3BB565C0 /* PMAModel.h */,
+				60390F20D74DF71EC774E5B8 /* PMA_Subscription.m */,
+				60390CF3AE71B38956F96C16 /* PMA_Subscription.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		963A7F6C22B90B1800533D27 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +145,13 @@
 				60390B6FB254B6184B2C2BE5 /* PMAPushSdk.h */,
 				60390587D5B054FCB885AB19 /* PMASdkConfiguration.m */,
 				6039020FE81BEE778D0F4340 /* PMASdkConfiguration.h */,
+				603907F08B8B04CB0E4EDDB5 /* PMAFIRMessagingDelegate.m */,
+				6039047905EA10D8261AE335 /* PMAFIRMessagingDelegate.h */,
+				60390674082D26B35449512F /* PMAHttp.m */,
+				603908E7A6A01BB2C07641F6 /* PMAHttp.h */,
+				603906AD993F733B394BA61C /* Models */,
+				60390EFFEF640F4724985233 /* PMAHelpers.m */,
+				6039068154A424167426B036 /* PMAHelpers.h */,
 			);
 			path = EverlyticPush;
 			sourceTree = "<group>";
@@ -143,6 +184,12 @@
 				963A7F8722B90B1800533D27 /* EverlyticPush.h in Headers */,
 				60390C5E47605E8FF9C8D97A /* PMAPushSdk.h in Headers */,
 				60390E4A98A1CA9B7B2E335A /* PMASdkConfiguration.h in Headers */,
+				6039020AF3CBF3247A1B9B7D /* PMAFIRMessagingDelegate.h in Headers */,
+				60390423F10DE10F06BA2437 /* PMAHttp.h in Headers */,
+				60390607C025B9138F2ABD30 /* PMA_ApiSubscription.h in Headers */,
+				60390BEC0B15178F474C169C /* PMAModel.h in Headers */,
+				603904F40891ADD01A4B55F4 /* PMAHelpers.h in Headers */,
+				603907B063DD23FA4F2679AE /* PMA_Subscription.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +341,11 @@
 				60390A08D4ED5A20A14BE22E /* PMAPushSdk.m in Sources */,
 				60390912C58AB6F8E2B6FC57 /* PMASdkConfiguration.m in Sources */,
 				9660628322B90CA400A8CFF4 /* EverlyticPush.m in Sources */,
+				60390097C0C0561627F9FF97 /* PMAFIRMessagingDelegate.m in Sources */,
+				603905EBA97962A669CA1A17 /* PMAHttp.m in Sources */,
+				6039003238E3619319CF6CC1 /* PMA_ApiSubscription.m in Sources */,
+				603908E9CDCFEF027D72DBB7 /* PMAHelpers.m in Sources */,
+				60390F4B39CD92155CB3ED49 /* PMA_Subscription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

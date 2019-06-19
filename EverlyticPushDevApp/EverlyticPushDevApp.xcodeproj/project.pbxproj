@@ -14,7 +14,9 @@
 		9660629D22B90E9200A8CFF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9660629B22B90E9200A8CFF4 /* LaunchScreen.storyboard */; };
 		966062A022B90E9200A8CFF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9660629F22B90E9200A8CFF4 /* main.m */; };
 		966062AA22B90E9200A8CFF4 /* EverlyticPushDevAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 966062A922B90E9200A8CFF4 /* EverlyticPushDevAppTests.m */; };
-		966062B622B90EA000A8CFF4 /* EverlyticPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966062B522B90EA000A8CFF4 /* EverlyticPush.framework */; };
+		96F145BC22BA19000077863F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96F145BB22BA19000077863F /* GoogleService-Info.plist */; };
+		96F145C422BA1C7F0077863F /* EverlyticPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966062B522B90EA000A8CFF4 /* EverlyticPush.framework */; };
+		96F145C522BA1C7F0077863F /* EverlyticPush.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 966062B522B90EA000A8CFF4 /* EverlyticPush.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,20 @@
 			remoteInfo = EverlyticPushDevApp;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		96F145C622BA1C800077863F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				96F145C522BA1C7F0077863F /* EverlyticPush.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9660628D22B90E9200A8CFF4 /* EverlyticPushDevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EverlyticPushDevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +58,8 @@
 		966062A922B90E9200A8CFF4 /* EverlyticPushDevAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EverlyticPushDevAppTests.m; sourceTree = "<group>"; };
 		966062AB22B90E9200A8CFF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		966062B522B90EA000A8CFF4 /* EverlyticPush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EverlyticPush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96F145BB22BA19000077863F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		96F145BD22BA191C0077863F /* EverlyticPushDevApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EverlyticPushDevApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				966062B622B90EA000A8CFF4 /* EverlyticPush.framework in Frameworks */,
+				96F145C422BA1C7F0077863F /* EverlyticPush.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +103,8 @@
 		9660628F22B90E9200A8CFF4 /* EverlyticPushDevApp */ = {
 			isa = PBXGroup;
 			children = (
+				96F145BD22BA191C0077863F /* EverlyticPushDevApp.entitlements */,
+				96F145BB22BA19000077863F /* GoogleService-Info.plist */,
 				9660629022B90E9200A8CFF4 /* AppDelegate.h */,
 				9660629122B90E9200A8CFF4 /* AppDelegate.m */,
 				9660629322B90E9200A8CFF4 /* ViewController.h */,
@@ -125,6 +145,7 @@
 				9660628922B90E9200A8CFF4 /* Sources */,
 				9660628A22B90E9200A8CFF4 /* Frameworks */,
 				9660628B22B90E9200A8CFF4 /* Resources */,
+				96F145C622BA1C800077863F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -164,6 +185,14 @@
 				TargetAttributes = {
 					9660628C22B90E9200A8CFF4 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					966062A422B90E9200A8CFF4 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -196,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9660629D22B90E9200A8CFF4 /* LaunchScreen.storyboard in Resources */,
+				96F145BC22BA19000077863F /* GoogleService-Info.plist in Resources */,
 				9660629A22B90E9200A8CFF4 /* Assets.xcassets in Resources */,
 				9660629822B90E9200A8CFF4 /* Main.storyboard in Resources */,
 			);
@@ -375,9 +405,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_ENTITLEMENTS = EverlyticPushDevApp/EverlyticPushDevApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2QP283S4J6;
 				INFOPLIST_FILE = EverlyticPushDevApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -385,6 +418,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.everlytic.ios.EverlyticPushDevApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Debug;
 		};
@@ -392,9 +426,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_ENTITLEMENTS = EverlyticPushDevApp/EverlyticPushDevApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2QP283S4J6;
 				INFOPLIST_FILE = EverlyticPushDevApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -402,6 +439,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.everlytic.ios.EverlyticPushDevApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Release;
 		};
