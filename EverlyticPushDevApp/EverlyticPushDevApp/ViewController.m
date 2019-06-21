@@ -10,6 +10,7 @@
 #import <EverlyticPush/EverlyticPush.h>
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *textOutput;
 @property (weak, nonatomic) IBOutlet UITextField *emailAddress;
 @end
 
@@ -22,6 +23,8 @@
 
 - (IBAction)subscribeUser:(id)sender {
     [EverlyticPush subscribeUserWithEmail:_emailAddress.text completionHandler:nil];
+    
+    [self.view endEditing:YES];
 }
 
 @end

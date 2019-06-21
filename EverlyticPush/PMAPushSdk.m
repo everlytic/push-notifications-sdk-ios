@@ -3,26 +3,30 @@
 #import "PMAPushSdk.h"
 #import "PMAFIRMessagingDelegate.h"
 #import "Models/PMA_Subscription.h"
+#import "PMADefaults.h"
+#import "Http/PMAHttp.h"
 @import Firebase;
 
 @interface PMAPushSdk () <UNUserNotificationCenterDelegate>
+
+@property (strong, nonatomic) PMAFIRMessagingDelegate *pmafirMessagingDelegate;
+@property (strong, nonatomic) PMASdkConfiguration *sdkConfiguration;
 
 @end
 
 @implementation PMAPushSdk
 
-PMAFIRMessagingDelegate *pmafirMessagingDelegate;
-PMASdkConfiguration *sdkConfiguration;
+
 
 - (PMAPushSdk *)initWithConfiguration:(PMASdkConfiguration *)configuration {
-    sdkConfiguration = configuration;
+    self.sdkConfiguration = configuration;
     if ([FIRApp defaultApp] == nil) {
         NSLog(@"[FIRApp defaultApp] is nil, configuring FIRApp now...");
         [FIRApp configure];
-        pmafirMessagingDelegate = [[PMAFIRMessagingDelegate alloc] init];
-        [FIRMessaging messaging].delegate = pmafirMessagingDelegate;
+        self.pmafirMessagingDelegate = [[PMAFIRMessagingDelegate alloc] init];
+        [FIRMessaging messaging].delegate = self.pmafirMessagingDelegate;
     }
-    
+
     return self;
 }
 
@@ -56,11 +60,15 @@ PMASdkConfiguration *sdkConfiguration;
 
 - (void)subscribeUserWithEmailAddress:(NSString *)emailAddress {
 
-    PMA_ContactData *contact = [[PMA_ContactData alloc] initWithEmail:emailAddress pushToken:]
-
+    PMA_ContactData *contact = [[PMA_ContactData alloc] initWithEmail:emailAddress pushToken:PMADefaults.fcmToken];
+    PMA_DeviceData *deviceData = [[PMA_DeviceData alloc] initWithId:PMADefaults.deviceId];
     PMA_Subscription *subscription = [[PMA_Subscription alloc]
-            initWithPushProjectUuid:sdkConfiguration.projectId
-            contactData:<#(PMA_ContactData *)contactData#> deviceData:<#(PMA_DeviceData *)deviceData#>];
+            initWithPushProjectUuid:self.sdkConfiguration.projectId
+                        contactData:contact deviceData:deviceData];
+
+    PMAHttp *http = [[PMAHttp alloc] initWithSdkConfiguration:self.sdkConfiguration];
+
+    [http subscribeWithSubscription:subscription completionHandler:nil];
 }
 
 

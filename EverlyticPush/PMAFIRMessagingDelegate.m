@@ -1,14 +1,13 @@
 #import "PMAFIRMessagingDelegate.h"
-#import <UIKit/UIKit.h>
+#import "PMADefaults.h"
 
 NSString *const FCM_TOKEN_KEY = @"_pma_fcm_token";
 
 @implementation PMAFIRMessagingDelegate
 - (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
 
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    PMADefaults.fcmToken = fcmToken;
 
-    [defaults setValue:fcmToken forKey:FCM_TOKEN_KEY];
 #if DEBUG
     NSLog(@"New FCM Token=%@", fcmToken);
 #endif

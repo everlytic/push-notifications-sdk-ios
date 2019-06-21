@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6039002CB94905C5E3E8D799 /* PMAHttp.h in Headers */ = {isa = PBXBuildFile; fileRef = 6039024B6E163534DD8D8F5D /* PMAHttp.h */; };
 		6039003238E3619319CF6CC1 /* PMA_ApiSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390E571C40D1EDB829F0C2 /* PMA_ApiSubscription.m */; };
 		60390097C0C0561627F9FF97 /* PMAFIRMessagingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 603907F08B8B04CB0E4EDDB5 /* PMAFIRMessagingDelegate.m */; };
+		6039013164B4BD4ECAE0DE65 /* PMAHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390D210F32E98F0AE80965 /* PMAHttp.m */; };
 		6039020AF3CBF3247A1B9B7D /* PMAFIRMessagingDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6039047905EA10D8261AE335 /* PMAFIRMessagingDelegate.h */; };
-		60390423F10DE10F06BA2437 /* PMAHttp.h in Headers */ = {isa = PBXBuildFile; fileRef = 603908E7A6A01BB2C07641F6 /* PMAHttp.h */; };
 		603904F40891ADD01A4B55F4 /* PMAHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 6039068154A424167426B036 /* PMAHelpers.h */; };
-		603905EBA97962A669CA1A17 /* PMAHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390674082D26B35449512F /* PMAHttp.m */; };
+		6039055D32796C856D0A1EAE /* PMADefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390867C52A3842C738B94B /* PMADefaults.m */; };
 		60390607C025B9138F2ABD30 /* PMA_ApiSubscription.h in Headers */ = {isa = PBXBuildFile; fileRef = 603905E6078EF736BF6233C7 /* PMA_ApiSubscription.h */; };
+		60390683C33DC342B2F1E78B /* PMADefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390B2F40BE52166476E14A /* PMADefaults.h */; };
 		603907B063DD23FA4F2679AE /* PMA_Subscription.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390CF3AE71B38956F96C16 /* PMA_Subscription.h */; };
 		603908E9CDCFEF027D72DBB7 /* PMAHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390EFFEF640F4724985233 /* PMAHelpers.m */; };
 		60390912C58AB6F8E2B6FC57 /* PMASdkConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390587D5B054FCB885AB19 /* PMASdkConfiguration.m */; };
@@ -42,17 +44,19 @@
 
 /* Begin PBXFileReference section */
 		6039020FE81BEE778D0F4340 /* PMASdkConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMASdkConfiguration.h; sourceTree = "<group>"; };
+		6039024B6E163534DD8D8F5D /* PMAHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAHttp.h; sourceTree = "<group>"; };
 		6039047905EA10D8261AE335 /* PMAFIRMessagingDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAFIRMessagingDelegate.h; sourceTree = "<group>"; };
 		60390587D5B054FCB885AB19 /* PMASdkConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMASdkConfiguration.m; sourceTree = "<group>"; };
 		603905E6078EF736BF6233C7 /* PMA_ApiSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMA_ApiSubscription.h; sourceTree = "<group>"; };
-		60390674082D26B35449512F /* PMAHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAHttp.m; sourceTree = "<group>"; };
 		6039068154A424167426B036 /* PMAHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAHelpers.h; sourceTree = "<group>"; };
 		603907F08B8B04CB0E4EDDB5 /* PMAFIRMessagingDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAFIRMessagingDelegate.m; sourceTree = "<group>"; };
+		60390867C52A3842C738B94B /* PMADefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMADefaults.m; sourceTree = "<group>"; };
 		60390897C2587D4A3BB565C0 /* PMAModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAModel.h; sourceTree = "<group>"; };
-		603908E7A6A01BB2C07641F6 /* PMAHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAHttp.h; sourceTree = "<group>"; };
+		60390B2F40BE52166476E14A /* PMADefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMADefaults.h; sourceTree = "<group>"; };
 		60390B6FB254B6184B2C2BE5 /* PMAPushSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAPushSdk.h; sourceTree = "<group>"; };
 		60390B9221C6012D439E90C8 /* PMAPushSdk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAPushSdk.m; sourceTree = "<group>"; };
 		60390CF3AE71B38956F96C16 /* PMA_Subscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMA_Subscription.h; sourceTree = "<group>"; };
+		60390D210F32E98F0AE80965 /* PMAHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAHttp.m; sourceTree = "<group>"; };
 		60390E571C40D1EDB829F0C2 /* PMA_ApiSubscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMA_ApiSubscription.m; sourceTree = "<group>"; };
 		60390EFFEF640F4724985233 /* PMAHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAHelpers.m; sourceTree = "<group>"; };
 		60390F20D74DF71EC774E5B8 /* PMA_Subscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMA_Subscription.m; sourceTree = "<group>"; };
@@ -103,6 +107,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		603901E6DE7A07F1563CA7E5 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				6039024B6E163534DD8D8F5D /* PMAHttp.h */,
+				60390D210F32E98F0AE80965 /* PMAHttp.m */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
 		603906AD993F733B394BA61C /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,11 +160,12 @@
 				6039020FE81BEE778D0F4340 /* PMASdkConfiguration.h */,
 				603907F08B8B04CB0E4EDDB5 /* PMAFIRMessagingDelegate.m */,
 				6039047905EA10D8261AE335 /* PMAFIRMessagingDelegate.h */,
-				60390674082D26B35449512F /* PMAHttp.m */,
-				603908E7A6A01BB2C07641F6 /* PMAHttp.h */,
 				603906AD993F733B394BA61C /* Models */,
 				60390EFFEF640F4724985233 /* PMAHelpers.m */,
 				6039068154A424167426B036 /* PMAHelpers.h */,
+				603901E6DE7A07F1563CA7E5 /* Http */,
+				60390867C52A3842C738B94B /* PMADefaults.m */,
+				60390B2F40BE52166476E14A /* PMADefaults.h */,
 			);
 			path = EverlyticPush;
 			sourceTree = "<group>";
@@ -185,11 +199,12 @@
 				60390C5E47605E8FF9C8D97A /* PMAPushSdk.h in Headers */,
 				60390E4A98A1CA9B7B2E335A /* PMASdkConfiguration.h in Headers */,
 				6039020AF3CBF3247A1B9B7D /* PMAFIRMessagingDelegate.h in Headers */,
-				60390423F10DE10F06BA2437 /* PMAHttp.h in Headers */,
 				60390607C025B9138F2ABD30 /* PMA_ApiSubscription.h in Headers */,
 				60390BEC0B15178F474C169C /* PMAModel.h in Headers */,
 				603904F40891ADD01A4B55F4 /* PMAHelpers.h in Headers */,
 				603907B063DD23FA4F2679AE /* PMA_Subscription.h in Headers */,
+				6039002CB94905C5E3E8D799 /* PMAHttp.h in Headers */,
+				60390683C33DC342B2F1E78B /* PMADefaults.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,10 +357,11 @@
 				60390912C58AB6F8E2B6FC57 /* PMASdkConfiguration.m in Sources */,
 				9660628322B90CA400A8CFF4 /* EverlyticPush.m in Sources */,
 				60390097C0C0561627F9FF97 /* PMAFIRMessagingDelegate.m in Sources */,
-				603905EBA97962A669CA1A17 /* PMAHttp.m in Sources */,
 				6039003238E3619319CF6CC1 /* PMA_ApiSubscription.m in Sources */,
 				603908E9CDCFEF027D72DBB7 /* PMAHelpers.m in Sources */,
 				60390F4B39CD92155CB3ED49 /* PMA_Subscription.m in Sources */,
+				6039013164B4BD4ECAE0DE65 /* PMAHttp.m in Sources */,
+				6039055D32796C856D0A1EAE /* PMADefaults.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

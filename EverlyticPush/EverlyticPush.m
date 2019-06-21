@@ -1,9 +1,9 @@
 #import "EverlyticPush.h"
 #import "PMAPushSdk.h"
 
-PMAPushSdk *sdk;
-
 @implementation EverlyticPush
+
+PMAPushSdk *sdk;
 
 +(id)initWithPushConfig:(NSString *)pushConfig {
 #if DEBUG
@@ -31,9 +31,12 @@ PMAPushSdk *sdk;
     return NO;
 }
 
-+ (void)subscribeUserWithEmail:(NSString *)emailAddress completionHandler:(void (^)(BOOL subscriptionSuccess))handler {
++ (void)subscribeUserWithEmail:(NSString *)emailAddress completionHandler:(void (^)(BOOL, NSError *))handler {
     NSString *emailTrimmed = [emailAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
     NSLog(@"Should subscribe user with email=%@", emailAddress);
+
+    [sdk subscribeUserWithEmailAddress:emailTrimmed];
 }
 
 
