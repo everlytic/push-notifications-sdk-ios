@@ -25,7 +25,11 @@ NSString *const subscribeUrl = @"push-notifications/subscribe";
 
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:subUrl];
 
-    NSData *bodyData = [[subscription serializeAsJson] dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *payload = [subscription serializeAsJson];
+
+    NSLog(@"payload=%@", payload);
+
+    NSData *bodyData = [payload dataUsingEncoding:NSUTF8StringEncoding];
 
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
@@ -36,7 +40,7 @@ NSString *const subscribeUrl = @"push-notifications/subscribe";
 
     NSURLSessionDataTask *task = [[NSURLSession sharedSession]
             dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                NSLog(@"data=%@", data);
+                NSLog(@"data=%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
                 NSLog(@"response=%@", response);
                 NSLog(@"error=%@", error);
             }];

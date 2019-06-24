@@ -3,6 +3,9 @@
 
 @interface PMAHelpers : NSObject
 
-+ (id) decodeJSONFromString:(NSString *) jsonString ;
++ (id)decodeJSONFromString:(NSString *)jsonString;
++ (id)encodeJSONFromObject:(id)object;
+
++ (NSDateFormatter *)iso8601DateFormatter;
 
 @end

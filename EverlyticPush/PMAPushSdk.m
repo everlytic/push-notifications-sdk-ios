@@ -20,6 +20,11 @@
 
 - (PMAPushSdk *)initWithConfiguration:(PMASdkConfiguration *)configuration {
     self.sdkConfiguration = configuration;
+
+    if ([PMADefaults deviceId] == nil) {
+        [PMADefaults setDeviceId:[self createUuid]];
+    }
+
     if ([FIRApp defaultApp] == nil) {
         NSLog(@"[FIRApp defaultApp] is nil, configuring FIRApp now...");
         [FIRApp configure];
@@ -28,6 +33,13 @@
     }
 
     return self;
+}
+
+- (NSString *)createUuid {
+    CFUUIDRef theUUID = CFUUIDCreate(NULL);
+    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
+    CFRelease(theUUID);
+    return (__bridge NSString *) string;
 }
 
 - (void)promptForNotificationWithUserResponse:(void (^)(BOOL consentGranted))completionHandler {

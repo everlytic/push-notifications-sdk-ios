@@ -1,6 +1,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PMA_Subscription.h"
+#import "PMAHelpers.h"
 
 @implementation PMA_ContactData
 
@@ -11,8 +12,17 @@
 }
 
 
+- (nonnull NSDictionary *)serializeAsDictionary {
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+
+    dictionary[@"email"] = self.email;
+    dictionary[@"push_token"] = self.pushToken;
+
+    return dictionary;
+}
+
 - (nonnull NSString *)serializeAsJson {
-    return nil;
+    return [PMAHelpers encodeJSONFromObject:self.serializeAsDictionary];
 }
 
 + (id)deserializeFromJsonString:(NSString *_Nonnull)string {
@@ -39,8 +49,20 @@
 }
 
 
+- (nonnull NSDictionary *)serializeAsDictionary {
+
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+
+    dictionary[@"id"] = self.id;
+    dictionary[@"manufacturer"] = self.manufacturer;
+    dictionary[@"model"] = self.model;
+    dictionary[@"type"] = self.type;
+
+    return dictionary;
+}
+
 - (nonnull NSString *)serializeAsJson {
-    return nil;
+    return [PMAHelpers encodeJSONFromObject:self.serializeAsDictionary];
 }
 
 + (id)deserializeFromJsonString:(NSString *_Nonnull)string {
@@ -58,9 +80,18 @@
     return self;
 }
 
+- (nonnull NSDictionary *)serializeAsDictionary {
+
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+
+    dictionary[@"type"] = self.type;
+    dictionary[@"version"] = self.version;
+
+    return dictionary;
+}
 
 - (nonnull NSString *)serializeAsJson {
-    return nil;
+    return [PMAHelpers encodeJSONFromObject:self.serializeAsDictionary];
 }
 
 + (id)deserializeFromJsonString:(NSString *_Nonnull)string {
@@ -70,12 +101,32 @@
 @end
 
 @implementation PMA_Subscription
+
 - (PMA_Subscription *)initWithPushProjectUuid:(NSString *)projectUuid contactData:(PMA_ContactData *)contactData deviceData:(PMA_DeviceData *)deviceData {
-    return nil;
+    self.pushProjectUuid = projectUuid;
+    self.contact = contactData;
+    self.device = deviceData;
+    self.platform = [[PMA_PlatformData alloc] init];
+
+    return self;
+}
+
+- (nonnull NSDictionary *)serializeAsDictionary {
+
+    NSMutableDictionary<NSString *, id> *dictionary = [[NSMutableDictionary alloc] init];
+
+    dictionary[@"push_project_uuid"] = self.pushProjectUuid;
+    dictionary[@"contact"] = self.contact.serializeAsDictionary;
+    dictionary[@"metadata"] = [[NSDictionary alloc] init];
+    dictionary[@"platform"] = self.platform.serializeAsDictionary;
+    dictionary[@"device"] = self.device.serializeAsDictionary;
+    dictionary[@"datetime"] = [[PMAHelpers iso8601DateFormatter] stringFromDate:[NSDate date]];
+
+    return dictionary;
 }
 
 - (nonnull NSString *)serializeAsJson {
-    return nil;
+    return [PMAHelpers encodeJSONFromObject:self.serializeAsDictionary];
 }
 
 + (id)deserializeFromJsonString:(NSString *_Nonnull)string {

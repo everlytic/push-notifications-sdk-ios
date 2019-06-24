@@ -13,4 +13,21 @@
     return object;
 }
 
++ (NSString *)encodeJSONFromObject:(id)object {
+    return [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:object options:0 error:nil]
+                                 encoding:NSUTF8StringEncoding];
+}
+
+
++ (NSDateFormatter *)iso8601DateFormatter {
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+    [dateFormatter setLocale:enUSPOSIXLocale];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
+    [dateFormatter setCalendar:[NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian]];
+
+    return dateFormatter;
+}
+
 @end
