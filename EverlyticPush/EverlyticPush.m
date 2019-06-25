@@ -27,13 +27,8 @@ PMAPushSdk *sdk;
     }
 }
 
-+ (BOOL)hasNotificationConsent {
-    return NO;
-}
-
 + (void)subscribeUserWithEmail:(NSString *)emailAddress completionHandler:(void (^)(BOOL, NSError *))handler {
     NSString *emailTrimmed = [emailAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-
     NSLog(@"Should subscribe user with email=%@", emailAddress);
 
     [sdk subscribeUserWithEmailAddress:emailTrimmed];

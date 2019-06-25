@@ -6,8 +6,6 @@
 
 + (void)promptForNotificationWithUserResponse:(void (^ _Nullable)(BOOL consentGranted))completionHandler;
 
-+ (BOOL)hasNotificationConsent;
-
 + (void)subscribeUserWithEmail:(nonnull NSString *)emailAddress completionHandler:(void (^ _Nullable)(BOOL subscriptionSuccess, NSError *_Nullable error))handler;
 
 + (void)unsubscribeUserWithCompletionHandler:(void (^ _Nonnull)(BOOL subscriptionSuccess, NSError *_Nullable error))handler;

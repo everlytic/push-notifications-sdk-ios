@@ -4,5 +4,5 @@
 @protocol PMAModel <NSObject>
 - (nonnull NSDictionary *) serializeAsDictionary;
 - (nonnull NSString *) serializeAsJson;
-+ (id) deserializeFromJsonString:(NSString *_Nonnull)string;
++ (id _Nonnull) deserializeFromJsonString:(NSString *_Nonnull)string;
 @end

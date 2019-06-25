@@ -1,5 +1,6 @@
 
 #import "PMAHttp.h"
+#import "PMAApiResponse.h"
 
 @interface PMAHttp ()
 @property NSURL *baseUrl;
@@ -9,7 +10,6 @@
 @implementation PMAHttp
 
 NSString *const basePath = @"/servlet/";
-NSString *const subscribeUrl = @"push-notifications/subscribe";
 
 - (PMAHttp *)initWithSdkConfiguration:(PMASdkConfiguration *)sdkConfiguration {
     self.sdkConfiguration = sdkConfiguration;
@@ -17,35 +17,41 @@ NSString *const subscribeUrl = @"push-notifications/subscribe";
     return self;
 }
 
-- (void)subscribeWithSubscription:(PMA_Subscription *_Nonnull)subscription completionHandler:(void (^ _Nullable)(void))completionHandler {
-
-    NSURL *subUrl = [NSURL URLWithString:subscribeUrl relativeToURL:self.baseUrl];
-
-    NSLog(@"built url=%@", subUrl);
-
+- (NSMutableURLRequest *)createPostRequestForURL:(NSURL *)subUrl bodyData:(NSData *)bodyData {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:subUrl];
-
-    NSString *payload = [subscription serializeAsJson];
-
-    NSLog(@"payload=%@", payload);
-
-    NSData *bodyData = [payload dataUsingEncoding:NSUTF8StringEncoding];
-
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:self.sdkConfiguration.projectId forHTTPHeaderField:@"X-EV-Project-UUID"];
-    [request setValue:@"ios experimental" forHTTPHeaderField:@"X-EV-SDK-Version-Name"];
-    [request setValue:@"00000000" forHTTPHeaderField:@"X-EV-SDK-Version-Code"];
+    [self setHeadersOnRequest:request];
     [request setHTTPBody:bodyData];
+    return request;
+}
 
+- (void)performApiRequest:(NSMutableURLRequest *)request completionHandler:(void (^)(PMAApiResponse *_Nullable, NSError *_Nullable))completionHandler {
     NSURLSessionDataTask *task = [[NSURLSession sharedSession]
             dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                NSLog(@"data=%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-                NSLog(@"response=%@", response);
-                NSLog(@"error=%@", error);
+                if (completionHandler != nil) {
+                    PMAApiResponse *apiResponse = nil;
+
+                    if (error == nil) {
+                        NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                        apiResponse = [PMAApiResponse deserializeFromJsonString:jsonString];
+                    }
+
+                    completionHandler(apiResponse, error);
+                }
             }];
 
     [task resume];
+}
+
+- (NSURL *)urlForPath:(NSString *)path {
+    return [NSURL URLWithString:path relativeToURL:self.baseUrl];
+}
+
+- (void)setHeadersOnRequest:(NSMutableURLRequest *)request {
+    [request setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:self.sdkConfiguration.projectId forHTTPHeaderField:@"X-EV-Project-UUID"];
+    [request setValue:@"ios experimental" forHTTPHeaderField:@"X-EV-SDK-Version-Name"];
+    [request setValue:self.sdkConfiguration.sdkVersion forHTTPHeaderField:@"X-EV-SDK-Version-Code"];
 }
 
 

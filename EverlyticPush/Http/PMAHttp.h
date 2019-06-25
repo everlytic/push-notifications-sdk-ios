@@ -1,11 +1,19 @@
 #import <UIKit/UIKit.h>
-#import "../Models/PMA_Subscription.h"
+#import "../Models/PMASubscriptionEvent.h"
 #import "../PMASdkConfiguration.h"
+
+@class PMAApiSubscription;
+@class PMAApiResponse;
 
 
 @interface PMAHttp : NSObject
 
-- (PMAHttp *_Nonnull) initWithSdkConfiguration:(PMASdkConfiguration *_Nonnull)sdkConfiguration;
+- (PMAHttp *_Nonnull)initWithSdkConfiguration:(PMASdkConfiguration *_Nonnull)sdkConfiguration;
 
-- (void) subscribeWithSubscription:(PMA_Subscription *_Nonnull)subscription completionHandler:(void(^_Nullable)(void))completionHandler;
+
+- (NSMutableURLRequest *)createPostRequestForURL:(NSURL *)subUrl bodyData:(NSData *)bodyData;
+
+- (void)performApiRequest:(NSMutableURLRequest *)request completionHandler:(void (^)(PMAApiResponse *_Nullable, NSError *_Nullable))completionHandler;
+
+- (NSURL *)urlForPath:(NSString *)path;
 @end

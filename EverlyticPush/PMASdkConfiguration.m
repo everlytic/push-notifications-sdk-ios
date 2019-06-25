@@ -1,14 +1,11 @@
 #import "PMASdkConfiguration.h"
 
 @implementation PMASdkConfiguration
-
-NSString *projectId;
-NSURL *installUrl;
-
 NSString *KEY_PROJECT = @"p";
 NSString *KEY_INSTALL = @"i";
 
 - (PMASdkConfiguration *)initWithProjectId:(NSString *)projectId installUrl:(NSURL *)url {
+    self.sdkVersion =
     self.projectId = projectId;
     self.installUrl = url;
     return self;
@@ -41,7 +38,7 @@ NSString *KEY_INSTALL = @"i";
 #if DEBUG
         NSLog(@"key=%@, value=%@", key, [strArr[i] substringFromIndex:2]);
 #endif
-        [properties setObject:[strArr[i] substringFromIndex:2] forKey: key];
+        properties[key] = [strArr[i] substringFromIndex:2];
     }
     
     return properties;

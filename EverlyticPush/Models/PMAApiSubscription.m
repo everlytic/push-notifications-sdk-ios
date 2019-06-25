@@ -1,7 +1,7 @@
-#import "PMA_ApiSubscription.h"
+#import "PMAApiSubscription.h"
 #import "PMAHelpers.h"
 
-@implementation PMA_ApiSubscription
+@implementation PMAApiSubscription
 
 - (id) initWithId:(NSString *)id listId:(NSString *)listId customerId:(NSString *)customerId contactId:(NSString *)contactId deviceId:(NSString *)deviceId {
     self.pns_id = id;
@@ -12,6 +12,10 @@
     return self;
 }
 
+- (nonnull NSDictionary *)serializeAsDictionary {
+    return nil;
+}
+
 - (nonnull NSString *)serializeAsJson {
     return nil;
 }
@@ -20,7 +24,7 @@
 
     NSDictionary *object = (NSDictionary *) [PMAHelpers decodeJSONFromString:string];
 
-    return [[PMA_ApiSubscription alloc]
+    return [[PMAApiSubscription alloc]
             initWithId:[object valueForKey:@"pns_id"]
                 listId:[object valueForKey:@"pns_list_id"]
             customerId:[object valueForKey:@"pns_customer_id"]

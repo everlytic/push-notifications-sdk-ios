@@ -34,7 +34,7 @@
 
 
 // ===
-@interface PMA_Subscription : NSObject <PMAModel>
+@interface PMASubscriptionEvent : NSObject <PMAModel>
 
 @property(strong, nonatomic) NSString *pushProjectUuid;
 @property(strong, nonatomic) PMA_ContactData *contact;
@@ -43,6 +43,6 @@
 @property(strong, nonatomic) PMA_DeviceData *device;
 @property(strong, nonatomic) NSDate *datetime;
 
-- (PMA_Subscription *)initWithPushProjectUuid:(NSString *)projectUuid contactData:(PMA_ContactData *)contactData deviceData:(PMA_DeviceData *)deviceData;
+- (PMASubscriptionEvent *)initWithPushProjectUuid:(NSString *)projectUuid contactData:(PMA_ContactData *)contactData deviceData:(PMA_DeviceData *)deviceData;
 
 @end

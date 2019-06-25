@@ -2,13 +2,16 @@
 #import <UserNotifications/UserNotifications.h>
 #import "PMAPushSdk.h"
 #import "PMAFIRMessagingDelegate.h"
-#import "Models/PMA_Subscription.h"
+#import "Models/PMASubscriptionEvent.h"
 #import "PMADefaults.h"
 #import "Http/PMAHttp.h"
+#import "PMAApi.h"
 @import Firebase;
 
 @interface PMAPushSdk () <UNUserNotificationCenterDelegate>
 
+@property (strong, nonatomic) PMAHttp *http;
+@property (strong, nonatomic) PMAApi *api;
 @property (strong, nonatomic) PMAFIRMessagingDelegate *pmafirMessagingDelegate;
 @property (strong, nonatomic) PMASdkConfiguration *sdkConfiguration;
 
@@ -22,7 +25,7 @@
     self.sdkConfiguration = configuration;
 
     if ([PMADefaults deviceId] == nil) {
-        [PMADefaults setDeviceId:[self createUuid]];
+        [PMADefaults setDeviceId:[[NSUUID UUID] UUIDString]];
     }
 
     if ([FIRApp defaultApp] == nil) {
@@ -32,14 +35,9 @@
         [FIRMessaging messaging].delegate = self.pmafirMessagingDelegate;
     }
 
+    self.http = [[PMAHttp alloc] initWithSdkConfiguration:self.sdkConfiguration];
+    self.api = [[PMAApi alloc] initWithHttpInstance:self.http];
     return self;
-}
-
-- (NSString *)createUuid {
-    CFUUIDRef theUUID = CFUUIDCreate(NULL);
-    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
-    CFRelease(theUUID);
-    return (__bridge NSString *) string;
 }
 
 - (void)promptForNotificationWithUserResponse:(void (^)(BOOL consentGranted))completionHandler {
@@ -74,13 +72,14 @@
 
     PMA_ContactData *contact = [[PMA_ContactData alloc] initWithEmail:emailAddress pushToken:PMADefaults.fcmToken];
     PMA_DeviceData *deviceData = [[PMA_DeviceData alloc] initWithId:PMADefaults.deviceId];
-    PMA_Subscription *subscription = [[PMA_Subscription alloc]
+    PMASubscriptionEvent *subscription = [[PMASubscriptionEvent alloc]
             initWithPushProjectUuid:self.sdkConfiguration.projectId
                         contactData:contact deviceData:deviceData];
 
-    PMAHttp *http = [[PMAHttp alloc] initWithSdkConfiguration:self.sdkConfiguration];
-
-    [http subscribeWithSubscription:subscription completionHandler:nil];
+    [self.api subscribeWithSubscriptionEvent:subscription completionHandler:^(PMAApiSubscription *subscription, NSError *error) {
+        if (error == nil) {
+        }
+    }];
 }
 
 
