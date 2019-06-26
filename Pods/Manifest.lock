@@ -33,6 +33,9 @@ PODS:
     - GoogleUtilities/Reachability (~> 6.2)
     - GoogleUtilities/UserDefaults (~> 6.2)
     - Protobuf (~> 3.1)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - GoogleAppMeasurement (6.0.1):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
@@ -62,11 +65,16 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - OCHamcrest (7.1.1)
+  - OCMockito (5.1.1):
+    - OCHamcrest (~> 7.0)
   - Protobuf (3.8.0)
 
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Messaging
+  - FMDB (~> 2.7.5)
+  - OCMockito
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -76,9 +84,12 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseInstanceID
     - FirebaseMessaging
+    - FMDB
     - GoogleAppMeasurement
     - GoogleUtilities
     - nanopb
+    - OCHamcrest
+    - OCMockito
     - Protobuf
 
 SPEC CHECKSUMS:
@@ -88,11 +99,14 @@ SPEC CHECKSUMS:
   FirebaseCore: b0f0262acebfa540e5f97b3832dbb13186980822
   FirebaseInstanceID: cdb3827746d53ece7ae87a5c51c25c3055443366
   FirebaseMessaging: 20b6626c41be7840aed7a3dd9a14003efae3d588
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   GoogleAppMeasurement: 51d8d9ea48f0ca44484d29cfbdef976fbd4fc336
   GoogleUtilities: 996e0db07153674fd1b54b220fda3a3dc3547cba
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  OCHamcrest: 3506736397451c35d8763ff0a9b13492e544115f
+  OCMockito: eccb29c256cbdd6c7bc206718cbb06ef737daa8b
   Protobuf: 3f617b9a6e73605565086864c9bc26b2bf2dd5a3
 
-PODFILE CHECKSUM: e6ac63eef660336a94d91a0f9bcb47aba80aff2d
+PODFILE CHECKSUM: 2a9a240978d8f83a46aa0b19c32c50fb2796d804
 
 COCOAPODS: 1.7.1
