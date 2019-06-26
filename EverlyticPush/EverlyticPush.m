@@ -31,7 +31,7 @@ PMAPushSdk *sdk;
     NSString *emailTrimmed = [emailAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSLog(@"Should subscribe user with email=%@", emailAddress);
 
-    [sdk subscribeUserWithEmailAddress:emailTrimmed];
+    [sdk subscribeUserWithEmailAddress:emailTrimmed completionHandler:nil];
 }
 
 

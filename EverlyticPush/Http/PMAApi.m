@@ -54,15 +54,7 @@ NSString *const dismissalsUrl = @"push-notifications/dismissals";
     NSData *bodyData = [payload dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [self.http createPostRequestForURL:subUrl bodyData:bodyData];
 
-    [self.http performApiRequest:request completionHandler:^(PMAApiResponse *response, NSError *error) {
-        PMAApiResponse *apiSubscription = nil;
-
-        if (error == nil && response != nil) {
-            apiSubscription = [PMAApiSubscription deserializeFromJsonString:response.dataAsJsonString];
-        }
-
-        completionHandler(apiSubscription, error);
-    }];
+    [self.http performApiRequest:request completionHandler:completionHandler];
 }
 
 @end

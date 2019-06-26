@@ -5,6 +5,7 @@
 @class PMASubscriptionEvent;
 @class PMAApiSubscription;
 @class PMAApiResponse;
+@class PMANotificationEvent;
 
 @interface PMAApi : NSObject
 

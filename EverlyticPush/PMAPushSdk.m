@@ -6,6 +6,7 @@
 #import "PMADefaults.h"
 #import "Http/PMAHttp.h"
 #import "PMAApi.h"
+#import "PMAApiSubscription.h"
 @import Firebase;
 
 @interface PMAPushSdk () <UNUserNotificationCenterDelegate>
@@ -68,7 +69,7 @@
     [[self application] registerForRemoteNotifications];
 }
 
-- (void)subscribeUserWithEmailAddress:(NSString *)emailAddress {
+- (void)subscribeUserWithEmailAddress:(NSString *)emailAddress completionHandler:(void(^)(BOOL, NSError *)) completionHandler{
 
     PMA_ContactData *contact = [[PMA_ContactData alloc] initWithEmail:emailAddress pushToken:PMADefaults.fcmToken];
     PMA_DeviceData *deviceData = [[PMA_DeviceData alloc] initWithId:PMADefaults.deviceId];
@@ -77,8 +78,7 @@
                         contactData:contact deviceData:deviceData];
 
     [self.api subscribeWithSubscriptionEvent:subscription completionHandler:^(PMAApiSubscription *subscription, NSError *error) {
-        if (error == nil) {
-        }
+        NSLog(@"subscription=%@, error=%@", subscription.pns_id, error);
     }];
 }
 
