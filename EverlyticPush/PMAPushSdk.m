@@ -20,8 +20,6 @@
 
 @implementation PMAPushSdk
 
-
-
 - (PMAPushSdk *)initWithConfiguration:(PMASdkConfiguration *)configuration {
     self.sdkConfiguration = configuration;
 
@@ -41,7 +39,7 @@
     return self;
 }
 
-- (void)promptForNotificationWithUserResponse:(void (^)(BOOL consentGranted))completionHandler {
+- (void)promptForNotificationPermissionWithUserResponse:(void (^)(BOOL consentGranted))completionHandler {
     if ([UNUserNotificationCenter class] != nil) {
         // iOS 10 or later
         // For iOS 10 display notification (sent via APNS)

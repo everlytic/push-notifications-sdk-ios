@@ -4,7 +4,7 @@
 
 + (id _Nonnull)initWithPushConfig:(nonnull NSString *)pushConfig;
 
-+ (void)promptForNotificationWithUserResponse:(void (^ _Nullable)(BOOL consentGranted))completionHandler;
++ (void)promptForNotificationPermissionWithUserResponse:(void (^ _Nullable)(BOOL consentGranted))completionHandler;
 
 + (void)subscribeUserWithEmail:(nonnull NSString *)emailAddress completionHandler:(void (^ _Nullable)(BOOL subscriptionSuccess, NSError *_Nullable error))handler;
 
