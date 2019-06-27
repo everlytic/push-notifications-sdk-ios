@@ -1,9 +1,9 @@
 
 #import <Foundation/Foundation.h>
-#import "PMAModel.h"
+#import "EVEModel.h"
 
 // ===
-@interface PMA_ContactData : NSObject <PMAModel>
+@interface PMA_ContactData : NSObject <EVEModel>
 @property(strong, nonatomic) NSString *email;
 @property(strong, nonatomic) NSString *pushToken;
 
@@ -13,7 +13,7 @@
 
 
 // ===
-@interface PMA_PlatformData : NSObject <PMAModel>
+@interface PMA_PlatformData : NSObject <EVEModel>
 @property(strong, nonatomic) NSString *type;
 @property(strong, nonatomic) NSString *version;
 
@@ -22,7 +22,7 @@
 
 
 // ===
-@interface PMA_DeviceData : NSObject <PMAModel>
+@interface PMA_DeviceData : NSObject <EVEModel>
 @property(strong, nonatomic) NSString *id;
 @property(strong, nonatomic) NSString *manufacturer;
 @property(strong, nonatomic) NSString *model;
@@ -34,7 +34,7 @@
 
 
 // ===
-@interface PMASubscriptionEvent : NSObject <PMAModel>
+@interface EVESubscriptionEvent : NSObject <EVEModel>
 
 @property(strong, nonatomic) NSString *pushProjectUuid;
 @property(strong, nonatomic) PMA_ContactData *contact;
@@ -43,6 +43,6 @@
 @property(strong, nonatomic) PMA_DeviceData *device;
 @property(strong, nonatomic) NSDate *datetime;
 
-- (PMASubscriptionEvent *)initWithPushProjectUuid:(NSString *)projectUuid contactData:(PMA_ContactData *)contactData deviceData:(PMA_DeviceData *)deviceData;
+- (EVESubscriptionEvent *)initWithPushProjectUuid:(NSString *)projectUuid contactData:(PMA_ContactData *)contactData deviceData:(PMA_DeviceData *)deviceData;
 
 @end

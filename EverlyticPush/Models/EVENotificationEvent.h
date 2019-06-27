@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
-#import "PMAModel.h"
+#import "EVEModel.h"
 
 
-@interface PMANotificationEvent : NSObject<PMAModel>
+@interface EVENotificationEvent : NSObject<EVEModel>
 
 @property (strong, nonatomic) NSNumber *subscription_id;
 @property (strong, nonatomic) NSNumber *message_id;

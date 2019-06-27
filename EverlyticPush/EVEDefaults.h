@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface PMADefaults : NSObject
+@interface EVEDefaults : NSObject
 
 @property (atomic) NSString *deviceId;
 @property (atomic) NSString *fcmToken;

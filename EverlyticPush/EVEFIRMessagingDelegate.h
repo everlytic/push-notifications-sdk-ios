@@ -3,5 +3,5 @@
 
 extern NSString *const FCM_TOKEN_KEY;
 
-@interface PMAFIRMessagingDelegate : NSObject <FIRMessagingDelegate>
+@interface EVEFIRMessagingDelegate : NSObject <FIRMessagingDelegate>
 @end

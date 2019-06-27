@@ -1,41 +1,41 @@
 #import <UIKit/UIKit.h>
 #import <UserNotifications/UserNotifications.h>
-#import "PMAPushSdk.h"
-#import "PMAFIRMessagingDelegate.h"
-#import "Models/PMASubscriptionEvent.h"
-#import "PMADefaults.h"
-#import "Http/PMAHttp.h"
-#import "PMAApi.h"
-#import "PMAApiSubscription.h"
+#import "EVEPushSdk.h"
+#import "EVEFIRMessagingDelegate.h"
+#import "Models/EVESubscriptionEvent.h"
+#import "EVEDefaults.h"
+#import "Http/EVEHttp.h"
+#import "EVEApi.h"
+#import "EVEApiSubscription.h"
 @import Firebase;
 
-@interface PMAPushSdk () <UNUserNotificationCenterDelegate>
+@interface EVEPushSdk () <UNUserNotificationCenterDelegate>
 
-@property (strong, nonatomic) PMAHttp *http;
-@property (strong, nonatomic) PMAApi *api;
-@property (strong, nonatomic) PMAFIRMessagingDelegate *pmafirMessagingDelegate;
-@property (strong, nonatomic) PMASdkConfiguration *sdkConfiguration;
+@property (strong, nonatomic) EVEHttp *http;
+@property (strong, nonatomic) EVEApi *api;
+@property (strong, nonatomic) EVEFIRMessagingDelegate *pmafirMessagingDelegate;
+@property (strong, nonatomic) EVESdkConfiguration *sdkConfiguration;
 
 @end
 
-@implementation PMAPushSdk
+@implementation EVEPushSdk
 
-- (PMAPushSdk *)initWithConfiguration:(PMASdkConfiguration *)configuration {
+- (EVEPushSdk *)initWithConfiguration:(EVESdkConfiguration *)configuration {
     self.sdkConfiguration = configuration;
 
-    if ([PMADefaults deviceId] == nil) {
-        [PMADefaults setDeviceId:[[NSUUID UUID] UUIDString]];
+    if ([EVEDefaults deviceId] == nil) {
+        [EVEDefaults setDeviceId:[[NSUUID UUID] UUIDString]];
     }
 
     if ([FIRApp defaultApp] == nil) {
         NSLog(@"[FIRApp defaultApp] is nil, configuring FIRApp now...");
         [FIRApp configure];
-        self.pmafirMessagingDelegate = [[PMAFIRMessagingDelegate alloc] init];
+        self.pmafirMessagingDelegate = [[EVEFIRMessagingDelegate alloc] init];
         [FIRMessaging messaging].delegate = self.pmafirMessagingDelegate;
     }
 
-    self.http = [[PMAHttp alloc] initWithSdkConfiguration:self.sdkConfiguration];
-    self.api = [[PMAApi alloc] initWithHttpInstance:self.http];
+    self.http = [[EVEHttp alloc] initWithSdkConfiguration:self.sdkConfiguration];
+    self.api = [[EVEApi alloc] initWithHttpInstance:self.http];
     return self;
 }
 
@@ -69,13 +69,13 @@
 
 - (void)subscribeUserWithEmailAddress:(NSString *)emailAddress completionHandler:(void(^)(BOOL, NSError *)) completionHandler{
 
-    PMA_ContactData *contact = [[PMA_ContactData alloc] initWithEmail:emailAddress pushToken:PMADefaults.fcmToken];
-    PMA_DeviceData *deviceData = [[PMA_DeviceData alloc] initWithId:PMADefaults.deviceId];
-    PMASubscriptionEvent *subscription = [[PMASubscriptionEvent alloc]
+    PMA_ContactData *contact = [[PMA_ContactData alloc] initWithEmail:emailAddress pushToken:EVEDefaults.fcmToken];
+    PMA_DeviceData *deviceData = [[PMA_DeviceData alloc] initWithId:EVEDefaults.deviceId];
+    EVESubscriptionEvent *subscription = [[EVESubscriptionEvent alloc]
             initWithPushProjectUuid:self.sdkConfiguration.projectId
                         contactData:contact deviceData:deviceData];
 
-    [self.api subscribeWithSubscriptionEvent:subscription completionHandler:^(PMAApiSubscription *subscription, NSError *error) {
+    [self.api subscribeWithSubscriptionEvent:subscription completionHandler:^(EVEApiSubscription *subscription, NSError *error) {
         NSLog(@"subscription=%@, error=%@", subscription.pns_id, error);
     }];
 }

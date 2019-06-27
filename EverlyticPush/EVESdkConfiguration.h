@@ -1,10 +1,10 @@
 #import <Foundation/Foundation.h>
 
-@interface PMASdkConfiguration : NSObject
+@interface EVESdkConfiguration : NSObject
 
 @property (strong, nonatomic) NSString *projectId;
 @property (strong, nonatomic) NSURL *installUrl;
 @property (strong, nonatomic) NSString *sdkVersion;
 
-+ (PMASdkConfiguration *) initFromConfigString:(NSString *) configString;
++ (EVESdkConfiguration *) initFromConfigString:(NSString *) configString;
 @end

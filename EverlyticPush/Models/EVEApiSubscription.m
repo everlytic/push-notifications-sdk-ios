@@ -1,7 +1,7 @@
-#import "PMAApiSubscription.h"
-#import "PMAHelpers.h"
+#import "EVEApiSubscription.h"
+#import "EVEHelpers.h"
 
-@implementation PMAApiSubscription
+@implementation EVEApiSubscription
 
 - (id) initWithId:(NSString *)id listId:(NSString *)listId customerId:(NSString *)customerId contactId:(NSString *)contactId deviceId:(NSString *)deviceId {
     self.pns_id = id;
@@ -22,9 +22,9 @@
 
 + (id)deserializeFromJsonString:(NSString *_Nonnull)string {
 
-    NSDictionary *object = (NSDictionary *) [PMAHelpers decodeJSONFromString:string];
+    NSDictionary *object = (NSDictionary *) [EVEHelpers decodeJSONFromString:string];
 
-    return [[PMAApiSubscription alloc]
+    return [[EVEApiSubscription alloc]
             initWithId:[object valueForKey:@"pns_id"]
                 listId:[object valueForKey:@"pns_list_id"]
             customerId:[object valueForKey:@"pns_customer_id"]

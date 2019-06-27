@@ -1,12 +1,12 @@
-#import "PMAFIRMessagingDelegate.h"
-#import "PMADefaults.h"
+#import "EVEFIRMessagingDelegate.h"
+#import "EVEDefaults.h"
 
 NSString *const FCM_TOKEN_KEY = @"_pma_fcm_token";
 
-@implementation PMAFIRMessagingDelegate
+@implementation EVEFIRMessagingDelegate
 - (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
 
-    PMADefaults.fcmToken = fcmToken;
+    EVEDefaults.fcmToken = fcmToken;
 
 #if DEBUG
     NSLog(@"New FCM Token=%@", fcmToken);

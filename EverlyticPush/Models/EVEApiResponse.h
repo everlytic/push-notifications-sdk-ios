@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
-#import "PMAModel.h"
+#import "EVEModel.h"
 
-@interface PMAApiResponse : NSObject<PMAModel>
+@interface EVEApiResponse : NSObject<EVEModel>
 
 @property (strong, nonatomic) NSString *status;
 @property (nonatomic) BOOL *isSuccessful;

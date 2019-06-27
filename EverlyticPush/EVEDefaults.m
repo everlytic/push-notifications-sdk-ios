@@ -1,7 +1,7 @@
-#import "PMADefaults.h"
+#import "EVEDefaults.h"
 
 
-@implementation PMADefaults
+@implementation EVEDefaults
 
 NSString *const KEY_FCM_TOKEN = @"__pma_ev_fcm_token";
 NSString *const KEY_DEVICE_ID = @"__pma_ev_device_id";

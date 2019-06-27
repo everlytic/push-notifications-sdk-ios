@@ -1,8 +1,8 @@
-#import "PMAUnsubscribeEvent.h"
-#import "PMAHelpers.h"
+#import "EVEUnsubscribeEvent.h"
+#import "EVEHelpers.h"
 
 
-@implementation PMAUnsubscribeEvent
+@implementation EVEUnsubscribeEvent
 
 - (nonnull NSDictionary *)serializeAsDictionary {
     return @{
@@ -14,7 +14,7 @@
 }
 
 - (nonnull NSString *)serializeAsJson {
-    return [PMAHelpers encodeJSONFromObject:self.serializeAsDictionary];
+    return [EVEHelpers encodeJSONFromObject:self.serializeAsDictionary];
 }
 
 + (id)deserializeFromJsonString:(NSString *_Nonnull)string {

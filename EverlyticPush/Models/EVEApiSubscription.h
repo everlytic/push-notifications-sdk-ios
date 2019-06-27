@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
-#import "PMAModel.h"
+#import "EVEModel.h"
 
-@interface PMAApiSubscription : NSObject<PMAModel>
+@interface EVEApiSubscription : NSObject<EVEModel>
 
 @property (strong, nonatomic) NSString *_Nonnull pns_id;
 @property (strong, nonatomic) NSString *_Nonnull pns_list_id;

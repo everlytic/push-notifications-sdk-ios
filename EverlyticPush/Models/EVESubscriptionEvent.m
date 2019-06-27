@@ -1,7 +1,7 @@
 
 #import <UIKit/UIKit.h>
-#import "PMASubscriptionEvent.h"
-#import "PMAHelpers.h"
+#import "EVESubscriptionEvent.h"
+#import "EVEHelpers.h"
 
 @implementation PMA_ContactData
 
@@ -20,7 +20,7 @@
 }
 
 - (nonnull NSString *)serializeAsJson {
-    return [PMAHelpers encodeJSONFromObject:self.serializeAsDictionary];
+    return [EVEHelpers encodeJSONFromObject:self.serializeAsDictionary];
 }
 
 + (id)deserializeFromJsonString:(NSString *_Nonnull)string {
@@ -57,7 +57,7 @@
 }
 
 - (nonnull NSString *)serializeAsJson {
-    return [PMAHelpers encodeJSONFromObject:self.serializeAsDictionary];
+    return [EVEHelpers encodeJSONFromObject:self.serializeAsDictionary];
 }
 
 + (id)deserializeFromJsonString:(NSString *_Nonnull)string {
@@ -80,7 +80,7 @@
 }
 
 - (nonnull NSString *)serializeAsJson {
-    return [PMAHelpers encodeJSONFromObject:self.serializeAsDictionary];
+    return [EVEHelpers encodeJSONFromObject:self.serializeAsDictionary];
 }
 
 + (id)deserializeFromJsonString:(NSString *_Nonnull)string {
@@ -89,9 +89,9 @@
 
 @end
 
-@implementation PMASubscriptionEvent
+@implementation EVESubscriptionEvent
 
-- (PMASubscriptionEvent *)initWithPushProjectUuid:(NSString *)projectUuid contactData:(PMA_ContactData *)contactData deviceData:(PMA_DeviceData *)deviceData {
+- (EVESubscriptionEvent *)initWithPushProjectUuid:(NSString *)projectUuid contactData:(PMA_ContactData *)contactData deviceData:(PMA_DeviceData *)deviceData {
     self.pushProjectUuid = projectUuid;
     self.contact = contactData;
     self.device = deviceData;
@@ -107,12 +107,12 @@
             @"metadata": [[NSDictionary alloc] init],
             @"platform": self.platform.serializeAsDictionary,
             @"device": self.device.serializeAsDictionary,
-            @"datetime": [[PMAHelpers iso8601DateFormatter] stringFromDate:[NSDate date]]
+            @"datetime": [[EVEHelpers iso8601DateFormatter] stringFromDate:[NSDate date]]
     };
 }
 
 - (nonnull NSString *)serializeAsJson {
-    return [PMAHelpers encodeJSONFromObject:self.serializeAsDictionary];
+    return [EVEHelpers encodeJSONFromObject:self.serializeAsDictionary];
 }
 
 + (id)deserializeFromJsonString:(NSString *_Nonnull)string {

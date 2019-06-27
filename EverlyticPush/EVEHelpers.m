@@ -1,8 +1,8 @@
 
-#import "PMAHelpers.h"
+#import "EVEHelpers.h"
 
 
-@implementation PMAHelpers
+@implementation EVEHelpers
 + (id)decodeJSONFromString:(NSString *)jsonString {
     NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *err = nil;

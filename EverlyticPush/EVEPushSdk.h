@@ -1,9 +1,9 @@
 #import <Foundation/Foundation.h>
-#import "PMASdkConfiguration.h"
+#import "EVESdkConfiguration.h"
 
-@interface PMAPushSdk : NSObject
+@interface EVEPushSdk : NSObject
 
-- (PMAPushSdk *_Nonnull)initWithConfiguration:(PMASdkConfiguration *_Nonnull)configuration;
+- (EVEPushSdk *_Nonnull)initWithConfiguration:(EVESdkConfiguration *_Nonnull)configuration;
 
 - (void)promptForNotificationPermissionWithUserResponse:(void (^ _Nullable)(BOOL consentGranted))completionHandler;
 

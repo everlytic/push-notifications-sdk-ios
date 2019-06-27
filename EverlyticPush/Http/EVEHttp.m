@@ -1,17 +1,17 @@
 
-#import "PMAHttp.h"
-#import "PMAApiResponse.h"
+#import "EVEHttp.h"
+#import "EVEApiResponse.h"
 
-@interface PMAHttp ()
+@interface EVEHttp ()
 @property NSURL *baseUrl;
-@property PMASdkConfiguration *sdkConfiguration;
+@property EVESdkConfiguration *sdkConfiguration;
 @end
 
-@implementation PMAHttp
+@implementation EVEHttp
 
 NSString *const basePath = @"/servlet/";
 
-- (PMAHttp *)initWithSdkConfiguration:(PMASdkConfiguration *)sdkConfiguration {
+- (EVEHttp *)initWithSdkConfiguration:(EVESdkConfiguration *)sdkConfiguration {
     self.sdkConfiguration = sdkConfiguration;
     self.baseUrl = [NSURL URLWithString:basePath relativeToURL:self.sdkConfiguration.installUrl].absoluteURL;
     return self;
@@ -25,15 +25,15 @@ NSString *const basePath = @"/servlet/";
     return request;
 }
 
-- (void)performApiRequest:(NSMutableURLRequest *)request completionHandler:(void (^)(PMAApiResponse *_Nullable, NSError *_Nullable))completionHandler {
+- (void)performApiRequest:(NSMutableURLRequest *)request completionHandler:(void (^)(EVEApiResponse *_Nullable, NSError *_Nullable))completionHandler {
     NSURLSessionDataTask *task = [[NSURLSession sharedSession]
             dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                 if (completionHandler != nil) {
-                    PMAApiResponse *apiResponse = nil;
+                    EVEApiResponse *apiResponse = nil;
 
                     if (error == nil) {
                         NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                        apiResponse = [PMAApiResponse deserializeFromJsonString:jsonString];
+                        apiResponse = [EVEApiResponse deserializeFromJsonString:jsonString];
                     }
 
                     completionHandler(apiResponse, error);

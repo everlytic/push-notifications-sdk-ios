@@ -1,7 +1,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PMAHelpers : NSObject
+@interface EVEHelpers : NSObject
 
 + (id)decodeJSONFromString:(NSString *)jsonString;
 + (id)encodeJSONFromObject:(id)object;

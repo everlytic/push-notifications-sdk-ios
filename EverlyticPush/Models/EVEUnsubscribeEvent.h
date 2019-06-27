@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
-#import "PMAModel.h"
+#import "EVEModel.h"
 
 
-@interface PMAUnsubscribeEvent : NSObject<PMAModel>
+@interface EVEUnsubscribeEvent : NSObject<EVEModel>
 
 @property (strong, nonatomic) NSString *subscription_id;
 @property (strong, nonatomic) NSString *device_id;

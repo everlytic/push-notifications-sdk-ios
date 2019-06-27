@@ -1,22 +1,23 @@
 #import "EverlyticPush.h"
-#import "PMAPushSdk.h"
+#import "EVEPushSdk.h"
 
+NS_SWIFT_NAME("EverlyticPush")
 @implementation EverlyticPush
 
-PMAPushSdk *sdk;
+EVEPushSdk *sdk;
 
 + (id)initWithPushConfig:(NSString *)pushConfig {
 #if DEBUG
     NSLog(@"init was called with config=%@", pushConfig);
 #endif
 
-    PMASdkConfiguration *configuration = [PMASdkConfiguration initFromConfigString:pushConfig];
+    EVESdkConfiguration *configuration = [EVESdkConfiguration initFromConfigString:pushConfig];
 
 #if DEBUG
     NSLog(@"projectId=%@, url=%@", configuration.projectId, configuration.installUrl.absoluteString);
 #endif
 
-    sdk = [[PMAPushSdk alloc] initWithConfiguration:configuration];
+    sdk = [[EVEPushSdk alloc] initWithConfiguration:configuration];
 
     return self;
 }

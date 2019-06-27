@@ -1,17 +1,17 @@
-#import "PMASdkConfiguration.h"
+#import "EVESdkConfiguration.h"
 
-@implementation PMASdkConfiguration
+@implementation EVESdkConfiguration
 NSString *KEY_PROJECT = @"p";
 NSString *KEY_INSTALL = @"i";
 
-- (PMASdkConfiguration *)initWithProjectId:(NSString *)projectId installUrl:(NSURL *)url {
+- (EVESdkConfiguration *)initWithProjectId:(NSString *)projectId installUrl:(NSURL *)url {
     self.sdkVersion =
     self.projectId = projectId;
     self.installUrl = url;
     return self;
 }
 
-+ (PMASdkConfiguration *)initFromConfigString:(NSString *)configString {
++ (EVESdkConfiguration *)initFromConfigString:(NSString *)configString {
 
     NSString *decoded = [self decodeBase64String:configString];
 
@@ -22,7 +22,7 @@ NSString *KEY_INSTALL = @"i";
     if (url == nil)
         return nil;
 
-    return [[PMASdkConfiguration alloc]
+    return [[EVESdkConfiguration alloc]
             initWithProjectId:[properties valueForKey:KEY_PROJECT]
                    installUrl:url
     ];
