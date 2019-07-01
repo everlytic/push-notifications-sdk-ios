@@ -4,7 +4,7 @@
 #import "EVEFIRMessagingDelegate.h"
 #import "Models/EVESubscriptionEvent.h"
 #import "EVEDefaults.h"
-#import "Http/EVEHttp.h"
+#import "Network/EVEHttp.h"
 #import "EVEApi.h"
 #import "EVEApiSubscription.h"
 @import Firebase;

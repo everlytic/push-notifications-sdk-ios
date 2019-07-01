@@ -1,7 +1,6 @@
 #import "EverlyticPush.h"
 #import "EVEPushSdk.h"
 
-NS_SWIFT_NAME("EverlyticPush")
 @implementation EverlyticPush
 
 EVEPushSdk *sdk;
@@ -42,6 +41,24 @@ EVEPushSdk *sdk;
     NSLog(@"Should subscribe user with email=%@", emailAddress);
 
     [sdk subscribeUserWithEmailAddress:emailTrimmed completionHandler:handler];
+}
+
++ (void)unsubscribeUserWithCompletionHandler:(void (^ _Nonnull)(BOOL subscriptionSuccess, NSError *_Nullable error))handler {
+    if (sdk == nil) {
+        NSLog(@"Failed to unsubscribe user as the SDK is not initialized yet.");
+        return;
+    }
+
+    @throw [NSException exceptionWithName:@"NotImplementedException" reason:@"Not implemented yet" userInfo:nil];
+}
+
++ (BOOL)contactIsSubscribed {
+    @throw [NSException exceptionWithName:@"NotImplementedException" reason:@"Not implemented yet" userInfo:nil];
+    return NO;
+}
+
++ (void)fetchNotificationHistoryWithCompletionListener:(void (^ _Nonnull)(void))completionHandler {
+    @throw [NSException exceptionWithName:@"NotImplementedException" reason:@"Not implemented yet" userInfo:nil];
 }
 
 

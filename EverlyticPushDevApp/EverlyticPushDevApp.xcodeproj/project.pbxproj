@@ -14,6 +14,8 @@
 		9660629D22B90E9200A8CFF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9660629B22B90E9200A8CFF4 /* LaunchScreen.storyboard */; };
 		966062A022B90E9200A8CFF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9660629F22B90E9200A8CFF4 /* main.m */; };
 		966062AA22B90E9200A8CFF4 /* EverlyticPushDevAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 966062A922B90E9200A8CFF4 /* EverlyticPushDevAppTests.m */; };
+		966A047322C9D8AF00D390A7 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 966A047222C9D8AF00D390A7 /* NotificationService.m */; };
+		966A047722C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 966A046F22C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		96F145BC22BA19000077863F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96F145BB22BA19000077863F /* GoogleService-Info.plist */; };
 		96F145C422BA1C7F0077863F /* EverlyticPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966062B522B90EA000A8CFF4 /* EverlyticPush.framework */; };
 		96F145C522BA1C7F0077863F /* EverlyticPush.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 966062B522B90EA000A8CFF4 /* EverlyticPush.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -27,9 +29,27 @@
 			remoteGlobalIDString = 9660628C22B90E9200A8CFF4;
 			remoteInfo = EverlyticPushDevApp;
 		};
+		966A047522C9D8AF00D390A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9660628522B90E9200A8CFF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 966A046E22C9D8AF00D390A7;
+			remoteInfo = EverlyticPushNotificationServiceExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		966A047B22C9D8AF00D390A7 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				966A047722C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96F145C622BA1C800077863F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -58,6 +78,10 @@
 		966062A922B90E9200A8CFF4 /* EverlyticPushDevAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EverlyticPushDevAppTests.m; sourceTree = "<group>"; };
 		966062AB22B90E9200A8CFF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		966062B522B90EA000A8CFF4 /* EverlyticPush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EverlyticPush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		966A046F22C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EverlyticPushNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		966A047122C9D8AF00D390A7 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		966A047222C9D8AF00D390A7 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		966A047422C9D8AF00D390A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96F145BB22BA19000077863F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		96F145BD22BA191C0077863F /* EverlyticPushDevApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EverlyticPushDevApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +102,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		966A046C22C9D8AF00D390A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -86,6 +117,7 @@
 			children = (
 				9660628F22B90E9200A8CFF4 /* EverlyticPushDevApp */,
 				966062A822B90E9200A8CFF4 /* EverlyticPushDevAppTests */,
+				966A047022C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension */,
 				9660628E22B90E9200A8CFF4 /* Products */,
 				966062B422B90EA000A8CFF4 /* Frameworks */,
 			);
@@ -96,6 +128,7 @@
 			children = (
 				9660628D22B90E9200A8CFF4 /* EverlyticPushDevApp.app */,
 				966062A522B90E9200A8CFF4 /* EverlyticPushDevAppTests.xctest */,
+				966A046F22C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,6 +168,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		966A047022C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				966A047122C9D8AF00D390A7 /* NotificationService.h */,
+				966A047222C9D8AF00D390A7 /* NotificationService.m */,
+				966A047422C9D8AF00D390A7 /* Info.plist */,
+			);
+			path = EverlyticPushNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,10 +189,12 @@
 				9660628A22B90E9200A8CFF4 /* Frameworks */,
 				9660628B22B90E9200A8CFF4 /* Resources */,
 				96F145C622BA1C800077863F /* Embed Frameworks */,
+				966A047B22C9D8AF00D390A7 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				966A047622C9D8AF00D390A7 /* PBXTargetDependency */,
 			);
 			name = EverlyticPushDevApp;
 			productName = EverlyticPushDevApp;
@@ -173,6 +218,23 @@
 			productName = EverlyticPushDevAppTests;
 			productReference = 966062A522B90E9200A8CFF4 /* EverlyticPushDevAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		966A046E22C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 966A047A22C9D8AF00D390A7 /* Build configuration list for PBXNativeTarget "EverlyticPushNotificationServiceExtension" */;
+			buildPhases = (
+				966A046B22C9D8AF00D390A7 /* Sources */,
+				966A046C22C9D8AF00D390A7 /* Frameworks */,
+				966A046D22C9D8AF00D390A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EverlyticPushNotificationServiceExtension;
+			productName = EverlyticPushNotificationServiceExtension;
+			productReference = 966A046F22C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -198,6 +260,9 @@
 						CreatedOnToolsVersion = 10.2.1;
 						TestTargetID = 9660628C22B90E9200A8CFF4;
 					};
+					966A046E22C9D8AF00D390A7 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 				};
 			};
 			buildConfigurationList = 9660628822B90E9200A8CFF4 /* Build configuration list for PBXProject "EverlyticPushDevApp" */;
@@ -215,6 +280,7 @@
 			targets = (
 				9660628C22B90E9200A8CFF4 /* EverlyticPushDevApp */,
 				966062A422B90E9200A8CFF4 /* EverlyticPushDevAppTests */,
+				966A046E22C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -232,6 +298,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		966062A322B90E9200A8CFF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		966A046D22C9D8AF00D390A7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -259,6 +332,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		966A046B22C9D8AF00D390A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				966A047322C9D8AF00D390A7 /* NotificationService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -266,6 +347,11 @@
 			isa = PBXTargetDependency;
 			target = 9660628C22B90E9200A8CFF4 /* EverlyticPushDevApp */;
 			targetProxy = 966062A622B90E9200A8CFF4 /* PBXContainerItemProxy */;
+		};
+		966A047622C9D8AF00D390A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 966A046E22C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension */;
+			targetProxy = 966A047522C9D8AF00D390A7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -481,6 +567,44 @@
 			};
 			name = Release;
 		};
+		966A047822C9D8AF00D390A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2QP283S4J6;
+				INFOPLIST_FILE = EverlyticPushNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.everlytic.ios.EverlyticPushDevApp.EverlyticPushNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		966A047922C9D8AF00D390A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2QP283S4J6;
+				INFOPLIST_FILE = EverlyticPushNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.everlytic.ios.EverlyticPushDevApp.EverlyticPushNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -507,6 +631,15 @@
 			buildConfigurations = (
 				966062B222B90E9200A8CFF4 /* Debug */,
 				966062B322B90E9200A8CFF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		966A047A22C9D8AF00D390A7 /* Build configuration list for PBXNativeTarget "EverlyticPushNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				966A047822C9D8AF00D390A7 /* Debug */,
+				966A047922C9D8AF00D390A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
