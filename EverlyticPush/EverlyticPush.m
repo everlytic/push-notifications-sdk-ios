@@ -1,9 +1,8 @@
 #import "EverlyticPush.h"
 #import "EVEPushSdk.h"
-
 @implementation EverlyticPush
 
-EVEPushSdk *sdk;
+static EVEPushSdk *sdk;
 
 + (id)initWithPushConfig:(NSString *)pushConfig {
 #if DEBUG
@@ -16,7 +15,10 @@ EVEPushSdk *sdk;
     NSLog(@"projectId=%@, url=%@", configuration.projectId, configuration.installUrl.absoluteString);
 #endif
 
-    sdk = [[EVEPushSdk alloc] initWithConfiguration:configuration];
+    dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sdk = [[EVEPushSdk alloc] initWithConfiguration:configuration];
+    });
 
     return self;
 }

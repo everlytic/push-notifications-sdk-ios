@@ -8,4 +8,7 @@
 
 + (NSDateFormatter *)iso8601DateFormatter;
 
++ (BOOL) iosVersionIsGreaterOrEqualTo:(float) version;
++ (BOOL) iosVersionIsLessThan:(float) version;
+
 @end

@@ -7,18 +7,40 @@
 #import "Network/EVEHttp.h"
 #import "EVEApi.h"
 #import "EVEApiSubscription.h"
+#import <objc/runtime.h>
+#import "EVESwizzleHelpers.h"
+
 @import Firebase;
 
 @interface EVEPushSdk () <UNUserNotificationCenterDelegate>
 
-@property (strong, nonatomic) EVEHttp *http;
-@property (strong, nonatomic) EVEApi *api;
-@property (strong, nonatomic) EVEFIRMessagingDelegate *pmafirMessagingDelegate;
-@property (strong, nonatomic) EVESdkConfiguration *sdkConfiguration;
+@property(strong, nonatomic) EVEHttp *http;
+@property(strong, nonatomic) EVEApi *api;
+@property(strong, nonatomic) EVEFIRMessagingDelegate *pmafirMessagingDelegate;
+@property(strong, nonatomic) EVESdkConfiguration *sdkConfiguration;
 
 @end
 
 @implementation EVEPushSdk
+
++ (void)load {
+    static dispatch_once_t onceToken;
+
+    dispatch_once(&onceToken, ^{
+
+        Class delegateClass = getClassWithProtocolInHierarchy([UIApplication class], @protocol(UIApplicationDelegate));
+        NSArray *delegateSubclasses = getSubclassesOfClass(delegateClass);
+
+        injectIntoClassHierarchy(
+                @selector(everlytic_application:didReceiveRemoteNotification:fetchCompletionHandler:),
+                @selector(application:didReceiveRemoteNotification:fetchCompletionHandler:),
+                delegateSubclasses,
+                [self class],
+                delegateClass
+        );
+    });
+}
+
 
 - (EVEPushSdk *)initWithConfiguration:(EVESdkConfiguration *)configuration {
     self.sdkConfiguration = configuration;
@@ -67,7 +89,7 @@
     [[self application] registerForRemoteNotifications];
 }
 
-- (void)subscribeUserWithEmailAddress:(NSString *)emailAddress completionHandler:(void(^)(BOOL, NSError *)) completionHandler{
+- (void)subscribeUserWithEmailAddress:(NSString *)emailAddress completionHandler:(void (^)(BOOL, NSError *))completionHandler {
 
     PMA_ContactData *contact = [[PMA_ContactData alloc] initWithEmail:emailAddress pushToken:EVEDefaults.fcmToken];
     PMA_DeviceData *deviceData = [[PMA_DeviceData alloc] initWithId:EVEDefaults.deviceId];
@@ -83,6 +105,17 @@
 
 - (UIApplication *)application {
     return [UIApplication sharedApplication];
+}
+
+#pragma mark - Method Swizzles
+
+- (void)everlytic_application:(UIApplication *)application
+ didReceiveRemoteNotification:(NSDictionary *)userInfo
+       fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    NSLog(@"Did receive notification: %@", userInfo);
+    if ([self respondsToSelector:@selector(everlytic_application:didReceiveRemoteNotification:fetchCompletionHandler:)]){
+        [self everlytic_application:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
+    }
 }
 
 @end

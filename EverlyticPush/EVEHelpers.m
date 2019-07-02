@@ -1,4 +1,5 @@
 
+#import <UIKit/UIKit.h>
 #import "EVEHelpers.h"
 
 
@@ -29,5 +30,14 @@
 
     return dateFormatter;
 }
+
++ (BOOL)iosVersionIsGreaterOrEqualTo:(float)version {
+    return [[[UIDevice currentDevice] systemVersion] floatValue] >= version;
+}
+
++ (BOOL)iosVersionIsLessThan:(float)version {
+    return ![self iosVersionIsGreaterOrEqualTo:version];
+}
+
 
 @end

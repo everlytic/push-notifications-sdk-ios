@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6039002CB94905C5E3E8D799 /* EVEHttp.h in Headers */ = {isa = PBXBuildFile; fileRef = 6039024B6E163534DD8D8F5D /* EVEHttp.h */; };
 		6039003238E3619319CF6CC1 /* EVEApiSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390E571C40D1EDB829F0C2 /* EVEApiSubscription.m */; };
+		6039008884C27D143AA3CFAE /* EVESwizzleHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390B14890F950D95C2BE70 /* EVESwizzleHelpers.h */; };
 		60390097C0C0561627F9FF97 /* EVEFIRMessagingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 603907F08B8B04CB0E4EDDB5 /* EVEFIRMessagingDelegate.m */; };
 		603900B1FB8754EF2FC5BD95 /* EVENotificationEventsLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 603907136044154372736EB7 /* EVENotificationEventsLog.m */; };
 		6039013164B4BD4ECAE0DE65 /* EVEHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390D210F32E98F0AE80965 /* EVEHttp.m */; };
@@ -37,6 +38,7 @@
 		60390C1BF3A4F7C9514549FF /* EVENotificationEventsLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 603901471A38255DF857C6DF /* EVENotificationEventsLog.h */; };
 		60390C3CB5A140B24B01F049 /* EVEApiResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390863959934F5129D47E4 /* EVEApiResponse.h */; };
 		60390C5E47605E8FF9C8D97A /* EVEPushSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390B6FB254B6184B2C2BE5 /* EVEPushSdk.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		60390DF8ADB60FF7ECE1906A /* EVESwizzleHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 6039092A599DCBBEACECDBF7 /* EVESwizzleHelpers.m */; };
 		60390E4A98A1CA9B7B2E335A /* EVESdkConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 6039020FE81BEE778D0F4340 /* EVESdkConfiguration.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		60390F48DE5CDEE0A301B6A2 /* EVEUnsubscribeEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 603902DC7885E00ADF387D25 /* EVEUnsubscribeEvent.h */; };
 		60390F4B39CD92155CB3ED49 /* EVESubscriptionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390F20D74DF71EC774E5B8 /* EVESubscriptionEvent.m */; };
@@ -79,6 +81,8 @@
 		60390863959934F5129D47E4 /* EVEApiResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEApiResponse.h; sourceTree = "<group>"; };
 		60390867C52A3842C738B94B /* EVEDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEDefaults.m; sourceTree = "<group>"; };
 		60390897C2587D4A3BB565C0 /* EVEModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEModel.h; sourceTree = "<group>"; };
+		6039092A599DCBBEACECDBF7 /* EVESwizzleHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESwizzleHelpers.m; sourceTree = "<group>"; };
+		60390B14890F950D95C2BE70 /* EVESwizzleHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVESwizzleHelpers.h; sourceTree = "<group>"; };
 		60390B2F40BE52166476E14A /* EVEDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEDefaults.h; sourceTree = "<group>"; };
 		60390B6A3CCC037A9D4CD87C /* EVEDbContract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEDbContract.m; sourceTree = "<group>"; };
 		60390B6FB254B6184B2C2BE5 /* EVEPushSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEPushSdk.h; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 				60390B2F40BE52166476E14A /* EVEDefaults.h */,
 				60390757C40CCD4254181AB0 /* Database */,
 				603907A13CB8CAEB01F595C8 /* Repositories */,
+				6039092A599DCBBEACECDBF7 /* EVESwizzleHelpers.m */,
+				60390B14890F950D95C2BE70 /* EVESwizzleHelpers.h */,
 			);
 			path = EverlyticPush;
 			sourceTree = "<group>";
@@ -284,6 +290,7 @@
 				60390ABE492C0DA34EC36305 /* EVENotificationLog.h in Headers */,
 				60390C1BF3A4F7C9514549FF /* EVENotificationEventsLog.h in Headers */,
 				6039091D3318105109D447F0 /* EVEDbRepository.h in Headers */,
+				6039008884C27D143AA3CFAE /* EVESwizzleHelpers.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +457,7 @@
 				6039039C7A9AFB3B7D351102 /* EVENotificationLog.m in Sources */,
 				603900B1FB8754EF2FC5BD95 /* EVENotificationEventsLog.m in Sources */,
 				60390FE05A73FDEC22C97C3E /* EVEDbRepository.m in Sources */,
+				60390DF8ADB60FF7ECE1906A /* EVESwizzleHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
