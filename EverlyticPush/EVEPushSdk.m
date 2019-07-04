@@ -9,6 +9,7 @@
 #import "EVEApiSubscription.h"
 #import <objc/runtime.h>
 #import "EVESwizzleHelpers.h"
+#import "EVEUIApplicationDelegate.h"
 
 @import Firebase;
 
@@ -27,20 +28,9 @@
     static dispatch_once_t onceToken;
 
     dispatch_once(&onceToken, ^{
-
-        Class delegateClass = getClassWithProtocolInHierarchy([UIApplication class], @protocol(UIApplicationDelegate));
-        NSArray *delegateSubclasses = getSubclassesOfClass(delegateClass);
-
-        injectIntoClassHierarchy(
-                @selector(everlytic_application:didReceiveRemoteNotification:fetchCompletionHandler:),
-                @selector(application:didReceiveRemoteNotification:fetchCompletionHandler:),
-                delegateSubclasses,
-                [self class],
-                delegateClass
-        );
+        [EVEUIApplicationDelegate swizzleApplicationDelegate];
     });
 }
-
 
 - (EVEPushSdk *)initWithConfiguration:(EVESdkConfiguration *)configuration {
     self.sdkConfiguration = configuration;
@@ -105,17 +95,6 @@
 
 - (UIApplication *)application {
     return [UIApplication sharedApplication];
-}
-
-#pragma mark - Method Swizzles
-
-- (void)everlytic_application:(UIApplication *)application
- didReceiveRemoteNotification:(NSDictionary *)userInfo
-       fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    NSLog(@"Did receive notification: %@", userInfo);
-    if ([self respondsToSelector:@selector(everlytic_application:didReceiveRemoteNotification:fetchCompletionHandler:)]){
-        [self everlytic_application:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
-    }
 }
 
 @end

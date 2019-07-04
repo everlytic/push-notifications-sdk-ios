@@ -7,9 +7,9 @@
 
 @interface EVENotificationEventsLog : EVEDbRepository
 
-- (bool) insertNotificationEvent:(EVENotificationEvent *)event;
+- (BOOL) insertNotificationEvent:(EVENotificationEvent *)event;
 
 - (NSArray<EVENotificationEvent *> *) allPendingEventsForType:(EVENotificationEventType *)type;
 
-- (bool) removeNotificationEventById:(unsigned int)id;
+- (BOOL) removeNotificationEventById:(unsigned int)eventId;
 @end

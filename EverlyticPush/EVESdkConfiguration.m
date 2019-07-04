@@ -1,8 +1,8 @@
 #import "EVESdkConfiguration.h"
 
 @implementation EVESdkConfiguration
-NSString *KEY_PROJECT = @"p";
-NSString *KEY_INSTALL = @"i";
+NSString *kProject = @"p";
+NSString *kInstall = @"i";
 
 - (EVESdkConfiguration *)initWithProjectId:(NSString *)projectId installUrl:(NSURL *)url {
     self.sdkVersion =
@@ -17,13 +17,13 @@ NSString *KEY_INSTALL = @"i";
 
     NSDictionary<NSString *, NSString *> *properties = [self getConfigurationDictionaryFromString:decoded];
 
-    NSURL *url = [self createUrlFromString:[properties valueForKey:KEY_INSTALL]];
+    NSURL *url = [self createUrlFromString:[properties valueForKey:kInstall]];
 
     if (url == nil)
         return nil;
 
     return [[EVESdkConfiguration alloc]
-            initWithProjectId:[properties valueForKey:KEY_PROJECT]
+            initWithProjectId:[properties valueForKey:kProject]
                    installUrl:url
     ];
 }

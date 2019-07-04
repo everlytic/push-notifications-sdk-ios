@@ -5,22 +5,25 @@
 
 @property (atomic) NSString *deviceId;
 @property (atomic) NSString *fcmToken;
-@property (atomic) NSString *contactId;
+@property (atomic) unsigned long contactId;
 @property (atomic) NSString *contactEmail;
-@property (atomic) NSString *subscriptionId;
+@property (atomic) unsigned long subscriptionId;
 @property (atomic) NSString *updatedFcmToken;
+@property (atomic) unsigned int dbVersion;
 
 + (NSString *) deviceId;
 + (NSString *) fcmToken;
-+ (NSString *) contactId;
++ (unsigned long) contactId;
 + (NSString *) contactEmail;
-+ (NSString *) subscriptionId;
++ (unsigned long) subscriptionId;
 + (NSString *) updatedFcmToken;
++ (unsigned int) dbVersion;
 + (void) setDeviceId:(NSString *)deviceId;
 + (void) setFcmToken:(NSString *)fcmToken;
-+ (void) setContactId:(NSString *)contactId;
++ (void) setContactId:(unsigned long)contactId;
 + (void) setContactEmail:(NSString *)contactEmail;
-+ (void) setSubscriptionId:(NSString *)subscriptionId;
++ (void) setSubscriptionId:(unsigned long)subscriptionId;
 + (void) setUpdatedFcmToken:(NSString *)updatedFcmToken;
++ (void) setDbVersion:(unsigned int)version;
 
 @end

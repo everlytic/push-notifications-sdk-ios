@@ -10,7 +10,6 @@
 
 - (EVEHttp *_Nonnull)initWithSdkConfiguration:(EVESdkConfiguration *_Nonnull)sdkConfiguration;
 
-
 - (NSMutableURLRequest *)createPostRequestForURL:(NSURL *)subUrl bodyData:(NSData *)bodyData;
 
 - (void)performApiRequest:(NSMutableURLRequest *)request completionHandler:(void (^)(EVEApiResponse *_Nullable, NSError *_Nullable))completionHandler;

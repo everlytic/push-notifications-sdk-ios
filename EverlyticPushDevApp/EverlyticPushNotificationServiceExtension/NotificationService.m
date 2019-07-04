@@ -6,41 +6,50 @@
 //  Copyright © 2019 Everlytic. All rights reserved.
 //
 
+#import <EverlyticPush/EverlyticPush.h>
 #import "NotificationService.h"
 
 @interface NotificationService ()
 
 @property (nonatomic, strong) void (^contentHandler)(UNNotificationContent *contentToDeliver);
 @property (nonatomic, strong) UNMutableNotificationContent *bestAttemptContent;
+@property (nonatomic, strong) UNNotificationRequest *request;
 
 @end
 
 @implementation NotificationService
 
 - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
+    self.request = request;
     self.contentHandler = contentHandler;
     self.bestAttemptContent = [request.content mutableCopy];
-    
-    self.bestAttemptContent.title = @"This is a title";
-    
-    NSLog(@"badge=%@ title=%@ body=<%@> subtitle=<%@> summaryArgument=%@ catIdentifier=%@ launchImage=%@",
+
+    NSLog(@"badge=%@ title=%@ body=<%@> subtitle=<%@> summaryArgument=%@ catIdentifier=%@ launchImage=%@ userInfo=%@",
             request.content.badge,
             request.content.title,
             request.content.body,
             request.content.subtitle,
             request.content.summaryArgument,
             request.content.categoryIdentifier,
-            request.content.launchImageName
+            request.content.launchImageName,
+            request.content.userInfo
     );
-    
-//    self.bestAttemptContent.title = [NSString stringWithFormat:@"%@ [modified]", self.bestAttemptContent.title];
-    
+
+    [EverlyticNotificationServiceExtentionHandler
+            didReceiveNotificationRequest:request
+           withMutableNotificationContent:self.bestAttemptContent
+    ];
+
     self.contentHandler(self.bestAttemptContent);
 }
 
 - (void)serviceExtensionTimeWillExpire {
-    // Called just before the extension will be terminated by the system.
-    // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
+
+    [EverlyticNotificationServiceExtentionHandler
+            serviceExtensionTimeWillExpireWithRequest:self.request
+                       withMutableNotificationContent:self.bestAttemptContent
+    ];
+
     self.contentHandler(self.bestAttemptContent);
 }
 

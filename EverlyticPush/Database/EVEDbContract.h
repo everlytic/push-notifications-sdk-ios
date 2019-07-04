@@ -1,9 +1,11 @@
 #import <Foundation/Foundation.h>
 
+@class FMDatabase;
+
 @interface EVEDbContract : NSObject
 
-- (NSArray<NSString *> *) tableCreateStatements;
++ (void) initializeDatabase:(FMDatabase *)database;
 
-- (NSArray<NSArray *> *) migrations;
++ (void)updateDatabase: (FMDatabase *)database;
 
 @end

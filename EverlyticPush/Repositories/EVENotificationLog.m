@@ -11,7 +11,7 @@
     return @"CREATE TABLE `notification_log` ("
            @"  `_id` INTEGER PRIMARY KEY AUTOINCREMENT,"
            @"  `message_id` INTEGER,"
-           @"  `ios_notification_identifier` TEXT,"
+           @"  `ios_notification_center_id` TEXT,"
            @"  `subscription_id` INTEGER,"
            @"  `contact_id` INTEGER,"
            @"  `title` TEXT,"

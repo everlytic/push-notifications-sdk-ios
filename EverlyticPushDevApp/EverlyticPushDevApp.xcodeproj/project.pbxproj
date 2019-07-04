@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9636F36422CCCB00006EBCB8 /* EverlyticPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9636F36022CCCA9D006EBCB8 /* EverlyticPush.framework */; };
+		9636F36522CCCB00006EBCB8 /* EverlyticPush.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9636F36022CCCA9D006EBCB8 /* EverlyticPush.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9660629222B90E9200A8CFF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9660629122B90E9200A8CFF4 /* AppDelegate.m */; };
 		9660629522B90E9200A8CFF4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9660629422B90E9200A8CFF4 /* ViewController.m */; };
 		9660629822B90E9200A8CFF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9660629622B90E9200A8CFF4 /* Main.storyboard */; };
@@ -16,9 +18,8 @@
 		966062AA22B90E9200A8CFF4 /* EverlyticPushDevAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 966062A922B90E9200A8CFF4 /* EverlyticPushDevAppTests.m */; };
 		966A047322C9D8AF00D390A7 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 966A047222C9D8AF00D390A7 /* NotificationService.m */; };
 		966A047722C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 966A046F22C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		968299F522CDEDCA0030BC0F /* EverlyticPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9636F36022CCCA9D006EBCB8 /* EverlyticPush.framework */; };
 		96F145BC22BA19000077863F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96F145BB22BA19000077863F /* GoogleService-Info.plist */; };
-		96F145C422BA1C7F0077863F /* EverlyticPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966062B522B90EA000A8CFF4 /* EverlyticPush.framework */; };
-		96F145C522BA1C7F0077863F /* EverlyticPush.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 966062B522B90EA000A8CFF4 /* EverlyticPush.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		9636F36622CCCB00006EBCB8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9636F36522CCCB00006EBCB8 /* EverlyticPush.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		966A047B22C9D8AF00D390A7 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -50,20 +62,10 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		96F145C622BA1C800077863F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				96F145C522BA1C7F0077863F /* EverlyticPush.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9636F36022CCCA9D006EBCB8 /* EverlyticPush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EverlyticPush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9660628D22B90E9200A8CFF4 /* EverlyticPushDevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EverlyticPushDevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9660629022B90E9200A8CFF4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9660629122B90E9200A8CFF4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -77,7 +79,6 @@
 		966062A522B90E9200A8CFF4 /* EverlyticPushDevAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EverlyticPushDevAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		966062A922B90E9200A8CFF4 /* EverlyticPushDevAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EverlyticPushDevAppTests.m; sourceTree = "<group>"; };
 		966062AB22B90E9200A8CFF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		966062B522B90EA000A8CFF4 /* EverlyticPush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EverlyticPush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		966A046F22C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EverlyticPushNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		966A047122C9D8AF00D390A7 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		966A047222C9D8AF00D390A7 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
@@ -91,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96F145C422BA1C7F0077863F /* EverlyticPush.framework in Frameworks */,
+				9636F36422CCCB00006EBCB8 /* EverlyticPush.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968299F522CDEDCA0030BC0F /* EverlyticPush.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +165,7 @@
 		966062B422B90EA000A8CFF4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				966062B522B90EA000A8CFF4 /* EverlyticPush.framework */,
+				9636F36022CCCA9D006EBCB8 /* EverlyticPush.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -188,8 +190,8 @@
 				9660628922B90E9200A8CFF4 /* Sources */,
 				9660628A22B90E9200A8CFF4 /* Frameworks */,
 				9660628B22B90E9200A8CFF4 /* Resources */,
-				96F145C622BA1C800077863F /* Embed Frameworks */,
 				966A047B22C9D8AF00D390A7 /* Embed App Extensions */,
+				9636F36622CCCB00006EBCB8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -496,7 +498,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2QP283S4J6;
 				INFOPLIST_FILE = EverlyticPushDevApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -504,7 +506,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.everlytic.ios.EverlyticPushDevApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+				USER_HEADER_SEARCH_PATHS = (
+					"\"${PROJECT_DIR}/Pods\"/**",
+					"\"${PROJECT_DIR}/Pods\"/**",
+				);
 			};
 			name = Debug;
 		};
@@ -517,7 +522,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2QP283S4J6;
 				INFOPLIST_FILE = EverlyticPushDevApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -525,7 +530,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.everlytic.ios.EverlyticPushDevApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+				USER_HEADER_SEARCH_PATHS = (
+					"\"${PROJECT_DIR}/Pods\"/**",
+					"\"${PROJECT_DIR}/Pods\"/**",
+				);
 			};
 			name = Release;
 		};

@@ -2,6 +2,7 @@
 #import <UIKit/UIKit.h>
 #import "EVESubscriptionEvent.h"
 #import "EVEHelpers.h"
+#import "NSDate+EVEDateFormatter.h"
 
 @implementation PMA_ContactData
 
@@ -107,7 +108,7 @@
             @"metadata": [[NSDictionary alloc] init],
             @"platform": self.platform.serializeAsDictionary,
             @"device": self.device.serializeAsDictionary,
-            @"datetime": [[EVEHelpers iso8601DateFormatter] stringFromDate:[NSDate date]]
+            @"datetime": [[NSDate date] dateToIso8601String]
     };
 }
 

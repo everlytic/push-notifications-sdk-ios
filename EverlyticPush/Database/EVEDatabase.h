@@ -1,11 +1,10 @@
 #import <Foundation/Foundation.h>
 @class FMDatabase;
 
+@interface EVEDatabase : NSObject
++ (FMDatabase *) database;
 
-@interface EVEDatabase : FMDatabase
++ (BOOL)open;
 
-@property (strong, nonatomic) FMDatabase *database;
-
-- (EVEDatabase *) init;
-
++ (BOOL)close;
 @end

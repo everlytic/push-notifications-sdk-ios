@@ -1,11 +1,57 @@
 #import "EVEDbContract.h"
 #import "EVENotificationLog.h"
 #import "EVENotificationEventsLog.h"
-
+#import "FMDatabase.h"
+#import "EVEDefaults.h"
 
 @implementation EVEDbContract
 
-- (NSArray<NSString *> *)tableCreateStatements {
+static unsigned short version = 1;
+
++ (void)initializeDatabase:(FMDatabase *)database {
+
+    for (NSString *statement in [self tableCreateStatements]) {
+        [database executeUpdate:statement];
+    }
+}
+
++ (void)updateDatabase:(FMDatabase *)database {
+
+    id migrationSets = [self migrations];
+
+    id migrationSqlStatements = [self createMigrationStatementsFromSets:migrationSets];
+
+    unsigned int oldVersion = [EVEDefaults dbVersion];
+
+    for (oldVersion; oldVersion < version; ++oldVersion) {
+        for (NSString *statement in migrationSqlStatements[@(oldVersion)]) {
+            [database executeUpdate:statement];
+        }
+        [EVEDefaults setDbVersion:(oldVersion + 1)];
+    }
+
+    [EVEDefaults setDbVersion:version];
+}
+
++ (NSMutableDictionary<NSNumber *, NSArray *> *)createMigrationStatementsFromSets:(id)migrationSets {
+    NSMutableDictionary<NSNumber *, NSArray *> *mergedMigrations = [[NSMutableDictionary alloc] init];
+
+    for (int v = 0; v < version; v++) {
+        mergedMigrations[@(v)] = @[];
+    }
+
+    for (id migrationSet in migrationSets) {
+        for (NSNumber *key in migrationSet) {
+            id mCopy = [mergedMigrations[key] mutableCopy];
+            [mCopy addObjectsFromArray:EVENotificationLog.migrations[key]];
+            mergedMigrations[key] = mCopy;
+        }
+    }
+
+    return mergedMigrations;
+}
+
++ (NSArray<NSString *> *)tableCreateStatements {
 
     return @[
             [EVENotificationLog createTableStatement],
@@ -13,8 +59,11 @@
     ];
 }
 
-- (NSArray<NSArray *> *)migrations {
-    return @[];
++ (NSArray<NSDictionary<NSNumber *, NSArray<NSString *> *> *> *)migrations {
+    return @[
+            EVENotificationLog.migrations,
+            EVENotificationEventsLog.migrations
+    ];
 }
 
 
