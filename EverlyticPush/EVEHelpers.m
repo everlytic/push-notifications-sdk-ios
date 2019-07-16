@@ -21,7 +21,6 @@ NSString *const kAppGroupsLastPathComponent = @"everlyticpush";
                                  encoding:NSUTF8StringEncoding];
 }
 
-
 + (NSDateFormatter *)iso8601DateFormatter {
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -43,21 +42,21 @@ NSString *const kAppGroupsLastPathComponent = @"everlyticpush";
 
 + (NSString *)mainAppBundleIdentifier {
     NSBundle *mainBundle = [NSBundle mainBundle];
-    
+
     if ([[mainBundle.bundleURL pathExtension] isEqualToString:@"appex"])
         mainBundle = [NSBundle bundleWithURL:[[mainBundle.bundleURL URLByDeletingLastPathComponent] URLByDeletingLastPathComponent]];
-    
+
     return [mainBundle bundleIdentifier];
-    
+
 }
 
-+ (NSString *) appGroupName {
++ (NSString *)appGroupName {
     id appGroupsName = [[NSBundle mainBundle] objectForInfoDictionaryKey:kAppGroupsKey];
-    
+
     if (!appGroupsName) {
         appGroupsName = [NSString stringWithFormat:@"group.%@.%@", [self mainAppBundleIdentifier], kAppGroupsLastPathComponent];
     }
-    NSLog(@"appgroupname=%@", appGroupsName);
+
     return [appGroupsName stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
 }
 @end

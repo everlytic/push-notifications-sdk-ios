@@ -40,6 +40,7 @@
              @"  ?,?,?,?,?,?,?"
              @");";
 
+    [self.database open];
     BOOL result = [self.database
             executeUpdate:sql,
                           [event notification_center_id],
@@ -50,6 +51,7 @@
                           [event metadata],
                           [[NSDate date] dateToIso8601String]
     ];
+    [self.database close];
 
     return result;
 }

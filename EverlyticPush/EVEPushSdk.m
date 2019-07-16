@@ -89,11 +89,9 @@
 
     [self.api subscribeWithSubscriptionEvent:subscriptionEvent completionHandler:^(EVEApiSubscription *subscription, NSError *error) {
         NSLog(@"subscription=%ld, error=%@", subscription.pns_id, error);
-
         [EVEDefaults setSubscriptionId:(NSInteger *) subscription.pns_id];
     }];
 }
-
 
 - (UIApplication *)application {
     return [UIApplication sharedApplication];

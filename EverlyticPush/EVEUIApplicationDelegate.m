@@ -39,9 +39,9 @@
 
 - (void)everlytic_applicationDidBecomeActive:(UIApplication *)application {
     NSLog(@"@selector(applicationDidBecomeActive:)");
-    NSLog(@"Opening database...");
-    [EVEDatabase open];
-    NSLog(@"Database opened");
+//    NSLog(@"Opening database...");
+//    [EVEDatabase open];
+//    NSLog(@"Database opened");
 
     if ([self respondsToSelector:@selector(everlytic_applicationDidBecomeActive:)]){
         [self everlytic_applicationDidBecomeActive:application];
@@ -51,9 +51,9 @@
 - (void)everlytic_applicationWillResignActive:(UIApplication *)application {
 
     NSLog(@"@selector(applicationWillResignActive:)");
-    NSLog(@"Closing database...");
-    [EVEDatabase close];
-    NSLog(@"Database closed");
+//    NSLog(@"Closing database...");
+//    [EVEDatabase close];
+//    NSLog(@"Database closed");
 
     if ([self respondsToSelector:@selector(everlytic_applicationWillResignActive:)]) {
         [self everlytic_applicationWillResignActive:application];

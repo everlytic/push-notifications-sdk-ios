@@ -3,6 +3,7 @@
 #import "EVEDbContract.h"
 #import "EVEDefaults.h"
 #import "FMDatabaseQueue.h"
+#import "EVEHelpers.h"
 
 NSString *const kDbName = @"__evpush.db";
 
@@ -27,9 +28,12 @@ static unsigned int openCount = 0;
 }
 
 + (NSString *)getDatabasePath {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = paths[0];
-    return [documentsDirectory stringByAppendingPathComponent:kDbName];
+    NSURL *containerURL = [[NSFileManager defaultManager]
+            containerURLForSecurityApplicationGroupIdentifier:EVEHelpers.appGroupName];
+
+    NSString *storeURL = [[containerURL path] stringByAppendingPathComponent:kDbName];
+
+    return storeURL;
 }
 
 + (FMDatabaseQueue *)queue {

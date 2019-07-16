@@ -66,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		9636F36022CCCA9D006EBCB8 /* EverlyticPush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EverlyticPush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96408F8522DDC624004FD88F /* EverlyticPushNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EverlyticPushNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		9660628D22B90E9200A8CFF4 /* EverlyticPushDevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EverlyticPushDevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9660629022B90E9200A8CFF4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9660629122B90E9200A8CFF4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -173,6 +174,7 @@
 		966A047022C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension */ = {
 			isa = PBXGroup;
 			children = (
+				96408F8522DDC624004FD88F /* EverlyticPushNotificationServiceExtension.entitlements */,
 				966A047122C9D8AF00D390A7 /* NotificationService.h */,
 				966A047222C9D8AF00D390A7 /* NotificationService.m */,
 				966A047422C9D8AF00D390A7 /* Info.plist */,
@@ -267,6 +269,11 @@
 					};
 					966A046E22C9D8AF00D390A7 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -583,6 +590,7 @@
 		966A047822C9D8AF00D390A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = EverlyticPushNotificationServiceExtension/EverlyticPushNotificationServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2QP283S4J6;
 				INFOPLIST_FILE = EverlyticPushNotificationServiceExtension/Info.plist;
@@ -602,6 +610,7 @@
 		966A047922C9D8AF00D390A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = EverlyticPushNotificationServiceExtension/EverlyticPushNotificationServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2QP283S4J6;
 				INFOPLIST_FILE = EverlyticPushNotificationServiceExtension/Info.plist;
