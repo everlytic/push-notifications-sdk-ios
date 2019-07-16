@@ -2,6 +2,8 @@
 #import <UIKit/UIKit.h>
 #import "EVEHelpers.h"
 
+NSString *const kAppGroupsKey = @"EverlyticPush_app_groups_key";
+NSString *const kAppGroupsLastPathComponent = @"everlyticpush";
 
 @implementation EVEHelpers
 + (id)decodeJSONFromString:(NSString *)jsonString {
@@ -39,5 +41,23 @@
     return ![self iosVersionIsGreaterOrEqualTo:version];
 }
 
++ (NSString *)mainAppBundleIdentifier {
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    
+    if ([[mainBundle.bundleURL pathExtension] isEqualToString:@"appex"])
+        mainBundle = [NSBundle bundleWithURL:[[mainBundle.bundleURL URLByDeletingLastPathComponent] URLByDeletingLastPathComponent]];
+    
+    return [mainBundle bundleIdentifier];
+    
+}
 
++ (NSString *) appGroupName {
+    id appGroupsName = [[NSBundle mainBundle] objectForInfoDictionaryKey:kAppGroupsKey];
+    
+    if (!appGroupsName) {
+        appGroupsName = [NSString stringWithFormat:@"group.%@.%@", [self mainAppBundleIdentifier], kAppGroupsLastPathComponent];
+    }
+    NSLog(@"appgroupname=%@", appGroupsName);
+    return [appGroupsName stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
+}
 @end

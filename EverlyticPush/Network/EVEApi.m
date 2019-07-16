@@ -5,6 +5,7 @@
 #import "EVEApiSubscription.h"
 #import "EVEApiResponse.h"
 #import "EVENotificationEvent.h"
+#import "../EVEHelpers.h"
 
 @interface EVEApi ()
 
@@ -30,8 +31,8 @@ NSString *const dismissalsUrl = @"push-notifications/dismissals";
     [self executeHttpRequestWithModel:subscription urlPath:subscribeUrl completionHandler:^(EVEApiResponse *response, NSError *error) {
         EVEApiSubscription *apiSubscription = nil;
 
-        if (error == nil && response != nil) {
-            apiSubscription = [EVEApiSubscription deserializeFromJsonString:response.dataAsJsonString];
+        if (error == nil && response != nil && [response.data objectForKey:@"subscription"] != nil) {
+            apiSubscription = [EVEApiSubscription deserializeFromJsonString:[EVEHelpers encodeJSONFromObject:response.data[@"subscription"]]];
         }
 
         completionHandler(apiSubscription, error);

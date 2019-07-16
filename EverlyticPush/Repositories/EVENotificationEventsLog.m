@@ -40,7 +40,7 @@
              @"  ?,?,?,?,?,?,?"
              @");";
 
-    return [self.database
+    BOOL result = [self.database
             executeUpdate:sql,
                           [event notification_center_id],
                           [event typeAsString],
@@ -50,6 +50,8 @@
                           [event metadata],
                           [[NSDate date] dateToIso8601String]
     ];
+
+    return result;
 }
 
 - (NSArray<EVENotificationEvent *> *)allPendingEventsForType:(EVENotificationEventType *)type {

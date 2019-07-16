@@ -5,25 +5,25 @@
 
 @property (atomic) NSString *deviceId;
 @property (atomic) NSString *fcmToken;
-@property (atomic) unsigned long contactId;
+@property (atomic) NSInteger *contactId;
 @property (atomic) NSString *contactEmail;
-@property (atomic) unsigned long subscriptionId;
+@property (atomic) NSInteger *subscriptionId;
 @property (atomic) NSString *updatedFcmToken;
-@property (atomic) unsigned int dbVersion;
+@property (atomic) NSInteger *dbVersion;
 
 + (NSString *) deviceId;
 + (NSString *) fcmToken;
-+ (unsigned long) contactId;
++ (NSInteger *) contactId;
 + (NSString *) contactEmail;
-+ (unsigned long) subscriptionId;
++ (NSInteger *) subscriptionId;
 + (NSString *) updatedFcmToken;
-+ (unsigned int) dbVersion;
++ (NSInteger *) dbVersion;
 + (void) setDeviceId:(NSString *)deviceId;
 + (void) setFcmToken:(NSString *)fcmToken;
-+ (void) setContactId:(unsigned long)contactId;
++ (void) setContactId:(NSInteger *)contactId;
 + (void) setContactEmail:(NSString *)contactEmail;
-+ (void) setSubscriptionId:(unsigned long)subscriptionId;
++ (void) setSubscriptionId:(NSInteger *)subscriptionId;
 + (void) setUpdatedFcmToken:(NSString *)updatedFcmToken;
-+ (void) setDbVersion:(unsigned int)version;
++ (void) setDbVersion:(NSNumber *)version;
 
 @end

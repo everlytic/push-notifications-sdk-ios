@@ -250,6 +250,9 @@
 					9660628C22B90E9200A8CFF4 = {
 						CreatedOnToolsVersion = 10.2.1;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -509,6 +512,7 @@
 				USER_HEADER_SEARCH_PATHS = (
 					"\"${PROJECT_DIR}/Pods\"/**",
 					"\"${PROJECT_DIR}/Pods\"/**",
+					"\"${PROJECT_DIR}/Pods\"/**",
 				);
 			};
 			name = Debug;
@@ -531,6 +535,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = (
+					"\"${PROJECT_DIR}/Pods\"/**",
 					"\"${PROJECT_DIR}/Pods\"/**",
 					"\"${PROJECT_DIR}/Pods\"/**",
 				);

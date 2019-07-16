@@ -10,5 +10,5 @@
 
 + (BOOL) iosVersionIsGreaterOrEqualTo:(float) version;
 + (BOOL) iosVersionIsLessThan:(float) version;
-
++ (NSString *) appGroupName;
 @end

@@ -3,7 +3,7 @@
 
 @implementation EVEApiSubscription
 
-- (id) initWithId:(NSString *)id listId:(NSString *)listId customerId:(NSString *)customerId contactId:(NSString *)contactId deviceId:(NSString *)deviceId {
+- (id) initWithId:(unsigned long)id listId:(NSString *)listId customerId:(NSString *)customerId contactId:(NSString *)contactId deviceId:(NSString *)deviceId {
     self.pns_id = id;
     self.pns_list_id = listId;
     self.pns_customer_id = customerId;
@@ -20,16 +20,22 @@
     return nil;
 }
 
-+ (id)deserializeFromJsonString:(NSString *_Nonnull)string {
-
++ (id)deserializeFromJsonString:(NSString *_Nonnull)string {    
     NSDictionary *object = (NSDictionary *) [EVEHelpers decodeJSONFromString:string];
 
     return [[EVEApiSubscription alloc]
-            initWithId:[object valueForKey:@"pns_id"]
+            initWithId:(unsigned long) [[object objectForKey:@"pns_id"] longLongValue]
                 listId:[object valueForKey:@"pns_list_id"]
             customerId:[object valueForKey:@"pns_customer_id"]
              contactId:[object valueForKey:@"pns_contact_id"]
               deviceId:[object valueForKey:@"pns_device_id"]];
+}
+
+- (NSString *)description {
+    NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
+
+    [description appendString:@">"];
+    return description;
 }
 
 

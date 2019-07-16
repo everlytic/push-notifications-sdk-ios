@@ -83,12 +83,14 @@
 
     PMA_ContactData *contact = [[PMA_ContactData alloc] initWithEmail:emailAddress pushToken:EVEDefaults.fcmToken];
     PMA_DeviceData *deviceData = [[PMA_DeviceData alloc] initWithId:EVEDefaults.deviceId];
-    EVESubscriptionEvent *subscription = [[EVESubscriptionEvent alloc]
+    EVESubscriptionEvent *subscriptionEvent = [[EVESubscriptionEvent alloc]
             initWithPushProjectUuid:self.sdkConfiguration.projectId
                         contactData:contact deviceData:deviceData];
 
-    [self.api subscribeWithSubscriptionEvent:subscription completionHandler:^(EVEApiSubscription *subscription, NSError *error) {
-        NSLog(@"subscription=%@, error=%@", subscription.pns_id, error);
+    [self.api subscribeWithSubscriptionEvent:subscriptionEvent completionHandler:^(EVEApiSubscription *subscription, NSError *error) {
+        NSLog(@"subscription=%ld, error=%@", subscription.pns_id, error);
+
+        [EVEDefaults setSubscriptionId:(NSInteger *) subscription.pns_id];
     }];
 }
 

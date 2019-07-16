@@ -1,5 +1,5 @@
 #import "EVEDefaults.h"
-
+#import "EVEHelpers.h"
 
 @implementation EVEDefaults
 
@@ -11,12 +11,12 @@ NSString *const kSubscriptionId = @"__eve_kv_subscription_id";
 NSString *const kUpdatedFcmToken = @"__eve_kv_updated_fcm_token";
 NSString *const kDbVersion = @"__eve_kv_db_version";
 
-+ (unsigned int)dbVersion {
-    return (unsigned int) [self.defaults integerForKey:kDbVersion];
++ (NSInteger *)dbVersion {
+    return (NSInteger *) [[self.defaults objectForKey:kDbVersion] intValue];
 }
 
-+ (void)setDbVersion:(unsigned int)version {
-    [self.defaults setInteger:version forKey:kDbVersion];
++ (void)setDbVersion:(NSNumber *)version {
+    [self.defaults setObject:version forKey:kDbVersion];
 }
 
 + (NSString *)deviceId {
@@ -35,12 +35,12 @@ NSString *const kDbVersion = @"__eve_kv_db_version";
     [self.defaults setObject:fcmToken forKey:kFcmToken];
 }
 
-+ (unsigned long)contactId {
-    return (unsigned long) [self.defaults integerForKey:kContactId];
++ (NSInteger *)contactId {
+    return (NSInteger *) [[self.defaults objectForKey:kContactId] intValue];
 }
 
-+ (void)setContactId:(unsigned long)contactId {
-    [self.defaults setInteger:contactId forKey:kContactId];
++ (void)setContactId:(NSInteger *)contactId {
+    [self.defaults setObject:@((int) contactId) forKey:kContactId];
 }
 
 + (NSString *)contactEmail {
@@ -51,12 +51,16 @@ NSString *const kDbVersion = @"__eve_kv_db_version";
     [self.defaults setObject:contactEmail forKey:kContactEmail];
 }
 
-+ (unsigned long)subscriptionId {
-    return (unsigned long) [self.defaults integerForKey:kSubscriptionId];
++ (NSInteger *)subscriptionId {
+    id objForK = [self.defaults objectForKey:kSubscriptionId];
+    NSInteger *value = (NSInteger *) [objForK intValue];
+    NSLog(@"retrieved subId from defaults=%p", value);
+    return value;
 }
 
-+ (void)setSubscriptionId:(unsigned long)subscriptionId {
-    [self.defaults setInteger:subscriptionId forKey:kSubscriptionId];
++ (void)setSubscriptionId:(NSInteger *)subscriptionId {
+    NSLog(@"setting subId = %p", subscriptionId);
+    [self.defaults setObject:@((int) subscriptionId) forKey:kSubscriptionId];
 }
 
 + (NSString *)updatedFcmToken {
@@ -68,6 +72,6 @@ NSString *const kDbVersion = @"__eve_kv_db_version";
 }
 
 + (NSUserDefaults *) defaults {
-    return [NSUserDefaults standardUserDefaults];
+    return [[NSUserDefaults alloc] initWithSuiteName:EVEHelpers.appGroupName];
 }
 @end

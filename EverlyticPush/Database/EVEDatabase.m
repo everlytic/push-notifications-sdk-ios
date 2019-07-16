@@ -1,25 +1,23 @@
 #import <FMDB/FMDatabase.h>
 #import "EVEDatabase.h"
-#import "FMDatabaseAdditions.h"
 #import "EVEDbContract.h"
 #import "EVEDefaults.h"
+#import "FMDatabaseQueue.h"
 
 NSString *const kDbName = @"__evpush.db";
 
 @implementation EVEDatabase
 
 static FMDatabase *database;
+static FMDatabaseQueue *queue;
+static unsigned int openCount = 0;
 
 + (FMDatabase *)database {
 
     if (database == nil) {
-
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = paths[0];
-        NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:kDbName];
-
+        openCount = 0;
+        NSString *writableDBPath = [self getDatabasePath];
         static dispatch_once_t onceToken;
-
         dispatch_once(&onceToken, ^{
             database = [FMDatabase databaseWithPath:writableDBPath];
         });
@@ -28,30 +26,71 @@ static FMDatabase *database;
     return database;
 }
 
++ (NSString *)getDatabasePath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = paths[0];
+    return [documentsDirectory stringByAppendingPathComponent:kDbName];
+}
+
++ (FMDatabaseQueue *)queue {
+
+    if (queue == nil) {
+        openCount = 0;
+        NSString *writableDBPath = [self getDatabasePath];
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            queue = [FMDatabaseQueue databaseQueueWithPath:writableDBPath];
+        });
+    }
+
+    return queue;
+}
+
++ (void) inDatabase:(void(^)(FMDatabase *))block {
+    [[self queue] inDatabase:^(FMDatabase *db) {
+        [self upgradeDatabase:db];
+        block(db);
+    }];
+}
+
 + (BOOL)open {
     BOOL opened = [[self database] open];
+    openCount++;
 
     if (!opened) {
         database = nil;
+        openCount = 0;
     } else {
-        if ([EVEDefaults dbVersion] < 1) {
-            [EVEDbContract initializeDatabase:self.database];
-        }
-
-        [EVEDbContract updateDatabase:self.database];
+        [self upgradeDatabase:self.database];
     }
 
     return opened;
 }
 
-+ (BOOL)close {
-    BOOL closed = [[self database] close];
-
-    if (closed) {
-        database = nil;
++ (void)upgradeDatabase:(FMDatabase *)db {
+    if ([EVEDefaults dbVersion] < 1) {
+        [EVEDbContract initializeDatabase:db];
     }
 
-    return closed;
+    [EVEDbContract updateDatabase:db];
+}
+
++ (BOOL)close {
+
+    openCount--;
+
+    if (openCount < 1) {
+        BOOL closed = [[self database] close];
+
+        if (closed) {
+            database = nil;
+        }
+
+        return closed;
+    }
+
+    NSLog(@"Database open count still above 1, not closing yet");
+    return NO;
 }
 
 @end
