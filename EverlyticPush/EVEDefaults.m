@@ -18,7 +18,6 @@ NSUserDefaults *sharedDefaults = nil;
 
 + (NSInteger *)dbVersion {
     NSInteger *const version = (NSInteger *) [[self.defaults objectForKey:kDbVersion] intValue];
-    NSLog(@"retrieved dbVersion=%@", [NSValue valueWithPointer:version]);
     return version;
 }
 
@@ -29,7 +28,6 @@ NSUserDefaults *sharedDefaults = nil;
 
 + (NSString *)deviceId {
     NSString *devId = [self.defaults valueForKey:kDeviceId];
-    NSLog(@"retrieved deviceId=%@", devId);
     return devId;
 }
 
@@ -68,15 +66,12 @@ NSUserDefaults *sharedDefaults = nil;
 + (NSInteger *)subscriptionId {
     id objForK = [self.defaults objectForKey:kSubscriptionId];
     NSInteger *value = (NSInteger *) [objForK intValue];
-    NSLog(@"retrieved subId from defaults=%p", value);
     return value;
 }
 
 + (void)setSubscriptionId:(NSInteger *)subscriptionId {
-    NSLog(@"setting subId = %p", subscriptionId);
     [self.defaults setObject:@((int) subscriptionId) forKey:kSubscriptionId];
     [self.defaults synchronize];
-    NSLog(@"will sync sub id");
 }
 
 + (NSString *)updatedFcmToken {
@@ -90,7 +85,7 @@ NSUserDefaults *sharedDefaults = nil;
 
 + (NSUserDefaults *) defaults {
     if (sharedDefaults == nil) {
-        NSLog(@"init sharedDefaults");
+        NSLog(@"Init sharedDefaults");
         sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:EVEHelpers.appGroupName];
     }
     

@@ -40,18 +40,16 @@
              @"  ?,?,?,?,?,?,?"
              @");";
 
-    [self.database open];
     BOOL result = [self.database
             executeUpdate:sql,
                           [event notification_center_id],
                           [event typeAsString],
-                          [event subscription_id],
-                          [event message_id],
+                          @([event subscription_id]),
+                          @([event message_id]),
                           [EVEDefaults deviceId],
                           [event metadata],
                           [[NSDate date] dateToIso8601String]
     ];
-    [self.database close];
 
     return result;
 }

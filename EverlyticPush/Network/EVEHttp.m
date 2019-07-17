@@ -34,7 +34,7 @@ NSString *const basePath = @"/servlet/";
                     if (error == nil) {
                         NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                         apiResponse = [EVEApiResponse deserializeFromJsonString:jsonString];
-                        
+
 #ifdef DEBUG
                         NSLog(@"raw=%@;; apiResponse=%@", jsonString, apiResponse);
 #endif

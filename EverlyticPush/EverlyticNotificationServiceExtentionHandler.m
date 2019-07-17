@@ -14,8 +14,8 @@
     EVENotificationEvent *event = [[EVENotificationEvent alloc]
             initWithType:DELIVERY
     notificationCenterId:request.identifier
-          subscriptionId:EVEDefaults.subscriptionId
-               messageId:(unsigned long) request.content.userInfo[@"message_id"]
+          subscriptionId:(unsigned long) EVEDefaults.subscriptionId
+               messageId:(unsigned long) [request.content.userInfo[@"message_id"] intValue]
                 metadata:@{}
     ];
     NSLog(@"Created event = %@", event);
