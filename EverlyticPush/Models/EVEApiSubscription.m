@@ -3,7 +3,7 @@
 
 @implementation EVEApiSubscription
 
-- (id) initWithId:(unsigned long)id listId:(NSString *)listId customerId:(NSString *)customerId contactId:(NSString *)contactId deviceId:(NSString *)deviceId {
+- (id) initWithId:(NSNumber *)id listId:(NSString *)listId customerId:(NSString *)customerId contactId:(NSString *)contactId deviceId:(NSString *)deviceId {
     self.pns_id = id;
     self.pns_list_id = listId;
     self.pns_customer_id = customerId;
@@ -24,7 +24,7 @@
     NSDictionary *object = (NSDictionary *) [EVEHelpers decodeJSONFromString:string];
 
     return [[EVEApiSubscription alloc]
-            initWithId:(unsigned long) [[object objectForKey:@"pns_id"] longLongValue]
+            initWithId:[[NSNumber alloc] initWithInt:[object[@"pns_id"] intValue]]
                 listId:[object valueForKey:@"pns_list_id"]
             customerId:[object valueForKey:@"pns_customer_id"]
              contactId:[object valueForKey:@"pns_contact_id"]

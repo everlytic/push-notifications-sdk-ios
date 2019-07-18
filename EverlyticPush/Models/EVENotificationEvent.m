@@ -8,28 +8,28 @@
 - (nonnull NSDictionary *)serializeAsDictionary {
     return @{
             @"ios_notification_center_id": self.notification_center_id,
-            @"subscription_id": @(self.subscription_id),
-            @"message_id": @(self.message_id),
+            @"subscription_id": self.subscription_id,
+            @"message_id": self.message_id,
             @"metadata": self.metadata,
-            @"type": self.typeAsString,
+            @"type": [EVENotificationEvent typeAsString:self.type],
             @"datetime": [self.datetime dateToIso8601String]
     };
 }
 
-- (instancetype)initWithType:(EVENotificationEventType)type notificationCenterId:(NSString *)nfcId subscriptionId:(unsigned long)subId messageId:(unsigned long)msgId metadata:(NSDictionary *)meta {
+- (instancetype)initWithType:(EVENotificationEventType)type notificationCenterId:(NSString *)nfcId subscriptionId:(NSNumber *)subId messageId:(NSNumber *)msgId metadata:(NSDictionary *)meta datetime:(NSDate *_Nullable)date {
     self.type = type;
     self.notification_center_id = nfcId;
     self.message_id = msgId;
     self.subscription_id = subId;
     self.metadata = meta;
-    self.datetime = [NSDate date];
+    self.datetime = (date == nil) ? [NSDate date] : date;
     return self;
 }
 
-- (NSString *)typeAsString {
++ (NSString *)typeAsString:(EVENotificationEventType)type {
     NSString *typeVal = nil;
 
-    switch (self.type) {
+    switch (type) {
         case DELIVERY:
             typeVal = @"DELIVERY";
             break;
@@ -45,6 +45,21 @@
     }
 
     return typeVal;
+}
+
+
++(EVENotificationEventType) typeFromString:(NSString *)string {
+    if ([string isEqualToString:@"DELIVERY"]) {
+        return DELIVERY;
+    }
+    if ([string isEqualToString:@"CLICK"]) {
+        return CLICK;
+    }
+    if ([string isEqualToString:@"DISMISS"]) {
+        return DISMISS;
+    }
+
+    return UNKNOWN;
 }
 
 - (nonnull NSString *)serializeAsJson {

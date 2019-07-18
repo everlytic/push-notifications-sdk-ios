@@ -16,6 +16,7 @@
 		9660629D22B90E9200A8CFF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9660629B22B90E9200A8CFF4 /* LaunchScreen.storyboard */; };
 		966062A022B90E9200A8CFF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9660629F22B90E9200A8CFF4 /* main.m */; };
 		966062AA22B90E9200A8CFF4 /* EverlyticPushDevAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 966062A922B90E9200A8CFF4 /* EverlyticPushDevAppTests.m */; };
+		966806D422E054FF00AD92C6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966806D322E054FF00AD92C6 /* SystemConfiguration.framework */; };
 		966A047322C9D8AF00D390A7 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 966A047222C9D8AF00D390A7 /* NotificationService.m */; };
 		966A047722C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 966A046F22C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		968299F522CDEDCA0030BC0F /* EverlyticPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9636F36022CCCA9D006EBCB8 /* EverlyticPush.framework */; };
@@ -80,6 +81,7 @@
 		966062A522B90E9200A8CFF4 /* EverlyticPushDevAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EverlyticPushDevAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		966062A922B90E9200A8CFF4 /* EverlyticPushDevAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EverlyticPushDevAppTests.m; sourceTree = "<group>"; };
 		966062AB22B90E9200A8CFF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		966806D322E054FF00AD92C6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		966A046F22C9D8AF00D390A7 /* EverlyticPushNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EverlyticPushNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		966A047122C9D8AF00D390A7 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		966A047222C9D8AF00D390A7 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				966806D422E054FF00AD92C6 /* SystemConfiguration.framework in Frameworks */,
 				9636F36422CCCB00006EBCB8 /* EverlyticPush.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,6 +169,7 @@
 		966062B422B90EA000A8CFF4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				966806D322E054FF00AD92C6 /* SystemConfiguration.framework */,
 				9636F36022CCCA9D006EBCB8 /* EverlyticPush.framework */,
 			);
 			name = Frameworks;

@@ -9,7 +9,7 @@
 
 @interface EVEApi ()
 
-@property (strong, nonatomic) EVEHttp *http;
+@property(strong, nonatomic) EVEHttp *http;
 
 @end
 
@@ -27,11 +27,11 @@ NSString *const dismissalsUrl = @"push-notifications/dismissals";
     return self;
 }
 
-- (void)subscribeWithSubscriptionEvent:(EVESubscriptionEvent *_Nonnull)subscription completionHandler:(void (^ _Nullable)(EVEApiSubscription *_Nullable, NSError *_Nullable))completionHandler {
-    [self executeHttpRequestWithModel:subscription urlPath:subscribeUrl completionHandler:^(EVEApiResponse *response, NSError *error) {
+- (NSURLSessionDataTask *)subscribeWithSubscriptionEvent:(EVESubscriptionEvent *_Nonnull)subscription completionHandler:(void (^ _Nullable)(EVEApiSubscription *_Nullable, NSError *_Nullable))completionHandler {
+    return [self executeHttpRequestWithModel:subscription urlPath:subscribeUrl completionHandler:^(EVEApiResponse *response, NSError *error) {
         EVEApiSubscription *apiSubscription = nil;
 
-        if (error == nil && response != nil && [response.data objectForKey:@"subscription"] != nil) {
+        if (error == nil && response != nil && response.data[@"subscription"] != nil) {
             apiSubscription = [EVEApiSubscription deserializeFromJsonString:[EVEHelpers encodeJSONFromObject:response.data[@"subscription"]]];
         }
 
@@ -39,23 +39,33 @@ NSString *const dismissalsUrl = @"push-notifications/dismissals";
     }];
 }
 
-- (void)unsubscribeWithUnsubscribeEvent:(EVEUnsubscribeEvent *)unsubscribeEvent completionHandler:(void (^)(EVEApiResponse *, NSError *))completionHandler {
-    [self executeHttpRequestWithModel:unsubscribeEvent urlPath:unsubscribeUrl completionHandler:completionHandler];
+- (NSURLSessionDataTask *)unsubscribeWithUnsubscribeEvent:(EVEUnsubscribeEvent *)unsubscribeEvent completionHandler:(void (^)(EVEApiResponse *, NSError *))completionHandler {
+    return [self executeHttpRequestWithModel:unsubscribeEvent urlPath:unsubscribeUrl completionHandler:completionHandler];
 }
 
-- (void)recordClickEvent:(EVENotificationEvent *)event completionHandler:(void (^ _Nullable)(EVEApiResponse *_Nullable, NSError *_Nullable))completionHandler {
-    [self executeHttpRequestWithModel:event urlPath:clicksUrl completionHandler:completionHandler];
+- (NSURLSessionDataTask *)recordClickEvent:(EVENotificationEvent *)event completionHandler:(void (^ _Nullable)(EVEApiResponse *_Nullable, NSError *_Nullable))completionHandler {
+    return [self executeHttpRequestWithModel:event urlPath:clicksUrl completionHandler:completionHandler];
+}
+
+- (NSURLSessionDataTask *_Nonnull)recordDeliveryEvent:(EVENotificationEvent *_Nonnull)event completionHandler:(void (^ _Nullable)(EVEApiResponse *_Nullable, NSError *_Nullable))completionHandler {
+    return [self executeHttpRequestWithModel:event urlPath:deliveriesUrl completionHandler:completionHandler];
+}
+
+- (NSURLSessionDataTask *_Nonnull)recordDismissEvent:(EVENotificationEvent *_Nonnull)event completionHandler:(void (^ _Nullable)(EVEApiResponse *_Nullable, NSError *_Nullable))completionHandler {
+    return [self executeHttpRequestWithModel:event urlPath:dismissalsUrl completionHandler:completionHandler];
 }
 
 
-- (void) executeHttpRequestWithModel:(id<EVEModel>)model urlPath:(NSString *)path completionHandler:(void (^)(EVEApiResponse *, NSError *))completionHandler{
+- (NSURLSessionDataTask *)executeHttpRequestWithModel:(id <EVEModel>)model urlPath:(NSString *)path completionHandler:(void (^)(EVEApiResponse *, NSError *))completionHandler {
     NSURL *subUrl = [self.http urlForPath:path];
     NSString *payload = [model serializeAsJson];
+#ifdef DEBUG
     NSLog(@"payload=%@", payload);
+#endif
     NSData *bodyData = [payload dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *request = [self.http createPostRequestForURL:subUrl bodyData:bodyData];
 
-    [self.http performApiRequest:request completionHandler:completionHandler];
+    return [self.http performApiRequest:request completionHandler:completionHandler];
 }
 
 @end

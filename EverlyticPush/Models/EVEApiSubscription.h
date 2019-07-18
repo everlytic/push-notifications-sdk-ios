@@ -3,7 +3,7 @@
 
 @interface EVEApiSubscription : NSObject <EVEModel>
 
-@property(nonatomic) unsigned long pns_id;
+@property(strong, nonatomic) NSNumber *_Nonnull pns_id;
 @property(strong, nonatomic) NSString *_Nonnull pns_list_id;
 @property(strong, nonatomic) NSString *_Nonnull pns_customer_id;
 @property(strong, nonatomic) NSString *_Nonnull pns_contact_id;

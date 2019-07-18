@@ -17,7 +17,7 @@
 
 @end
 
-@implementation NotificationService
+@implementation NotificationService 
 
 - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
     self.request = request;
@@ -35,7 +35,7 @@
             request.content.userInfo
     );
 
-    [EverlyticNotificationServiceExtentionHandler
+    [EverlyticNotificationServiceExtensionHandler
             didReceiveNotificationRequest:request
            withMutableNotificationContent:self.bestAttemptContent
     ];
@@ -45,7 +45,7 @@
 
 - (void)serviceExtensionTimeWillExpire {
 
-    [EverlyticNotificationServiceExtentionHandler
+    [EverlyticNotificationServiceExtensionHandler
             serviceExtensionTimeWillExpireWithRequest:self.request
                        withMutableNotificationContent:self.bestAttemptContent
     ];

@@ -14,11 +14,11 @@ NSString *const kContactEmail = @"__eve_kv_contact_email";
 NSString *const kSubscriptionId = @"__eve_kv_subscription_id";
 NSString *const kUpdatedFcmToken = @"__eve_kv_updated_fcm_token";
 NSString *const kDbVersion = @"__eve_kv_db_version";
+NSString *const kConfigurationString = @"__eve_kv_configuration_string";
 NSUserDefaults *sharedDefaults = nil;
 
-+ (NSInteger *)dbVersion {
-    NSInteger *const version = (NSInteger *) [[self.defaults objectForKey:kDbVersion] intValue];
-    return version;
++ (NSNumber *)dbVersion {
+    return [[NSNumber alloc] initWithInt:[[self.defaults objectForKey:kDbVersion] intValue]];
 }
 
 + (void)setDbVersion:(NSNumber *)version {
@@ -45,12 +45,12 @@ NSUserDefaults *sharedDefaults = nil;
     [self.defaults synchronize];
 }
 
-+ (NSInteger *)contactId {
-    return (NSInteger *) [[self.defaults objectForKey:kContactId] intValue];
++ (NSNumber *)contactId {
+    return [[NSNumber alloc] initWithInt:[[self.defaults objectForKey:kContactId] intValue]];
 }
 
-+ (void)setContactId:(NSInteger *)contactId {
-    [self.defaults setObject:@((int) contactId) forKey:kContactId];
++ (void)setContactId:(NSNumber *)contactId {
+    [self.defaults setObject:contactId forKey:kContactId];
     [self.defaults synchronize];
 }
 
@@ -63,14 +63,13 @@ NSUserDefaults *sharedDefaults = nil;
     [self.defaults synchronize];
 }
 
-+ (NSInteger *)subscriptionId {
++ (NSNumber *)subscriptionId {
     id objForK = [self.defaults objectForKey:kSubscriptionId];
-    NSInteger *value = (NSInteger *) [objForK intValue];
-    return value;
+    return [[NSNumber alloc] initWithInt:[objForK intValue]];
 }
 
-+ (void)setSubscriptionId:(NSInteger *)subscriptionId {
-    [self.defaults setObject:@((int) subscriptionId) forKey:kSubscriptionId];
++ (void)setSubscriptionId:(NSNumber *)subscriptionId {
+    [self.defaults setObject:subscriptionId forKey:kSubscriptionId];
     [self.defaults synchronize];
 }
 
@@ -83,9 +82,21 @@ NSUserDefaults *sharedDefaults = nil;
     [self.defaults synchronize];
 }
 
++ (NSString *)configurationString {
+    return [self.defaults stringForKey:kConfigurationString];
+}
+
++ (void)setConfigurationString:(NSString *)configurationString {
+    [self.defaults setObject:configurationString forKey:kConfigurationString];
+    [self.defaults synchronize];
+}
+
+
 + (NSUserDefaults *) defaults {
     if (sharedDefaults == nil) {
+#ifdef DEBUG
         NSLog(@"Init sharedDefaults");
+#endif
         sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:EVEHelpers.appGroupName];
     }
     

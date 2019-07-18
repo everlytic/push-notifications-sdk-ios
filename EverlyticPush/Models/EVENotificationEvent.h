@@ -10,15 +10,16 @@ typedef enum {
 
 @interface EVENotificationEvent : NSObject<EVEModel>
 
-- (instancetype) initWithType:(EVENotificationEventType)type notificationCenterId:(NSString *)nfcId subscriptionId:(unsigned long)subId messageId:(unsigned long)msgId metadata:(NSDictionary *)meta;
+- (instancetype)initWithType:(EVENotificationEventType)type notificationCenterId:(NSString *)nfcId subscriptionId:(NSNumber *)subId messageId:(NSNumber *)msgId metadata:(NSDictionary *)meta datetime:(NSDate *_Nullable)date;
 
 @property (strong, nonatomic) NSString *notification_center_id;
-@property (nonatomic) unsigned long subscription_id;
-@property (nonatomic) unsigned long message_id;
+@property (strong, nonatomic) NSNumber *subscription_id;
+@property (strong, nonatomic) NSNumber *message_id;
 @property (strong, nonatomic) NSDictionary *metadata;
 @property (strong, nonatomic) NSDate *datetime;
 @property (nonatomic) EVENotificationEventType type;
 
-- (NSString *) typeAsString;
++ (EVENotificationEventType)typeFromString:(NSString *)string;
++ (NSString *)typeAsString:(EVENotificationEventType)type;
 
 @end

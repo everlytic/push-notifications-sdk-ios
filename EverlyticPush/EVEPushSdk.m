@@ -8,8 +8,9 @@
 #import "EVEApi.h"
 #import "EVEApiSubscription.h"
 #import <objc/runtime.h>
-#import "EVESwizzleHelpers.h"
 #import "EVEUIApplicationDelegate.h"
+#import "EVENotificationEventsLog.h"
+#import "EVEDatabase.h"
 
 @import Firebase;
 
@@ -48,6 +49,7 @@
 
     self.http = [[EVEHttp alloc] initWithSdkConfiguration:self.sdkConfiguration];
     self.api = [[EVEApi alloc] initWithHttpInstance:self.http];
+
     return self;
 }
 
@@ -88,8 +90,14 @@
                         contactData:contact deviceData:deviceData];
 
     [self.api subscribeWithSubscriptionEvent:subscriptionEvent completionHandler:^(EVEApiSubscription *subscription, NSError *error) {
-        NSLog(@"subscription=%ld, error=%@", subscription.pns_id, error);
-        [EVEDefaults setSubscriptionId:(NSInteger *) subscription.pns_id];
+        NSLog(@"subscription=%@, error=%@", subscription.pns_id, error);
+        [EVEDefaults setSubscriptionId:subscription.pns_id];
+
+        if (completionHandler != nil) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+               // todo call the completionhandler
+            });
+        }
     }];
 }
 

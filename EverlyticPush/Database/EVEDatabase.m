@@ -72,7 +72,7 @@ static unsigned int openCount = 0;
 }
 
 + (void)upgradeDatabase:(FMDatabase *)db {
-    if ([EVEDefaults dbVersion] < (NSInteger *) 1) {
+    if ([EVEDefaults dbVersion] < @1) {
         [EVEDbContract initializeDatabase:db];
     }
 

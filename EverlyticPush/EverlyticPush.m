@@ -1,15 +1,17 @@
 #import "EverlyticPush.h"
 #import "EVEPushSdk.h"
+#import "EVEDefaults.h"
+
 @implementation EverlyticPush
 
 static EVEPushSdk *sdk;
 
-+ (id)initWithPushConfig:(NSString *)pushConfig {
++ (id)initWithPushConfig:(NSString *)configurationString {
 #if DEBUG
-    NSLog(@"init was called with config=%@", pushConfig);
+    NSLog(@"init was called with config=%@", configurationString);
 #endif
 
-    EVESdkConfiguration *configuration = [EVESdkConfiguration initFromConfigString:pushConfig];
+    EVESdkConfiguration *configuration = [EVESdkConfiguration initFromConfigString:configurationString];
 
 #if DEBUG
     NSLog(@"projectId=%@, url=%@", configuration.projectId, configuration.installUrl.absoluteString);
@@ -20,6 +22,8 @@ static EVEPushSdk *sdk;
         sdk = [[EVEPushSdk alloc] initWithConfiguration:configuration];
     });
 
+    [EVEDefaults setConfigurationString:configurationString];
+    
     return self;
 }
 

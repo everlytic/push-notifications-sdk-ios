@@ -12,7 +12,7 @@
 
 - (NSMutableURLRequest *)createPostRequestForURL:(NSURL *)subUrl bodyData:(NSData *)bodyData;
 
-- (void)performApiRequest:(NSMutableURLRequest *)request completionHandler:(void (^)(EVEApiResponse *_Nullable, NSError *_Nullable))completionHandler;
+- (NSURLSessionDataTask *)performApiRequest:(NSMutableURLRequest *)request completionHandler:(void (^)(EVEApiResponse *_Nullable, NSError *_Nullable))completionHandler;
 
 - (NSURL *)urlForPath:(NSString *)path;
 @end

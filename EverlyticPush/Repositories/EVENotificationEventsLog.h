@@ -9,7 +9,9 @@
 
 - (BOOL) insertNotificationEvent:(EVENotificationEvent *)event;
 
-- (NSArray<EVENotificationEvent *> *) allPendingEventsForType:(EVENotificationEventType *)type;
+- (NSArray<EVENotificationEvent *> *) pendingEventsForType:(EVENotificationEventType)type;
+- (NSArray<EVENotificationEvent *> *) pendingEvents;
 
-- (BOOL) removeNotificationEventById:(unsigned int)eventId;
+- (BOOL) removeNotificationEventById:(NSNumber *)eventId;
+- (BOOL) removeNotificationEventByNotificationCenterId:(NSString *)notificationCenterId;
 @end

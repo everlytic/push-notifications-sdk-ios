@@ -1,9 +1,9 @@
 #import <UIKit/UIKit.h>
-#import "EverlyticNotificationServiceExtentionHandler.h"
+#import "EverlyticNotificationServiceExtensionHandler.h"
 
 @interface EverlyticPush : NSObject
 
-+ (id _Nonnull)initWithPushConfig:(nonnull NSString *)pushConfig;
++ (id _Nonnull)initWithPushConfig:(nonnull NSString *)configurationString;
 
 + (void)promptForNotificationPermissionWithUserResponse:(void (^ _Nullable)(BOOL consentGranted))completionHandler;
 
