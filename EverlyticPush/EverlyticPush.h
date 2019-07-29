@@ -15,4 +15,6 @@
 + (BOOL)contactIsSubscribed;
 
 + (void)notificationHistoryWithCompletionListener:(void (^ _Nonnull)(NSArray<EverlyticNotification *> *_Nonnull))completionHandler;
+
++ (NSNumber *_Nonnull)notificationHistoryCount;
 @end

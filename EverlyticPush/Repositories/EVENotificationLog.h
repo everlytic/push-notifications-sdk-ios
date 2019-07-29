@@ -25,6 +25,7 @@
 - (bool)setNotificationByMessageId:(NSNumber *)messageId asDismissed:(bool)asDismissed;
 
 - (id)publicNotificationHistory;
+- (NSNumber *)publicNotificationHistoryCount;
 
 - (bool)clearNotificationHistory;
 

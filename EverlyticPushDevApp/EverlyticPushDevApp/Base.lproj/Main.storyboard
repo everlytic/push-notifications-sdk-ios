@@ -71,6 +71,7 @@
                     </view>
                     <connections>
                         <outlet property="emailAddress" destination="nuD-sk-4BB" id="ixv-TE-Y2e"/>
+                        <outlet property="notificationHistoryButton" destination="kJ4-HN-s1J" id="JKn-uz-yqc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

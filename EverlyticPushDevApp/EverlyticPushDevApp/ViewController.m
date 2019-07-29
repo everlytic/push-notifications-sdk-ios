@@ -10,15 +10,18 @@
 #import <EverlyticPush/EverlyticPush.h>
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet UITextView *textOutput;
 @property (weak, nonatomic) IBOutlet UITextField *emailAddress;
+@property (weak, nonatomic) IBOutlet UIButton *notificationHistoryButton;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    NSNumber *count = [EverlyticPush notificationHistoryCount];
+
+    [_notificationHistoryButton setTitle:[NSString stringWithFormat:@"Notification History (%@)", count] forState:UIControlStateNormal];
 }
 
 - (IBAction)subscribeUser:(id)sender {

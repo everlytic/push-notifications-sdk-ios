@@ -67,10 +67,19 @@ static EVEPushSdk *sdk;
 
     if (sdk == nil) {
         NSLog(@"Failed to retrieve notification history as the SDK is not initialized yet.");
-        return; // maybe we _should_ run the completion handler, and add an error output?
+        return; // todo maybe we _should_ run the completion handler, and add an error output?
     }
 
     [sdk publicNotificationHistoryWithCompletionHandler:completionHandler];
+}
+
++ (NSNumber *_Nonnull)notificationHistoryCount {
+    if (sdk == nil) {
+        NSLog(@"Failed to retrieve notification history as the SDK is not initialized yet.");
+        return @0;
+    }
+
+    return [sdk publicNotificationHistoryCount];
 }
 
 

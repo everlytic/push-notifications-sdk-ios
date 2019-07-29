@@ -159,4 +159,18 @@ const int kCustomAttributePrefix = '$';
     return params;
 }
 
+- (NSNumber *)publicNotificationHistoryCount {
+    id sql = @"SELECT count(message_id) from `notification_log`";
+
+    FMResultSet *results = [_database executeQuery:sql];
+
+    NSNumber *count = @0;
+
+    if ([results next]) {
+        count = @([results intForColumnIndex:0]);
+    }
+
+    return count;
+}
+
 @end

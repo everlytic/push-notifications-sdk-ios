@@ -60,8 +60,8 @@
         // iOS 10 or later
         // For iOS 10 display notification (sent via APNS)
         [UNUserNotificationCenter currentNotificationCenter].delegate = self;
-        UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert |
-                UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
+        UNAuthorizationOptions authOptions =
+                UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
 
         [[UNUserNotificationCenter currentNotificationCenter]
                 requestAuthorizationWithOptions:authOptions
@@ -69,7 +69,8 @@
                                   if (completionHandler != nil) {
                                       completionHandler(granted);
                                   }
-                              }];
+                              }
+        ];
     } else {
         // iOS 10 notifications aren't available; fall back to iOS 8-9 notifications.
         UIUserNotificationType allNotificationTypes =
@@ -97,7 +98,7 @@
 
         if (completionHandler != nil) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                // todo call the completionhandler
+                completionHandler(subscription != nil, error);
             });
         }
     }];
@@ -111,6 +112,17 @@
             completionHandler(notifications);
         });
     }];
+}
+
+- (NSNumber *_Nonnull)publicNotificationHistoryCount {
+    __block NSNumber *count = @0;
+
+    [EVEDatabase inDatabase:^(FMDatabase *database) {
+        EVENotificationLog *log = [[EVENotificationLog alloc] initWithDatabase:database];
+        count = [log publicNotificationHistoryCount];
+    }];
+
+    return count;
 }
 
 
