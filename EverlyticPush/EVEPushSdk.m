@@ -13,6 +13,8 @@
 #import "EVEDatabase.h"
 #import "EverlyticNotification.h"
 #import "EVENotificationLog.h"
+#import "EVEUnsubscribeEvent.h"
+#import "EVEApiResponse.h"
 
 @import Firebase;
 
@@ -67,7 +69,9 @@
                 requestAuthorizationWithOptions:authOptions
                               completionHandler:^(BOOL granted, NSError *_Nullable error) {
                                   if (completionHandler != nil) {
-                                      completionHandler(granted);
+                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                        completionHandler(granted);
+                                      });
                                   }
                               }
         ];
@@ -86,8 +90,8 @@
 
 - (void)subscribeUserWithEmailAddress:(NSString *)emailAddress completionHandler:(void (^)(BOOL, NSError *))completionHandler {
 
-    PMA_ContactData *contact = [[PMA_ContactData alloc] initWithEmail:emailAddress pushToken:EVEDefaults.fcmToken];
-    PMA_DeviceData *deviceData = [[PMA_DeviceData alloc] initWithId:EVEDefaults.deviceId];
+    EVE_ContactData *contact = [[EVE_ContactData alloc] initWithEmail:emailAddress pushToken:EVEDefaults.fcmToken];
+    EVE_DeviceData *deviceData = [[EVE_DeviceData alloc] initWithId:EVEDefaults.deviceId];
     EVESubscriptionEvent *subscriptionEvent = [[EVESubscriptionEvent alloc]
             initWithPushProjectUuid:self.sdkConfiguration.projectId
                         contactData:contact deviceData:deviceData];
@@ -103,6 +107,21 @@
         }
     }];
 }
+
+- (void)unsubscribeUserWithCompletionHandler:(void (^ _Nullable)(BOOL))completionHandler {
+    id subId = [EVEDefaults subscriptionId];
+    id devId = [EVEDefaults deviceId];
+    id event = [[EVEUnsubscribeEvent alloc] initWithSubscriptionId:subId deviceId:devId];
+
+    [self.api unsubscribeWithUnsubscribeEvent:event completionHandler:^(EVEApiResponse *response, NSError *error) {
+        if (completionHandler != nil) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler(response.isSuccessful);
+            });
+        }
+    }];
+}
+
 
 - (void)publicNotificationHistoryWithCompletionHandler:(void (^ _Nonnull)(NSArray<EverlyticNotification *> *_Nonnull))completionHandler {
     [EVEDatabase inDatabase:^(FMDatabase *database) {
@@ -124,7 +143,6 @@
 
     return count;
 }
-
 
 - (UIApplication *)application {
     return [UIApplication sharedApplication];

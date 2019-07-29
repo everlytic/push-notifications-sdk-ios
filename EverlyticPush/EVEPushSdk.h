@@ -11,6 +11,8 @@
 
 - (void)subscribeUserWithEmailAddress:(NSString *_Nonnull)emailAddress completionHandler:(void (^ _Nullable)(BOOL, NSError *_Nullable))completionHandler;
 
+- (void)unsubscribeUserWithCompletionHandler:(void(^_Nullable)(BOOL))completionHandler;
+
 - (void)publicNotificationHistoryWithCompletionHandler:(void (^_Nonnull)(NSArray<EverlyticNotification *> *_Nonnull))completionHandler;
 
 - (NSNumber *_Nonnull)publicNotificationHistoryCount;

@@ -43,27 +43,40 @@
                                     <action selector="subscribeUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fXl-q2-1lX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJ4-HN-s1J">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJ4-HN-s1J">
                                 <rect key="frame" x="20" y="257" width="374" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Notification History"/>
                                 <connections>
                                     <action selector="notificationHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LHb-yR-Foc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QY-fH-h0Y">
+                                <rect key="frame" x="20" y="316" width="374" height="30"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="Unsubscribe"/>
+                                <connections>
+                                    <action selector="unsubscribeContact:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ug2-3b-P8h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4QY-fH-h0Y" secondAttribute="trailing" constant="20" id="BxH-ag-SLk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gnb-OV-Ld0" secondAttribute="trailing" constant="20" id="JF5-aZ-905"/>
                             <constraint firstItem="MSC-Kp-QHw" firstAttribute="top" secondItem="K5n-kx-YxE" secondAttribute="bottom" constant="56" id="MXL-0F-p4n"/>
                             <constraint firstItem="gnb-OV-Ld0" firstAttribute="top" secondItem="nuD-sk-4BB" secondAttribute="bottom" constant="8" symbolic="YES" id="NIw-Gq-mGm"/>
+                            <constraint firstItem="4QY-fH-h0Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="NZF-hM-WoN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="K5n-kx-YxE" secondAttribute="trailing" constant="8" id="VTO-Ne-zM1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nuD-sk-4BB" secondAttribute="trailing" constant="16" id="aMi-FW-Lx3"/>
                             <constraint firstItem="gnb-OV-Ld0" firstAttribute="leading" secondItem="nuD-sk-4BB" secondAttribute="leading" id="dgN-oC-poC"/>
+                            <constraint firstItem="kJ4-HN-s1J" firstAttribute="top" secondItem="gnb-OV-Ld0" secondAttribute="bottom" constant="20" id="dim-IX-QNO"/>
                             <constraint firstItem="nuD-sk-4BB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="gDU-u7-2Kx"/>
                             <constraint firstItem="gnb-OV-Ld0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hty-pC-khy"/>
                             <constraint firstItem="K5n-kx-YxE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="jvn-fB-lk5"/>
                             <constraint firstItem="K5n-kx-YxE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="myM-Sx-vU5"/>
+                            <constraint firstItem="kJ4-HN-s1J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="n3h-oC-h0a"/>
+                            <constraint firstItem="4QY-fH-h0Y" firstAttribute="top" secondItem="kJ4-HN-s1J" secondAttribute="bottom" constant="29" id="qwo-UO-bnb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kJ4-HN-s1J" secondAttribute="trailing" constant="20" id="t99-Hn-ePl"/>
                             <constraint firstItem="nuD-sk-4BB" firstAttribute="top" secondItem="MSC-Kp-QHw" secondAttribute="bottom" constant="8" id="teo-ol-hcs"/>
                             <constraint firstItem="MSC-Kp-QHw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="wZu-HV-1n6"/>
                         </constraints>

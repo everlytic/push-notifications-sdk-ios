@@ -55,7 +55,10 @@ static EVEPushSdk *sdk;
         return;
     }
 
-    @throw [NSException exceptionWithName:@"NotImplementedException" reason:@"Not implemented yet" userInfo:nil];
+    [sdk unsubscribeUserWithCompletionHandler:^(BOOL i) {
+        if (handler != nil)
+            handler(i, nil);
+    }];
 }
 
 + (BOOL)contactIsSubscribed {

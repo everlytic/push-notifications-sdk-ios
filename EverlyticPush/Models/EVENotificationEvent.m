@@ -7,7 +7,6 @@
 
 - (nonnull NSDictionary *)serializeAsDictionary {
     return @{
-            @"ios_notification_center_id": self.notification_center_id,
             @"subscription_id": self.subscription_id,
             @"message_id": self.message_id,
             @"metadata": self.metadata,
@@ -16,7 +15,8 @@
     };
 }
 
-- (instancetype)initWithType:(EVENotificationEventType)type notificationCenterId:(NSString *)nfcId subscriptionId:(NSNumber *)subId messageId:(NSNumber *)msgId metadata:(NSDictionary *)meta datetime:(NSDate *_Nullable)date {
+- (instancetype)initWithId:(NSNumber *)id type:(EVENotificationEventType)type notificationCenterId:(NSString *)nfcId subscriptionId:(NSNumber *)subId messageId:(NSNumber *)msgId metadata:(NSDictionary *)meta datetime:(NSDate *_Nullable)date {
+    self.id = id;
     self.type = type;
     self.notification_center_id = nfcId;
     self.message_id = msgId;

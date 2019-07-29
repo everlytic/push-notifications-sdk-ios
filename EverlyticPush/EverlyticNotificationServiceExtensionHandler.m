@@ -68,12 +68,13 @@
 
 + (EVENotificationEvent *)eventForNotificationRequest:(UNNotificationRequest *)request {
     EVENotificationEvent *event = [[EVENotificationEvent alloc]
-            initWithType:DELIVERY
-    notificationCenterId:request.identifier
-          subscriptionId:EVEDefaults.subscriptionId
-               messageId:[[NSNumber alloc] initWithInt:[request.content.userInfo[@"message_id"] intValue]]
-                metadata:@{}
-                datetime:nil
+            initWithId:nil
+                  type:DELIVERY
+  notificationCenterId:request.identifier
+        subscriptionId:EVEDefaults.subscriptionId
+             messageId:[[NSNumber alloc] initWithInt:[request.content.userInfo[@"message_id"] intValue]]
+              metadata:@{}
+              datetime:nil
     ];
     return event;
 }

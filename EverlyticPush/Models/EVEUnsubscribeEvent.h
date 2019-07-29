@@ -4,6 +4,8 @@
 
 @interface EVEUnsubscribeEvent : NSObject<EVEModel>
 
+- (instancetype)initWithSubscriptionId:(NSNumber *)subscriptionId deviceId:(NSString *)deviceId;
+
 @property (strong, nonatomic) NSNumber *subscription_id;
 @property (strong, nonatomic) NSString *device_id;
 @property (strong, nonatomic) NSDate *datetime;

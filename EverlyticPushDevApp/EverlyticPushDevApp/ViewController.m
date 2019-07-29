@@ -10,8 +10,8 @@
 #import <EverlyticPush/EverlyticPush.h>
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *emailAddress;
-@property (weak, nonatomic) IBOutlet UIButton *notificationHistoryButton;
+@property(weak, nonatomic) IBOutlet UITextField *emailAddress;
+@property(weak, nonatomic) IBOutlet UIButton *notificationHistoryButton;
 @end
 
 @implementation ViewController
@@ -25,8 +25,22 @@
 }
 
 - (IBAction)subscribeUser:(id)sender {
-    [EverlyticPush subscribeUserWithEmail:_emailAddress.text completionHandler:nil];
-    
+    [EverlyticPush subscribeUserWithEmail:_emailAddress.text completionHandler:^(BOOL subscriptionSuccess, NSError *error) {
+        UIAlertController *alert = [UIAlertController
+                alertControllerWithTitle:@"Subscribed"
+                                 message:subscriptionSuccess ? @"Contact subscribed successfully!" : @"Failed to subscribe contact."
+                          preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction *okButton = [UIAlertAction
+                actionWithTitle:@"Done"
+                          style:UIAlertActionStyleDefault
+                        handler:nil];
+
+        [alert addAction:okButton];
+
+        [self presentViewController:alert animated:YES completion:nil];
+    }];
+
     [self.view endEditing:YES];
 }
 
@@ -41,6 +55,25 @@
             NSLog(@"[SANDBOX APP][HISTORY] %@", notification);
         }
     }];
+}
+
+- (IBAction)unsubscribeContact:(id)sender {
+    [EverlyticPush unsubscribeUserWithCompletionHandler:^(BOOL subscriptionSuccess, NSError *error) {
+        UIAlertController *alert = [UIAlertController
+                alertControllerWithTitle:@"Unsubscribe"
+                                 message:(subscriptionSuccess ? @"Contact unsubscribed successfully!" : @"Failed to unsubscribe contact")
+                          preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction *okButton = [UIAlertAction
+                actionWithTitle:@"Done"
+                          style:UIAlertActionStyleDefault
+                        handler:nil];
+
+        [alert addAction:okButton];
+
+        [self presentViewController:alert animated:YES completion:nil];
+    }];
+
 }
 
 @end

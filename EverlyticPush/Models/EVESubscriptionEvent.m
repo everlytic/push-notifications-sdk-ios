@@ -4,9 +4,9 @@
 #import "EVEHelpers.h"
 #import "NSDate+EVEDateFormatter.h"
 
-@implementation PMA_ContactData
+@implementation EVE_ContactData
 
-- (PMA_ContactData *)initWithEmail:(NSString *)email pushToken:(NSString *)pushToken {
+- (EVE_ContactData *)initWithEmail:(NSString *)email pushToken:(NSString *)pushToken {
     self.email = email;
     self.pushToken = pushToken;
     return self;
@@ -31,8 +31,8 @@
 
 @end
 
-@implementation PMA_DeviceData
-- (PMA_DeviceData *)initWithId:(NSString *)deviceId {
+@implementation EVE_DeviceData
+- (EVE_DeviceData *)initWithId:(NSString *)deviceId {
     self.id = deviceId;
     self.manufacturer = @"Apple";
     self.model = [[UIDevice currentDevice] model];
@@ -68,9 +68,9 @@
 
 @end
 
-@implementation PMA_PlatformData
+@implementation EVE_PlatformData
 
-- (PMA_PlatformData *)init {
+- (EVE_PlatformData *)init {
     self.type = @"ios";
     self.version = [[UIDevice currentDevice] systemVersion];
     return self;
@@ -92,11 +92,11 @@
 
 @implementation EVESubscriptionEvent
 
-- (EVESubscriptionEvent *)initWithPushProjectUuid:(NSString *)projectUuid contactData:(PMA_ContactData *)contactData deviceData:(PMA_DeviceData *)deviceData {
+- (EVESubscriptionEvent *)initWithPushProjectUuid:(NSString *)projectUuid contactData:(EVE_ContactData *)contactData deviceData:(EVE_DeviceData *)deviceData {
     self.pushProjectUuid = projectUuid;
     self.contact = contactData;
     self.device = deviceData;
-    self.platform = [[PMA_PlatformData alloc] init];
+    self.platform = [[EVE_PlatformData alloc] init];
 
     return self;
 }

@@ -40,12 +40,13 @@
         if (application.applicationState == UIApplicationStateInactive) {
             EVENotificationEventsLog *eventsLog = [[EVENotificationEventsLog alloc] initWithDatabase:database];
             EVENotificationEvent *event = [[EVENotificationEvent alloc]
-                    initWithType:CLICK
-            notificationCenterId:nil
-                  subscriptionId:[EVEDefaults subscriptionId]
-                       messageId:messageId
-                        metadata:@{}
-                        datetime:nil
+                    initWithId:nil
+                          type:CLICK
+          notificationCenterId:nil
+                subscriptionId:[EVEDefaults subscriptionId]
+                     messageId:messageId
+                      metadata:@{}
+                      datetime:nil
             ];
 
             [eventsLog insertNotificationEvent:event];
@@ -92,14 +93,16 @@
 
             for (EVENotificationEvent *event in events) {
 #ifdef DEBUG
-                NSLog(@"Uploading event %@ type=%@", event.notification_center_id, [EVENotificationEvent typeAsString:event.type]);
+                NSLog(@"Uploading event %@ type=%@", event.id, [EVENotificationEvent typeAsString:event.type]);
 #endif
 
                 void (^ const removeEvent)(EVEApiResponse *, NSError *) = ^(EVEApiResponse *response, NSError *error) {
                     if (error == nil) {
-                        NSLog(@"Successfully uploaded event(%@), removing from log", event.notification_center_id);
-                        BOOL success = [eventsLog removeNotificationEventByNotificationCenterId:event.notification_center_id];
-                        NSLog(@"Remove success: %d", success);
+                        NSLog(@"Successfully uploaded event(%@), removing from log", event.id);
+                        [EVEDatabase inDatabase:^(FMDatabase *db) {
+                            BOOL success = [[[EVENotificationEventsLog alloc] initWithDatabase:db] removeNotificationEventById:event.id];
+                            NSLog(@"Remove success: %d", success);
+                        }];
                     }
 
                     NSLog(@"Error: %@", error);

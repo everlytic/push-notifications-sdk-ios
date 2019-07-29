@@ -25,7 +25,7 @@ NSString *const kLogDatetime = @"datetime";
 + (NSString *)createTableStatement {
     return [NSString stringWithFormat:@"CREATE TABLE `%@` ("
                                       @"  `%@` INTEGER PRIMARY KEY AUTOINCREMENT,"
-                                      @"  `%@` TEXT NOT NULL,"
+                                      @"  `%@` TEXT,"
                                       @"  `%@` TEXT NOT NULL,"
                                       @"  `%@` INTEGER NOT NULL,"
                                       @"  `%@` INTEGER NOT NULL,"
@@ -43,7 +43,7 @@ NSString *const kLogDatetime = @"datetime";
                                       kLogDeviceId,
                                       kLogMetadata,
                                       kLogDatetime,
-                                      // unq index vars
+            // unq index vars
                                       kLogTableName,
                                       kLogMessageId,
                                       kLogEventType
@@ -116,12 +116,13 @@ NSString *const kLogDatetime = @"datetime";
     NSMutableArray<EVENotificationEvent *> *events = [[NSMutableArray alloc] init];
     while ([result next]) {
         EVENotificationEvent *const e = [[EVENotificationEvent alloc]
-                initWithType:[EVENotificationEvent typeFromString:[result stringForColumn:kLogEventType]]
-        notificationCenterId:[result stringForColumn:kLogIosNotificationCenterId]
-              subscriptionId:@([result intForColumn:kLogSubscriptionId])
-                   messageId:@([result intForColumn:kLogMessageId])
-                    metadata:[EVEHelpers decodeJSONFromString:[result stringForColumn:kLogMetadata]]
-                    datetime:[[EVEHelpers iso8601DateFormatter] dateFromString:[result stringForColumn:kLogDatetime]]
+                initWithId:@([result intForColumn:kLogId])
+                      type:[EVENotificationEvent typeFromString:[result stringForColumn:kLogEventType]]
+      notificationCenterId:[result stringForColumn:kLogIosNotificationCenterId]
+            subscriptionId:@([result intForColumn:kLogSubscriptionId])
+                 messageId:@([result intForColumn:kLogMessageId])
+                  metadata:[EVEHelpers decodeJSONFromString:[result stringForColumn:kLogMetadata]]
+                  datetime:[[EVEHelpers iso8601DateFormatter] dateFromString:[result stringForColumn:kLogDatetime]]
         ];
 
         [events addObject:e];
@@ -134,7 +135,8 @@ NSString *const kLogDatetime = @"datetime";
 
 
 - (BOOL)removeNotificationEventById:(NSNumber *)eventId {
-    return 0;
+    id sql = @"DELETE FROM `notification_events_log` WHERE `_id` = ?";
+    return [self.database executeUpdate:sql, eventId];
 }
 
 - (BOOL)removeNotificationEventByNotificationCenterId:(NSString *)notificationCenterId {

@@ -11,7 +11,7 @@
     self.status = status;
     self.data = data;
 
-    self.isSuccessful = (BOOL *) ![self.status isEqualToString:@"error"];
+    self.isSuccessful = ![self.status isEqualToString:@"error"];
 
     return self;
 }
