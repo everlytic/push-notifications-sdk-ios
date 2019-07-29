@@ -1,4 +1,5 @@
 #import <UIKit/UIKit.h>
+#import "EverlyticNotification.h"
 #import "EverlyticNotificationServiceExtensionHandler.h"
 
 @interface EverlyticPush : NSObject
@@ -13,5 +14,5 @@
 
 + (BOOL)contactIsSubscribed;
 
-+ (void)fetchNotificationHistoryWithCompletionListener:(void (^ _Nonnull)(void))completionHandler;
++ (void)notificationHistoryWithCompletionListener:(void (^ _Nonnull)(NSArray<EverlyticNotification *> *_Nonnull))completionHandler;
 @end

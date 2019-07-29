@@ -54,6 +54,8 @@ static unsigned int openCount = 0;
     [[self queue] inDatabase:^(FMDatabase *db) {
         [self upgradeDatabase:db];
         block(db);
+        [db closeOpenResultSets];
+        [db close];
     }];
 }
 
@@ -72,7 +74,10 @@ static unsigned int openCount = 0;
 }
 
 + (void)upgradeDatabase:(FMDatabase *)db {
-    if ([EVEDefaults dbVersion] < @1) {
+    id dbVersion = [EVEDefaults dbVersion];
+    NSLog(@"DB Version=%@ compared=%d", dbVersion, [dbVersion compare:@1]);
+    if ([@1 compare:dbVersion] == NSOrderedDescending) {
+        NSLog(@"Initializing database");
         [EVEDbContract initializeDatabase:db];
     }
 

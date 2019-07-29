@@ -11,6 +11,8 @@
 #import "EVEUIApplicationDelegate.h"
 #import "EVENotificationEventsLog.h"
 #import "EVEDatabase.h"
+#import "EverlyticNotification.h"
+#import "EVENotificationLog.h"
 
 @import Firebase;
 
@@ -95,11 +97,22 @@
 
         if (completionHandler != nil) {
             dispatch_async(dispatch_get_main_queue(), ^{
-               // todo call the completionhandler
+                // todo call the completionhandler
             });
         }
     }];
 }
+
+- (void)publicNotificationHistoryWithCompletionHandler:(void (^ _Nonnull)(NSArray<EverlyticNotification *> *_Nonnull))completionHandler {
+    [EVEDatabase inDatabase:^(FMDatabase *database) {
+        EVENotificationLog *log = [[EVENotificationLog alloc] initWithDatabase:database];
+        id notifications = [log publicNotificationHistory];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionHandler(notifications);
+        });
+    }];
+}
+
 
 - (UIApplication *)application {
     return [UIApplication sharedApplication];

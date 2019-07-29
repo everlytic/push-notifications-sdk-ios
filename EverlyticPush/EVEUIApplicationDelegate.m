@@ -7,10 +7,9 @@
 #import "EVEApi.h"
 #import "EVEHttp.h"
 #import "EVEDefaults.h"
-
+#import "EVENotificationLog.h"
 
 @implementation EVEUIApplicationDelegate
-
 #pragma mark - Method Swizzles
 
 + (void)swizzleApplicationDelegate {
@@ -27,7 +26,6 @@
     );
 
     injectIntoClassHierarchy(@selector(everlytic_applicationDidBecomeActive:), @selector(applicationDidBecomeActive:), delegateSubclasses, [self class], delegateClass);
-
     injectIntoClassHierarchy(@selector(everlytic_applicationWillResignActive:), @selector(applicationWillResignActive:), delegateSubclasses, [self class], delegateClass);
 }
 
@@ -35,7 +33,41 @@
  didReceiveRemoteNotification:(NSDictionary *)userInfo
        fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
 
-    // todo handle foreground & background notifications
+    [EVEDatabase inDatabase:^(FMDatabase *database) {
+        EVENotificationLog *log = [[EVENotificationLog alloc] initWithDatabase:database];
+        NSNumber *const messageId = @([userInfo[@"message_id"] intValue]);
+
+        if (application.applicationState == UIApplicationStateInactive) {
+            EVENotificationEventsLog *eventsLog = [[EVENotificationEventsLog alloc] initWithDatabase:database];
+            EVENotificationEvent *event = [[EVENotificationEvent alloc]
+                    initWithType:CLICK
+            notificationCenterId:nil
+                  subscriptionId:[EVEDefaults subscriptionId]
+                       messageId:messageId
+                        metadata:@{}
+                        datetime:nil
+            ];
+
+            [eventsLog insertNotificationEvent:event];
+            [log setNotificationByMessageId:messageId asRead:true];
+        } else if (application.applicationState == UIApplicationStateBackground || application.applicationState == UIApplicationStateActive) {
+
+            [log insertNotificationWithMessageId:messageId
+                                  subscriptionId:[EVEDefaults subscriptionId]
+                                       contactId:[EVEDefaults contactId]
+                                           title:userInfo[@"title"]
+                                            body:userInfo[@"body"]
+                                        metadata:@{}
+                                         actions:[EVENotificationLog decodeActions:userInfo]
+                                customParameters:[EVENotificationLog decodeCustomParameters:userInfo]
+                                         groupId:@0
+                                      receivedAt:[NSDate date]
+                                          readAt:nil
+                                     dismissedAt:nil
+            ];
+        }
+
+    }];
 
     NSLog(@"didReceiveRemoteNotification:%@", userInfo);
 

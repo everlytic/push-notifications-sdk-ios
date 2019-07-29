@@ -5,12 +5,12 @@
 
 @property (atomic) NSString *deviceId;
 @property (atomic) NSString *fcmToken;
-@property (atomic) NSInteger *contactId;
+@property (atomic) NSNumber *contactId;
 @property (atomic) NSString *contactEmail;
-@property (atomic) NSInteger *subscriptionId;
+@property (atomic) NSNumber *subscriptionId;
 @property (atomic) NSString *updatedFcmToken;
-@property (atomic) NSInteger *dbVersion;
-@property (atomic) NSInteger *configurationString;
+@property (atomic) NSNumber *dbVersion;
+@property (atomic) NSNumber *configurationString;
 
 + (NSString *) deviceId;
 + (NSString *) fcmToken;

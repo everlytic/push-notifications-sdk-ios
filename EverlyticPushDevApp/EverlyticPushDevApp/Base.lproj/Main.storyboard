@@ -37,42 +37,40 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnb-OV-Ld0">
-                                <rect key="frame" x="16" y="207" width="69" height="30"/>
+                                <rect key="frame" x="16" y="207" width="378" height="30"/>
                                 <state key="normal" title="Subscribe"/>
                                 <connections>
                                     <action selector="subscribeUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fXl-q2-1lX"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4EV-6R-PDp">
-                                <rect key="frame" x="16" y="290" width="378" height="572"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJ4-HN-s1J">
+                                <rect key="frame" x="20" y="257" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Notification History"/>
+                                <connections>
+                                    <action selector="notificationHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LHb-yR-Foc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gnb-OV-Ld0" secondAttribute="trailing" constant="20" id="JF5-aZ-905"/>
                             <constraint firstItem="MSC-Kp-QHw" firstAttribute="top" secondItem="K5n-kx-YxE" secondAttribute="bottom" constant="56" id="MXL-0F-p4n"/>
                             <constraint firstItem="gnb-OV-Ld0" firstAttribute="top" secondItem="nuD-sk-4BB" secondAttribute="bottom" constant="8" symbolic="YES" id="NIw-Gq-mGm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="K5n-kx-YxE" secondAttribute="trailing" constant="8" id="VTO-Ne-zM1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nuD-sk-4BB" secondAttribute="trailing" constant="16" id="aMi-FW-Lx3"/>
                             <constraint firstItem="gnb-OV-Ld0" firstAttribute="leading" secondItem="nuD-sk-4BB" secondAttribute="leading" id="dgN-oC-poC"/>
                             <constraint firstItem="nuD-sk-4BB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="gDU-u7-2Kx"/>
-                            <constraint firstItem="4EV-6R-PDp" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="j52-is-fRL"/>
+                            <constraint firstItem="gnb-OV-Ld0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hty-pC-khy"/>
                             <constraint firstItem="K5n-kx-YxE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="jvn-fB-lk5"/>
-                            <constraint firstItem="4EV-6R-PDp" firstAttribute="top" secondItem="gnb-OV-Ld0" secondAttribute="bottom" constant="53" id="ksG-7h-fDw"/>
                             <constraint firstItem="K5n-kx-YxE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="myM-Sx-vU5"/>
-                            <constraint firstItem="4EV-6R-PDp" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="oaM-xr-2NS"/>
                             <constraint firstItem="nuD-sk-4BB" firstAttribute="top" secondItem="MSC-Kp-QHw" secondAttribute="bottom" constant="8" id="teo-ol-hcs"/>
-                            <constraint firstItem="4EV-6R-PDp" firstAttribute="leading" secondItem="gnb-OV-Ld0" secondAttribute="leading" id="vAG-3P-6BJ"/>
                             <constraint firstItem="MSC-Kp-QHw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="wZu-HV-1n6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="emailAddress" destination="nuD-sk-4BB" id="ixv-TE-Y2e"/>
-                        <outlet property="textOutput" destination="4EV-6R-PDp" id="VJx-Mh-URH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

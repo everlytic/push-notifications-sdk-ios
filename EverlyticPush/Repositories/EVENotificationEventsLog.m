@@ -32,7 +32,8 @@ NSString *const kLogDatetime = @"datetime";
                                       @"  `%@` TEXT NOT NULL,"
                                       @"  `%@` TEXT NOT NULL DEFAULT '{}',"
                                       @"  `%@` TEXT NOT NULL"
-                                      @");",
+                                      @"); "
+                                      @"CREATE UNIQUE INDEX `idx_unq_message_id_event_type` on `%@` (`%@`, `%@`)",
                                       kLogTableName,
                                       kLogId,
                                       kLogIosNotificationCenterId,
@@ -41,7 +42,11 @@ NSString *const kLogDatetime = @"datetime";
                                       kLogMessageId,
                                       kLogDeviceId,
                                       kLogMetadata,
-                                      kLogDatetime
+                                      kLogDatetime,
+                                      // unq index vars
+                                      kLogTableName,
+                                      kLogMessageId,
+                                      kLogEventType
     ];
 }
 
@@ -50,7 +55,7 @@ NSString *const kLogDatetime = @"datetime";
 }
 
 - (BOOL)insertNotificationEvent:(EVENotificationEvent *)event {
-    id sql = [NSString stringWithFormat:@"INSERT INTO `%@` ("
+    id sql = [NSString stringWithFormat:@"INSERT or REPLACE INTO `%@` ("
                                         @"  `%@`,"
                                         @"  `%@`,"
                                         @"  `%@`,"
@@ -136,6 +141,5 @@ NSString *const kLogDatetime = @"datetime";
     id sql = @"DELETE FROM `notification_events_log` WHERE `ios_notification_center_id` = ?";
     return [self.database executeUpdate:sql, notificationCenterId];
 }
-
 
 @end

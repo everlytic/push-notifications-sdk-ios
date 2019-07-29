@@ -63,8 +63,14 @@ static EVEPushSdk *sdk;
     return NO;
 }
 
-+ (void)fetchNotificationHistoryWithCompletionListener:(void (^ _Nonnull)(void))completionHandler {
-    @throw [NSException exceptionWithName:@"NotImplementedException" reason:@"Not implemented yet" userInfo:nil];
++ (void)notificationHistoryWithCompletionListener:(void (^)(NSArray<EverlyticNotification *> *))completionHandler {
+
+    if (sdk == nil) {
+        NSLog(@"Failed to retrieve notification history as the SDK is not initialized yet.");
+        return; // maybe we _should_ run the completion handler, and add an error output?
+    }
+
+    [sdk publicNotificationHistoryWithCompletionHandler:completionHandler];
 }
 
 

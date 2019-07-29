@@ -27,4 +27,17 @@
     [self.view endEditing:YES];
 }
 
+- (IBAction)notificationHistory:(id)sender {
+    [EverlyticPush notificationHistoryWithCompletionListener:^(NSArray<EverlyticNotification *> *notifications) {
+
+        if ([notifications count] < 1) {
+            NSLog(@"[SANDBOX APP][HISTORY] Notification history is empty");
+        }
+
+        for (EverlyticNotification *notification in notifications) {
+            NSLog(@"[SANDBOX APP][HISTORY] %@", notification);
+        }
+    }];
+}
+
 @end

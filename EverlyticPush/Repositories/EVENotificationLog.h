@@ -7,13 +7,28 @@
 
 @interface EVENotificationLog : EVEDbRepository
 
-- (bool) insertNotification:(UNNotification *)notification subscriptionId:(long)subscriptionId contactId:(long)contactId;
+- (bool)insertNotificationWithMessageId:(NSNumber *_Nonnull)messageId
+                         subscriptionId:(NSNumber *_Nonnull)subscriptionId
+                              contactId:(NSNumber *_Nonnull)contactId
+                                  title:(NSString *_Nullable)title
+                                   body:(NSString *_Nonnull)body
+                               metadata:(NSDictionary *_Nullable)metadata
+                                actions:(NSDictionary *_Nullable)actions
+                       customParameters:(NSDictionary *_Nullable)customParameters
+                                groupId:(NSNumber *_Nonnull)groupId
+                             receivedAt:(NSDate *_Nullable)receivedAt
+                                 readAt:(NSDate *_Nullable)readAt
+                            dismissedAt:(NSDate *_Nullable)dismissedAt;
 
-- (bool) setNotificationById:(unsigned int)notificationId asRead:(bool)asRead;
+- (bool)setNotificationByMessageId:(NSNumber *_Nonnull)messageId asRead:(bool)asRead;
 
-- (bool) setNotificationById:(unsigned int)notificationId asDismissed:(bool)asDismissed;
+- (bool)setNotificationByMessageId:(NSNumber *)messageId asDismissed:(bool)asDismissed;
 
-- (id) publicNotificationHistory;
+- (id)publicNotificationHistory;
 
-- (bool) clearNotificationHistory;
+- (bool)clearNotificationHistory;
+
++ (NSDictionary *)decodeActions:(NSDictionary *)dictionary;
+
++ (NSDictionary *)decodeCustomParameters:(NSDictionary *)dictionary;
 @end

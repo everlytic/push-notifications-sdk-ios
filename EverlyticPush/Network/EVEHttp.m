@@ -56,7 +56,7 @@ NSString *const basePath = @"/servlet/";
                 if (completionHandler != nil) {
                     EVEApiResponse *apiResponse = nil;
 #ifdef DEBUG
-                    NSLog(@"response=%@, error=%@", response, error);
+                    NSLog(@"response=%@, error=%@", response, error != nil ? error : NO);
 #endif
                     if (error == nil) {
                         NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -70,6 +70,7 @@ NSString *const basePath = @"/servlet/";
                 }
             }];
 
+    [task setPriority:0.1f];
     [task resume];
     return task;
 }

@@ -21,13 +21,13 @@ static unsigned short version = 1;
 
     id migrationSqlStatements = [self createMigrationStatementsFromSets:migrationSets];
 
-    unsigned int oldVersion = [EVEDefaults dbVersion];
+    NSNumber *oldVersion = [EVEDefaults dbVersion];
 
-    for (oldVersion; oldVersion < version; ++oldVersion) {
-        for (NSString *statement in migrationSqlStatements[@(oldVersion)]) {
+    for (int i = [oldVersion intValue]; i < version; ++i) {
+        for (NSString *statement in migrationSqlStatements[@(i)]) {
             [database executeUpdate:statement];
         }
-        [EVEDefaults setDbVersion:@(oldVersion + 1)];
+        [EVEDefaults setDbVersion:@(i + 1)];
     }
 
     [EVEDefaults setDbVersion:@(version)];
