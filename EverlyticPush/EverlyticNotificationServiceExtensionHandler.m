@@ -81,8 +81,8 @@
 
 + (void)applyNotificationContent:(UNNotificationRequest *)request toMutableNotificationContent:(UNMutableNotificationContent *)notificationContent {
     notificationContent.title = request.content.userInfo[@"title"];
-    notificationContent.body = [NSString stringWithFormat:@"deviceId=%@\ndbVersion=%@", EVEDefaults.deviceId, EVEDefaults.dbVersion];
-//    notificationContent.sound = [UNNotificationSound defaultSound];
+    notificationContent.body = request.content.userInfo[@"body"];
+    notificationContent.sound = [UNNotificationSound defaultSound];
 }
 
 @end
