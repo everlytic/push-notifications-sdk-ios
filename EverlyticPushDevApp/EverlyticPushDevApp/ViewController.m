@@ -25,23 +25,26 @@
 }
 
 - (IBAction)subscribeUser:(id)sender {
-    [EverlyticPush subscribeUserWithEmail:_emailAddress.text completionHandler:^(BOOL subscriptionSuccess, NSError *error) {
-        UIAlertController *alert = [UIAlertController
-                alertControllerWithTitle:@"Subscribed"
-                                 message:subscriptionSuccess ? @"Contact subscribed successfully!" : @"Failed to subscribe contact."
-                          preferredStyle:UIAlertControllerStyleAlert];
+    [EverlyticPush promptForNotificationPermissionWithUserResponse:^(BOOL consentGranted) {
+//        if (consentGranted) {
+            [EverlyticPush subscribeUserWithEmail:_emailAddress.text completionHandler:^(BOOL subscriptionSuccess, NSError *error) {
+                UIAlertController *alert = [UIAlertController
+                        alertControllerWithTitle:@"Subscribed"
+                                         message:subscriptionSuccess ? @"Contact subscribed successfully!" : @"Failed to subscribe contact."
+                                  preferredStyle:UIAlertControllerStyleAlert];
 
-        UIAlertAction *okButton = [UIAlertAction
-                actionWithTitle:@"Done"
-                          style:UIAlertActionStyleDefault
-                        handler:nil];
+                UIAlertAction *okButton = [UIAlertAction
+                        actionWithTitle:@"Done"
+                                  style:UIAlertActionStyleDefault
+                                handler:nil];
 
-        [alert addAction:okButton];
+                [alert addAction:okButton];
 
-        [self presentViewController:alert animated:YES completion:nil];
+                [self presentViewController:alert animated:YES completion:nil];
+            }];
+//        }
+        [self.view endEditing:YES];
     }];
-
-    [self.view endEditing:YES];
 }
 
 - (IBAction)notificationHistory:(id)sender {

@@ -70,5 +70,14 @@
     return nil;
 }
 
+- (NSString *)description {
+    NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
+
+    [description appendFormat:@"event=%@", [self serializeAsJson]];
+
+    [description appendString:@">"];
+    return description;
+}
+
 
 @end

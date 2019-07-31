@@ -15,16 +15,19 @@
 #import "EVENotificationLog.h"
 #import "EVEUnsubscribeEvent.h"
 #import "EVEApiResponse.h"
+#import "EVENotificationSystemSettings.h"
+#import "EVEHelpers.h"
+#import "EVENotificationSystemSettings10.h"
+#import "EVENotificationSystemSettings8.h"
+#import "EVENotificationCenterDelegate.h"
 
 @import Firebase;
 
-@interface EVEPushSdk () <UNUserNotificationCenterDelegate>
-
+@interface EVEPushSdk ()
 @property(strong, nonatomic) EVEHttp *http;
 @property(strong, nonatomic) EVEApi *api;
-@property(strong, nonatomic) EVEFIRMessagingDelegate *pmafirMessagingDelegate;
+@property(strong, nonatomic) EVEFIRMessagingDelegate *firebaseMessagingDelegate;
 @property(strong, nonatomic) EVESdkConfiguration *sdkConfiguration;
-
 @end
 
 @implementation EVEPushSdk
@@ -47,44 +50,18 @@
     if ([FIRApp defaultApp] == nil) {
         NSLog(@"[FIRApp defaultApp] is nil, configuring FIRApp now...");
         [FIRApp configure];
-        self.pmafirMessagingDelegate = [[EVEFIRMessagingDelegate alloc] init];
-        [FIRMessaging messaging].delegate = self.pmafirMessagingDelegate;
+        self.firebaseMessagingDelegate = [[EVEFIRMessagingDelegate alloc] init];
+        [FIRMessaging messaging].delegate = self.firebaseMessagingDelegate;
     }
 
     self.http = [[EVEHttp alloc] initWithSdkConfiguration:self.sdkConfiguration];
     self.api = [[EVEApi alloc] initWithHttpInstance:self.http];
-
+    [self notificationSettings]; // gets the objects set up for any delegates
     return self;
 }
 
 - (void)promptForNotificationPermissionWithUserResponse:(void (^)(BOOL consentGranted))completionHandler {
-    if ([UNUserNotificationCenter class] != nil) {
-        // iOS 10 or later
-        // For iOS 10 display notification (sent via APNS)
-        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
-        UNAuthorizationOptions authOptions =
-                UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
-
-        [[UNUserNotificationCenter currentNotificationCenter]
-                requestAuthorizationWithOptions:authOptions
-                              completionHandler:^(BOOL granted, NSError *_Nullable error) {
-                                  if (completionHandler != nil) {
-                                      dispatch_async(dispatch_get_main_queue(), ^{
-                                        completionHandler(granted);
-                                      });
-                                  }
-                              }
-        ];
-    } else {
-        // iOS 10 notifications aren't available; fall back to iOS 8-9 notifications.
-        UIUserNotificationType allNotificationTypes =
-                (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
-        UIUserNotificationSettings *settings =
-                [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
-        [[self application] registerUserNotificationSettings:settings];
-    }
-
-
+    [[self notificationSettings] promptForNotifications:completionHandler];
     [[self application] registerForRemoteNotifications];
 }
 
@@ -146,6 +123,20 @@
 
 - (UIApplication *)application {
     return [UIApplication sharedApplication];
+}
+
+static NSObject<EVENotificationSystemSettings> *_notificationSettings;
+- (NSObject<EVENotificationSystemSettings> *)notificationSettings {
+    if (_notificationSettings == nil) {
+        if ([EVEHelpers iosVersionIsGreaterOrEqualTo:10]) {
+            id delegate = [[EVENotificationCenterDelegate alloc] init];
+            _notificationSettings = [[EVENotificationSystemSettings10 alloc] initWithDelegate:delegate];
+        } else {
+            _notificationSettings = [[EVENotificationSystemSettings8 alloc] initWithApplication:self.application];
+        }
+    }
+
+    return _notificationSettings;
 }
 
 @end

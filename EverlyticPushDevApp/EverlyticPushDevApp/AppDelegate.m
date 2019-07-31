@@ -18,7 +18,6 @@ NSString *const pushProjectConfig = @"cD04NDQxYWMwMy00ZmE5LTQ2M2YtOWI2ZS02YWE2OD
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [EverlyticPush initWithPushConfig:pushProjectConfig];
-    [EverlyticPush promptForNotificationPermissionWithUserResponse:nil];
 
     return YES;
 }

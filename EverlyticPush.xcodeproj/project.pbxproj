@@ -14,10 +14,12 @@
 		603900B1FB8754EF2FC5BD95 /* EVENotificationEventsLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 603907136044154372736EB7 /* EVENotificationEventsLog.m */; };
 		6039010F306B14815F2F1C5A /* EverlyticNotificationServiceExtensionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390418BCABB3CDA0C251E5 /* EverlyticNotificationServiceExtensionHandler.m */; };
 		6039013164B4BD4ECAE0DE65 /* EVEHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390D210F32E98F0AE80965 /* EVEHttp.m */; };
+		60390146D2217AFB82CA3EF9 /* EVENotificationSystemSettings8.h in Headers */ = {isa = PBXBuildFile; fileRef = 603903343A39BD27187990D1 /* EVENotificationSystemSettings8.h */; };
 		6039018F11E7C31D911E2063 /* EVENotificationEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390C97F2599C77ADF02313 /* EVENotificationEvent.m */; };
 		6039020AF3CBF3247A1B9B7D /* EVEFIRMessagingDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6039047905EA10D8261AE335 /* EVEFIRMessagingDelegate.h */; };
 		6039026B68B26A9F25B9D5F4 /* EVEReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390FA082C823F4EF3B56D4 /* EVEReachability.h */; };
 		603902A7F5BBF082A54FE80D /* EVEUnsubscribeEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 603902EF30C489FD6F68997A /* EVEUnsubscribeEvent.m */; };
+		6039035499DDF961AD26F62A /* EVENotificationSystemSettings8.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390EC764849938E6B55106 /* EVENotificationSystemSettings8.m */; };
 		60390365DE6063C38F511E1C /* EVEApiResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390550B7B6236452743525 /* EVEApiResponse.m */; };
 		6039039C7A9AFB3B7D351102 /* EVENotificationLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390DDB202166B818E0E671 /* EVENotificationLog.m */; };
 		603904BA7C3EDBB6E6FBCE39 /* EVEApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 603907AB7678121C7B2688A1 /* EVEApi.h */; };
@@ -33,23 +35,28 @@
 		60390721E4DE205656298215 /* EVEDbContract.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390B6A3CCC037A9D4CD87C /* EVEDbContract.m */; };
 		603907249AE1C39788AF6158 /* EVEDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390DEB40BAC0CCD212929E /* EVEDatabase.h */; };
 		603907B063DD23FA4F2679AE /* EVESubscriptionEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390CF3AE71B38956F96C16 /* EVESubscriptionEvent.h */; };
+		6039083B3F0C224EDA7D1634 /* EVENotificationCenterDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 603908815D57FEA45EA950A3 /* EVENotificationCenterDelegate.h */; };
 		6039089A08C63B8D7DA9D4EE /* EVEApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390CD49D331C36903315F8 /* EVEApi.m */; };
 		603908E9CDCFEF027D72DBB7 /* EVEHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390EFFEF640F4724985233 /* EVEHelpers.m */; };
 		60390912C58AB6F8E2B6FC57 /* EVESdkConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390587D5B054FCB885AB19 /* EVESdkConfiguration.m */; };
 		6039091D3318105109D447F0 /* EVEDbRepository.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390D9B7D9B4B4788A7C5AC /* EVEDbRepository.h */; };
+		6039099E8C357D12978673B4 /* EVENotificationSystemSettings10.h in Headers */ = {isa = PBXBuildFile; fileRef = 603909574523ACC5A8FF8DE5 /* EVENotificationSystemSettings10.h */; };
 		60390A08D4ED5A20A14BE22E /* EVEPushSdk.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390B9221C6012D439E90C8 /* EVEPushSdk.m */; };
 		60390ABE492C0DA34EC36305 /* EVENotificationLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390EF17F422A68D48DF4CC /* EVENotificationLog.h */; };
 		60390B219C4067829E2B01B6 /* EVEUIApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6039022F54F9DBF570F209AE /* EVEUIApplicationDelegate.m */; };
 		60390B2EF406E7819006F723 /* NSDate+EVEDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6039096BAEF537BB31A0D09D /* NSDate+EVEDateFormatter.m */; };
+		60390BB3CE364C23BEC01A10 /* EVENotificationSystemSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 603904AA0E61C1AE9EA88FAE /* EVENotificationSystemSettings.h */; };
 		60390BEC0B15178F474C169C /* EVEModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390897C2587D4A3BB565C0 /* EVEModel.h */; };
 		60390C1BF3A4F7C9514549FF /* EVENotificationEventsLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 603901471A38255DF857C6DF /* EVENotificationEventsLog.h */; };
 		60390C3CB5A140B24B01F049 /* EVEApiResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390863959934F5129D47E4 /* EVEApiResponse.h */; };
+		60390C4D38AC402F76C66F6D /* EVENotificationSystemSettings10.m in Sources */ = {isa = PBXBuildFile; fileRef = 6039067EDF55CD05AC2FCE79 /* EVENotificationSystemSettings10.m */; };
 		60390C5E47605E8FF9C8D97A /* EVEPushSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390B6FB254B6184B2C2BE5 /* EVEPushSdk.h */; };
 		60390CEE4E0320ACD9613952 /* EVEUIApplicationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390B6B608425063D0AD33B /* EVEUIApplicationDelegate.h */; };
 		60390DF8ADB60FF7ECE1906A /* EVESwizzleHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 6039092A599DCBBEACECDBF7 /* EVESwizzleHelpers.m */; };
 		60390E276A86E88A425A9E60 /* EverlyticNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 60390C6464A8622CB0135A13 /* EverlyticNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		60390E4A98A1CA9B7B2E335A /* EVESdkConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 6039020FE81BEE778D0F4340 /* EVESdkConfiguration.h */; };
 		60390EC1E6297CA5F455F170 /* NSDate+EVEDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 6039056AB8904CB9900E41DE /* NSDate+EVEDateFormatter.h */; };
+		60390ECD831CB716D970B8D3 /* EVENotificationCenterDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390ED0CE47D449731F1066 /* EVENotificationCenterDelegate.m */; };
 		60390F48DE5CDEE0A301B6A2 /* EVEUnsubscribeEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 603902DC7885E00ADF387D25 /* EVEUnsubscribeEvent.h */; };
 		60390F4B39CD92155CB3ED49 /* EVESubscriptionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 60390F20D74DF71EC774E5B8 /* EVESubscriptionEvent.m */; };
 		60390FDC393F630FFBEC9914 /* EVEDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6039030C0D9E42CC2C118011 /* EVEDatabase.m */; };
@@ -81,22 +88,27 @@
 		603902DC7885E00ADF387D25 /* EVEUnsubscribeEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEUnsubscribeEvent.h; sourceTree = "<group>"; };
 		603902EF30C489FD6F68997A /* EVEUnsubscribeEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEUnsubscribeEvent.m; sourceTree = "<group>"; };
 		6039030C0D9E42CC2C118011 /* EVEDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEDatabase.m; sourceTree = "<group>"; };
+		603903343A39BD27187990D1 /* EVENotificationSystemSettings8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVENotificationSystemSettings8.h; sourceTree = "<group>"; };
 		60390418BCABB3CDA0C251E5 /* EverlyticNotificationServiceExtensionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EverlyticNotificationServiceExtensionHandler.m; sourceTree = "<group>"; };
 		60390459ABFB61EA04E88106 /* EVEDbRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEDbRepository.m; sourceTree = "<group>"; };
 		6039047905EA10D8261AE335 /* EVEFIRMessagingDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEFIRMessagingDelegate.h; sourceTree = "<group>"; };
+		603904AA0E61C1AE9EA88FAE /* EVENotificationSystemSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVENotificationSystemSettings.h; sourceTree = "<group>"; };
 		60390550B7B6236452743525 /* EVEApiResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEApiResponse.m; sourceTree = "<group>"; };
 		6039056AB8904CB9900E41DE /* NSDate+EVEDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+EVEDateFormatter.h"; sourceTree = "<group>"; };
 		60390587D5B054FCB885AB19 /* EVESdkConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESdkConfiguration.m; sourceTree = "<group>"; };
 		603905E6078EF736BF6233C7 /* EVEApiSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEApiSubscription.h; sourceTree = "<group>"; };
+		6039067EDF55CD05AC2FCE79 /* EVENotificationSystemSettings10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVENotificationSystemSettings10.m; sourceTree = "<group>"; };
 		6039068154A424167426B036 /* EVEHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEHelpers.h; sourceTree = "<group>"; };
 		603907136044154372736EB7 /* EVENotificationEventsLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVENotificationEventsLog.m; sourceTree = "<group>"; };
 		603907AB7678121C7B2688A1 /* EVEApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEApi.h; sourceTree = "<group>"; };
 		603907F08B8B04CB0E4EDDB5 /* EVEFIRMessagingDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEFIRMessagingDelegate.m; sourceTree = "<group>"; };
 		60390863959934F5129D47E4 /* EVEApiResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEApiResponse.h; sourceTree = "<group>"; };
 		60390867C52A3842C738B94B /* EVEDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEDefaults.m; sourceTree = "<group>"; };
+		603908815D57FEA45EA950A3 /* EVENotificationCenterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVENotificationCenterDelegate.h; sourceTree = "<group>"; };
 		60390897C2587D4A3BB565C0 /* EVEModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEModel.h; sourceTree = "<group>"; };
 		603908D6A80F3A941AC73676 /* EVEReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEReachability.m; sourceTree = "<group>"; };
 		6039092A599DCBBEACECDBF7 /* EVESwizzleHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESwizzleHelpers.m; sourceTree = "<group>"; };
+		603909574523ACC5A8FF8DE5 /* EVENotificationSystemSettings10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVENotificationSystemSettings10.h; sourceTree = "<group>"; };
 		6039096BAEF537BB31A0D09D /* NSDate+EVEDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+EVEDateFormatter.m"; sourceTree = "<group>"; };
 		60390B14890F950D95C2BE70 /* EVESwizzleHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVESwizzleHelpers.h; sourceTree = "<group>"; };
 		60390B2F40BE52166476E14A /* EVEDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEDefaults.h; sourceTree = "<group>"; };
@@ -115,6 +127,8 @@
 		60390DEB40BAC0CCD212929E /* EVEDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEDatabase.h; sourceTree = "<group>"; };
 		60390E571C40D1EDB829F0C2 /* EVEApiSubscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEApiSubscription.m; sourceTree = "<group>"; };
 		60390EA8C94056E982DB8C9C /* EVEDbContract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEDbContract.h; sourceTree = "<group>"; };
+		60390EC764849938E6B55106 /* EVENotificationSystemSettings8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVENotificationSystemSettings8.m; sourceTree = "<group>"; };
+		60390ED0CE47D449731F1066 /* EVENotificationCenterDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVENotificationCenterDelegate.m; sourceTree = "<group>"; };
 		60390EF17F422A68D48DF4CC /* EVENotificationLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVENotificationLog.h; sourceTree = "<group>"; };
 		60390EFFEF640F4724985233 /* EVEHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVEHelpers.m; sourceTree = "<group>"; };
 		60390F20D74DF71EC774E5B8 /* EVESubscriptionEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVESubscriptionEvent.m; sourceTree = "<group>"; };
@@ -224,6 +238,18 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
+		603908BA21242517518C35E6 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				60390EC764849938E6B55106 /* EVENotificationSystemSettings8.m */,
+				603903343A39BD27187990D1 /* EVENotificationSystemSettings8.h */,
+				6039067EDF55CD05AC2FCE79 /* EVENotificationSystemSettings10.m */,
+				603909574523ACC5A8FF8DE5 /* EVENotificationSystemSettings10.h */,
+				603904AA0E61C1AE9EA88FAE /* EVENotificationSystemSettings.h */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
 		963A7F6C22B90B1800533D27 = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +298,9 @@
 				6039056AB8904CB9900E41DE /* NSDate+EVEDateFormatter.h */,
 				6039022F54F9DBF570F209AE /* EVEUIApplicationDelegate.m */,
 				60390B6B608425063D0AD33B /* EVEUIApplicationDelegate.h */,
+				603908BA21242517518C35E6 /* System */,
+				60390ED0CE47D449731F1066 /* EVENotificationCenterDelegate.m */,
+				603908815D57FEA45EA950A3 /* EVENotificationCenterDelegate.h */,
 			);
 			path = EverlyticPush;
 			sourceTree = "<group>";
@@ -326,6 +355,10 @@
 				60390EC1E6297CA5F455F170 /* NSDate+EVEDateFormatter.h in Headers */,
 				60390CEE4E0320ACD9613952 /* EVEUIApplicationDelegate.h in Headers */,
 				6039026B68B26A9F25B9D5F4 /* EVEReachability.h in Headers */,
+				60390146D2217AFB82CA3EF9 /* EVENotificationSystemSettings8.h in Headers */,
+				6039099E8C357D12978673B4 /* EVENotificationSystemSettings10.h in Headers */,
+				60390BB3CE364C23BEC01A10 /* EVENotificationSystemSettings.h in Headers */,
+				6039083B3F0C224EDA7D1634 /* EVENotificationCenterDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +531,9 @@
 				60390B219C4067829E2B01B6 /* EVEUIApplicationDelegate.m in Sources */,
 				60390640A9F7EBCADAA004CA /* EVEReachability.m in Sources */,
 				603906705CCEF31045E67F5F /* EverlyticNotification.m in Sources */,
+				6039035499DDF961AD26F62A /* EVENotificationSystemSettings8.m in Sources */,
+				60390C4D38AC402F76C66F6D /* EVENotificationSystemSettings10.m in Sources */,
+				60390ECD831CB716D970B8D3 /* EVENotificationCenterDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
