@@ -8,6 +8,7 @@
 #import "EVEHttp.h"
 #import "EVEDefaults.h"
 #import "EVENotificationLog.h"
+#import "EVEEventsHelpers.h"
 
 @implementation EVEUIApplicationDelegate
 #pragma mark - Method Swizzles
@@ -35,26 +36,12 @@
 
     NSMutableDictionary *mutableUserInfo = [userInfo mutableCopy];
 
-    [EVEDatabase inDatabase:^(FMDatabase *database) {
-        EVENotificationLog *log = [[EVENotificationLog alloc] initWithDatabase:database];
-        NSNumber *const messageId = @([userInfo[@"message_id"] intValue]);
+    NSNumber *const messageId = @([userInfo[@"message_id"] intValue]);
 
-        if (application.applicationState == UIApplicationStateInactive) {
-            EVENotificationEventsLog *eventsLog = [[EVENotificationEventsLog alloc] initWithDatabase:database];
-            EVENotificationEvent *event = [[EVENotificationEvent alloc]
-                    initWithId:nil
-                          type:CLICK
-          notificationCenterId:nil
-                subscriptionId:[EVEDefaults subscriptionId]
-                     messageId:messageId
-                      metadata:@{}
-                      datetime:nil
-            ];
-
-            [eventsLog insertNotificationEvent:event];
-            [log setNotificationByMessageId:messageId asRead:true];
-        } else if (application.applicationState == UIApplicationStateBackground || application.applicationState == UIApplicationStateActive) {
-
+    if (application.applicationState == UIApplicationStateBackground || application.applicationState == UIApplicationStateActive) {
+        [EVEEventsHelpers storeDeliveryEventWithUserInfo:userInfo];
+        [EVEDatabase inDatabase:^(FMDatabase *database) {
+            EVENotificationLog *log = [[EVENotificationLog alloc] initWithDatabase:database];
             [log insertNotificationWithMessageId:messageId
                                   subscriptionId:[EVEDefaults subscriptionId]
                                        contactId:[EVEDefaults contactId]
@@ -68,9 +55,8 @@
                                           readAt:nil
                                      dismissedAt:nil
             ];
-        }
-
-    }];
+        }];
+    }
 
 
     [EVEUIApplicationDelegate cleanUserInfo:mutableUserInfo];
@@ -99,50 +85,7 @@
 - (void)everlytic_applicationDidBecomeActive:(UIApplication *)application {
     NSLog(@"@selector(applicationDidBecomeActive:)");
 
-    id configString = [EVEDefaults configurationString];
-
-    if (configString != nil) {
-
-        EVEHttp *http = [[EVEHttp alloc] initWithSdkConfiguration:[EVESdkConfiguration initFromConfigString:configString]];
-        id api = [[EVEApi alloc] initWithHttpInstance:http];
-
-        [EVEDatabase inDatabase:^(FMDatabase *database) {
-            EVENotificationEventsLog *eventsLog = [[EVENotificationEventsLog alloc] initWithDatabase:database];
-            NSArray *events = [eventsLog pendingEvents];
-
-            for (EVENotificationEvent *event in events) {
-#ifdef DEBUG
-                NSLog(@"Uploading event %@ type=%@", event.id, [EVENotificationEvent typeAsString:event.type]);
-#endif
-
-                void (^ const removeEvent)(EVEApiResponse *, NSError *) = ^(EVEApiResponse *response, NSError *error) {
-                    if (error == nil) {
-                        NSLog(@"Successfully uploaded event(%@), removing from log", event.id);
-                        [EVEDatabase inDatabase:^(FMDatabase *db) {
-                            BOOL success = [[[EVENotificationEventsLog alloc] initWithDatabase:db] removeNotificationEventById:event.id];
-                            NSLog(@"Remove success: %d", success);
-                        }];
-                    }
-
-                    NSLog(@"Error: %@", error);
-                };
-
-                switch (event.type) {
-                    case CLICK:
-                        [api recordClickEvent:event completionHandler:removeEvent];
-                        break;
-                    case DELIVERY:
-                        [api recordDeliveryEvent:event completionHandler:removeEvent];
-                        break;
-                    case DISMISS:
-                        [api recordDismissEvent:event completionHandler:removeEvent];
-                        break;
-                    case UNKNOWN:
-                        break;
-                }
-            }
-        }];
-    }
+    [EVEEventsHelpers uploadPendingEventsWithCompletionHandler:nil];
 
     if ([self respondsToSelector:@selector(everlytic_applicationDidBecomeActive:)]) {
         [self everlytic_applicationDidBecomeActive:application];

@@ -34,22 +34,10 @@
             request.content.launchImageName,
             request.content.userInfo
     );
-
-    [EverlyticNotificationServiceExtensionHandler
-            didReceiveNotificationRequest:request
-           withMutableNotificationContent:self.bestAttemptContent
-    ];
-
     self.contentHandler(self.bestAttemptContent);
 }
 
 - (void)serviceExtensionTimeWillExpire {
-
-    [EverlyticNotificationServiceExtensionHandler
-            serviceExtensionTimeWillExpireWithRequest:self.request
-                       withMutableNotificationContent:self.bestAttemptContent
-    ];
-
     self.contentHandler(self.bestAttemptContent);
 }
 

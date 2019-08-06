@@ -2,6 +2,8 @@
 #import "EVEDatabase.h"
 #import "EVENotificationEventsLog.h"
 #import "EVEDefaults.h"
+#import "EVEEventsHelpers.h"
+#import "EVENotificationLog.h"
 
 
 @implementation EVENotificationCenterDelegate
@@ -15,23 +17,20 @@
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
     NSLog(@"didReceiveNotificationResponse: %@", response);
 
-    if ([response.actionIdentifier compare:UNNotificationDismissActionIdentifier] == NSOrderedSame) {
-        [EVEDatabase inDatabase:^(FMDatabase *database) {
-            id log = [[EVENotificationEventsLog alloc] initWithDatabase:database];
-            NSNumber *messageId = response.notification.request.content.userInfo[@"message_id"];
-            id event = [[EVENotificationEvent alloc]
-                    initWithId:nil
-                          type:DISMISS
-          notificationCenterId:nil
-                subscriptionId:[EVEDefaults subscriptionId]
-                     messageId:messageId
-                      metadata:@{}
-                      datetime:nil
-            ];
+    id userInfo = response.notification.request.content.userInfo;
 
-            BOOL success = [log insertNotificationEvent:event];
-            NSLog(@"Dismiss event created successfully=%d event=%@", success, event);
+    if ([response.actionIdentifier compare:UNNotificationDefaultActionIdentifier] == NSOrderedSame) {
+        NSNumber *const messageId = @([userInfo[@"message_id"] intValue]);
+
+        [EVEEventsHelpers storeClickEventWithUserInfo:userInfo];
+        [EVEDatabase inDatabase:^(FMDatabase *database) {
+            EVENotificationLog *log = [[EVENotificationLog alloc] initWithDatabase:database];
+            [log setNotificationByMessageId:messageId asRead:true];
         }];
+    }
+
+    if ([response.actionIdentifier compare:UNNotificationDismissActionIdentifier] == NSOrderedSame) {
+        [EVEEventsHelpers storeDismissEventWithUserInfo:userInfo];
     }
 
     completionHandler();
