@@ -33,6 +33,8 @@
  didReceiveRemoteNotification:(NSDictionary *)userInfo
        fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
 
+    NSMutableDictionary *mutableUserInfo = [userInfo mutableCopy];
+
     [EVEDatabase inDatabase:^(FMDatabase *database) {
         EVENotificationLog *log = [[EVENotificationLog alloc] initWithDatabase:database];
         NSNumber *const messageId = @([userInfo[@"message_id"] intValue]);
@@ -70,10 +72,27 @@
 
     }];
 
-    NSLog(@"didReceiveRemoteNotification:%@", userInfo);
 
+    [EVEUIApplicationDelegate cleanUserInfo:mutableUserInfo];
+
+    NSLog(@"didReceiveRemoteNotification:%@", userInfo);
+    NSLog(@"Sending cleaned userInfo to application delegate:%@", mutableUserInfo);
     if ([self respondsToSelector:@selector(everlytic_application:didReceiveRemoteNotification:fetchCompletionHandler:)]) {
-        [self everlytic_application:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
+        [self everlytic_application:application didReceiveRemoteNotification:mutableUserInfo fetchCompletionHandler:completionHandler];
+    }
+}
+
++ (void)cleanUserInfo:(NSMutableDictionary *)userInfo {
+    // Renames the custom attributes to remove the prefix, removes actions completely
+    for (NSString *key in [userInfo allKeys]) {
+        unichar charKeyPrefix = [key characterAtIndex:0];
+        if (charKeyPrefix == kCustomAttributePrefix) {
+            userInfo[[key substringFromIndex:1]] = userInfo[key];
+        }
+
+        if (charKeyPrefix == kCustomAttributePrefix || charKeyPrefix == kActionPrefix) {
+            [userInfo removeObjectForKey:key];
+        }
     }
 }
 

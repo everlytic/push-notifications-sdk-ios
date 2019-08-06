@@ -11,9 +11,6 @@
 
 @implementation EVENotificationLog
 
-const int kActionPrefix = '@';
-const int kCustomAttributePrefix = '$';
-
 + (NSString *)createTableStatement {
     return [NSString stringWithFormat:@"CREATE TABLE `notification_log` ("
                                       @"  `_id` INTEGER PRIMARY KEY AUTOINCREMENT,"

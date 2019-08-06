@@ -4,6 +4,8 @@
 @class FMDatabase;
 @class UNNotification;
 
+static const int kActionPrefix = '@';
+static const int kCustomAttributePrefix = '$';
 
 @interface EVENotificationLog : EVEDbRepository
 

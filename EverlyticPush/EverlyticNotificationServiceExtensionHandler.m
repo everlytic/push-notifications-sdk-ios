@@ -19,6 +19,8 @@
 
     [self synchronousRecordEvent:event];
 
+    NSLog(@"Applying the notification content changes");
+
     [self applyNotificationContent:request toMutableNotificationContent:notificationContent];
 }
 
@@ -82,7 +84,7 @@
 + (void)applyNotificationContent:(UNNotificationRequest *)request toMutableNotificationContent:(UNMutableNotificationContent *)notificationContent {
     notificationContent.title = request.content.userInfo[@"title"];
     notificationContent.body = request.content.userInfo[@"body"];
-    notificationContent.sound = [UNNotificationSound defaultSound];
+//    notificationContent.sound = [UNNotificationSound defaultSound];
 }
 
 @end
