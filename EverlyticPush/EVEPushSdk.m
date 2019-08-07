@@ -20,6 +20,7 @@
 #import "EVENotificationSystemSettings10.h"
 #import "EVENotificationSystemSettings8.h"
 #import "EVENotificationCenterDelegate.h"
+#import "EVEEventsHelpers.h"
 
 @import Firebase;
 
@@ -54,7 +55,10 @@
         [FIRMessaging messaging].delegate = self.firebaseMessagingDelegate;
     }
 
-    self.http = [[EVEHttp alloc] initWithSdkConfiguration:self.sdkConfiguration];
+    self.http = [[EVEHttp alloc] initWithSdkConfiguration:self.sdkConfiguration reachabilityBlock:^(EVEReachability *reachability, SCNetworkConnectionFlags i) {
+        [EVEEventsHelpers uploadPendingEventsWithCompletionHandler:nil];
+    }];
+
     self.api = [[EVEApi alloc] initWithHttpInstance:self.http];
     [self notificationSettings]; // gets the objects set up for any delegates
     return self;

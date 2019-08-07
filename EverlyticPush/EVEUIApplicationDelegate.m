@@ -9,6 +9,7 @@
 #import "EVEDefaults.h"
 #import "EVENotificationLog.h"
 #import "EVEEventsHelpers.h"
+#import "EVEReachability.h"
 
 @implementation EVEUIApplicationDelegate
 #pragma mark - Method Swizzles
@@ -56,6 +57,8 @@
                                      dismissedAt:nil
             ];
         }];
+
+        [EVEEventsHelpers uploadPendingEventsWithCompletionHandler:nil];
     }
 
 
@@ -65,6 +68,8 @@
     NSLog(@"Sending cleaned userInfo to application delegate:%@", mutableUserInfo);
     if ([self respondsToSelector:@selector(everlytic_application:didReceiveRemoteNotification:fetchCompletionHandler:)]) {
         [self everlytic_application:application didReceiveRemoteNotification:mutableUserInfo fetchCompletionHandler:completionHandler];
+    } else {
+        completionHandler(UIBackgroundFetchResultNewData);
     }
 }
 
@@ -84,8 +89,6 @@
 
 - (void)everlytic_applicationDidBecomeActive:(UIApplication *)application {
     NSLog(@"@selector(applicationDidBecomeActive:)");
-
-    [EVEEventsHelpers uploadPendingEventsWithCompletionHandler:nil];
 
     if ([self respondsToSelector:@selector(everlytic_applicationDidBecomeActive:)]) {
         [self everlytic_applicationDidBecomeActive:application];

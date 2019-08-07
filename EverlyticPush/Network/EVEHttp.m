@@ -14,26 +14,28 @@
 
 NSString *const basePath = @"/servlet/";
 
-- (EVEHttp *)initWithSdkConfiguration:(EVESdkConfiguration *)sdkConfiguration {
+- (EVEHttp *)initWithSdkConfiguration:(EVESdkConfiguration *)sdkConfiguration reachabilityBlock:(void (^)(EVEReachability *, SCNetworkConnectionFlags))innerReachabilityBlock {
     self.sdkConfiguration = sdkConfiguration;
     self.baseUrl = [NSURL URLWithString:basePath relativeToURL:self.sdkConfiguration.installUrl].absoluteURL;
     self.reachability = [EVEReachability reachabilityWithHostname:self.sdkConfiguration.installUrl.host];
     self.backingEndpointReachable = @NO;
-    self.reachability.reachabilityBlock = [self reachabilityBlock];
+    self.reachability.reachabilityBlock = [self reachabilityBlockWith:innerReachabilityBlock];
     [self.reachability startNotifier];
     return self;
 }
 
-- (void (^)(EVEReachability *, SCNetworkConnectionFlags))reachabilityBlock {
+- (void (^)(EVEReachability *, SCNetworkConnectionFlags))reachabilityBlockWith:(void (^)(EVEReachability *, SCNetworkConnectionFlags))reachabilityBlock {
     return ^(EVEReachability *reachability, SCNetworkConnectionFlags flags) {
         NSLog(@"Network status changed, reachable: %d", reachability.isReachable);
         @synchronized (_backingEndpointReachable) {
             _backingEndpointReachable = @(reachability.isReachable);
+
+        }
+        if (reachabilityBlock != nil) {
+            reachabilityBlock(reachability, flags);
         }
     };
 }
-
-
 
 - (NSMutableURLRequest *)createPostRequestForURL:(NSURL *)subUrl bodyData:(NSData *)bodyData {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:subUrl];
@@ -45,7 +47,7 @@ NSString *const basePath = @"/servlet/";
 
 - (NSURLSessionDataTask *)performApiRequest:(NSMutableURLRequest *)request completionHandler:(void (^)(EVEApiResponse *_Nullable, NSError *_Nullable))completionHandler {
 
-    if (! [self endpointReachable]) {
+    if (![self endpointReachable]) {
         if (completionHandler != nil)
             completionHandler(nil, [NSError errorWithDomain:@"EVENetwork" code:0 userInfo:nil]);
         return nil;

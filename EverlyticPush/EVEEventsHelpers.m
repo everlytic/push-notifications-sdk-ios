@@ -50,10 +50,10 @@
     [NSThread currentThread];
 //    dispatch_queue_t origQueue = dispatch_get_current_queue();
 
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         if (configString != nil) {
 
-            EVEHttp *http = [[EVEHttp alloc] initWithSdkConfiguration:[EVESdkConfiguration initFromConfigString:configString]];
+            EVEHttp *http = [[EVEHttp alloc] initWithSdkConfiguration:[EVESdkConfiguration initFromConfigString:configString] reachabilityBlock:nil];
             id api = [[EVEApi alloc] initWithHttpInstance:http];
 
             [EVEDatabase inDatabase:^(FMDatabase *database) {
@@ -103,7 +103,7 @@
                 }
             }];
         }
-    });
+//    });
 
 }
 

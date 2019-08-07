@@ -15,7 +15,7 @@
 
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
-    NSLog(@"didReceiveNotificationResponse: %@", response);
+    NSLog(@"userNotificationCenter:didReceiveNotificationResponse: %@", response);
 
     id userInfo = response.notification.request.content.userInfo;
 
@@ -30,7 +30,9 @@
     }
 
     if ([response.actionIdentifier compare:UNNotificationDismissActionIdentifier] == NSOrderedSame) {
+        NSLog(@"should store notification dismissal");
         [EVEEventsHelpers storeDismissEventWithUserInfo:userInfo];
+        [EVEEventsHelpers uploadPendingEventsWithCompletionHandler:nil];
     }
 
     completionHandler();

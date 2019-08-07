@@ -14,7 +14,7 @@
 
 @implementation AppDelegate
 
-NSString *const pushProjectConfig = @"cD04NDQxYWMwMy00ZmE5LTQ2M2YtOWI2ZS02YWE2ODc5MDUxNTY7aT1odHRwczovL3FhLWludGVybmFsLmV2ZXJseXRpYy5uZXQ=";
+NSString *const pushProjectConfig = @"cD1mZmEzZjcwMS1lYmRjLTRmZjctYTZiZS0zMDQzNDM1YjE0ZjQ7aT1odHRwczovL3FhLWludGVybmFsLmV2ZXJseXRpYy5uZXQ=";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [EverlyticPush initWithPushConfig:pushProjectConfig];
