@@ -7,15 +7,15 @@
 static EVEPushSdk *sdk;
 
 + (id)initWithPushConfig:(NSString *)configurationString {
-#if DEBUG
-    NSLog(@"init was called with config=%@", configurationString);
-#endif
+//#ifdef DEBUG
+    NSLog(@"Init was called with config=%@", configurationString);
+//#endif
 
     EVESdkConfiguration *configuration = [EVESdkConfiguration initFromConfigString:configurationString];
 
-#if DEBUG
+//#ifdef DEBUG
     NSLog(@"projectId=%@, url=%@", configuration.projectId, configuration.installUrl.absoluteString);
-#endif
+//#endif
 
     dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

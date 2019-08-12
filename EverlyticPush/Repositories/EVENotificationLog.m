@@ -128,7 +128,9 @@
 }
 
 - (bool)clearNotificationHistory {
-    return 0;
+    id sql = @"DELETE FROM `notification_log` WHERE 1=1";
+
+    return [_database executeUpdate:sql];
 }
 
 + (NSDictionary *)decodeActions:(NSDictionary *)dictionary {

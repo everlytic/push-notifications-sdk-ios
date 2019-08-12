@@ -35,7 +35,7 @@ NSString *kInstall = @"i";
 
     for (NSUInteger i = 0; i < [strArr count]; ++i) {
         NSString *key = [strArr[i] substringToIndex:1];
-#if DEBUG
+#ifdef DEBUG
         NSLog(@"key=%@, value=%@", key, [strArr[i] substringFromIndex:2]);
 #endif
         properties[key] = [strArr[i] substringFromIndex:2];

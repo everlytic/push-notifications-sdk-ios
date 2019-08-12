@@ -12,7 +12,7 @@
 
 + (void)unsubscribeUserWithCompletionHandler:(void (^ _Nonnull)(BOOL subscriptionSuccess, NSError *_Nullable error))handler;
 
-+ (BOOL)contactIsSubscribed;
+//+ (BOOL)contactIsSubscribed;
 
 + (void)notificationHistoryWithCompletionListener:(void (^ _Nonnull)(NSArray<EverlyticNotification *> *_Nonnull))completionHandler;
 

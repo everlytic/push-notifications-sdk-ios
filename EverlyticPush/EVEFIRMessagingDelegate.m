@@ -8,7 +8,7 @@ NSString *const FCM_TOKEN_KEY = @"_pma_fcm_token";
 
     EVEDefaults.fcmToken = fcmToken;
 
-#if DEBUG
+#ifdef DEBUG
     NSLog(@"New FCM Token=%@", fcmToken);
 #endif
 }

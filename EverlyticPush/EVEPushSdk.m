@@ -94,6 +94,12 @@
     id devId = [EVEDefaults deviceId];
     id event = [[EVEUnsubscribeEvent alloc] initWithSubscriptionId:subId deviceId:devId];
 
+    [EVEDatabase inDatabase:^(FMDatabase *database) {
+        EVENotificationLog *log = [[EVENotificationLog alloc] initWithDatabase:database];
+
+        [log clearNotificationHistory];
+    }];
+
     [self.api unsubscribeWithUnsubscribeEvent:event completionHandler:^(EVEApiResponse *response, NSError *error) {
         if (completionHandler != nil) {
             dispatch_async(dispatch_get_main_queue(), ^{

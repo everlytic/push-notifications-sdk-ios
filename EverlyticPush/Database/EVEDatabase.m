@@ -28,10 +28,15 @@ static unsigned int openCount = 0;
 }
 
 + (NSString *)getDatabasePath {
-    NSURL *containerURL = [[NSFileManager defaultManager]
-            containerURLForSecurityApplicationGroupIdentifier:EVEHelpers.appGroupName];
+    NSString *storagePath = [[[NSFileManager defaultManager]
+            containerURLForSecurityApplicationGroupIdentifier:EVEHelpers.appGroupName] path];
 
-    NSString *storeURL = [[containerURL path] stringByAppendingPathComponent:kDbName];
+    if (storagePath == nil) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        storagePath = paths[0];
+    }
+
+    NSString *storeURL = [storagePath stringByAppendingPathComponent:kDbName];
 
     return storeURL;
 }
@@ -50,7 +55,7 @@ static unsigned int openCount = 0;
     return queue;
 }
 
-+ (void) inDatabase:(void(^)(FMDatabase *))block {
++ (void)inDatabase:(void (^)(FMDatabase *))block {
     [[self queue] inDatabase:^(FMDatabase *db) {
         [self upgradeDatabase:db];
         block(db);
