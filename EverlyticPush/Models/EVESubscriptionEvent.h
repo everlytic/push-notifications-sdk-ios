@@ -4,10 +4,11 @@
 
 // ===
 @interface EVE_ContactData : NSObject <EVEModel>
+@property(strong, nonatomic) NSString *uniqueId;
 @property(strong, nonatomic) NSString *email;
 @property(strong, nonatomic) NSString *pushToken;
 
-- (EVE_ContactData *)initWithEmail:(NSString *)email pushToken:(NSString *)pushToken;
+- (EVE_ContactData *)initWithEmail:(NSString *)email uniqueId:(NSString *)uniqueId pushToken:(NSString *)pushToken;
 
 @end
 

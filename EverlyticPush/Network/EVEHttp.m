@@ -29,7 +29,6 @@ NSString *const basePath = @"/servlet/";
         NSLog(@"Network status changed, reachable: %d", reachability.isReachable);
         @synchronized (_backingEndpointReachable) {
             _backingEndpointReachable = @(reachability.isReachable);
-
         }
         if (reachabilityBlock != nil) {
             reachabilityBlock(reachability, flags);
@@ -83,8 +82,10 @@ NSString *const basePath = @"/servlet/";
 
 - (void)setHeadersOnRequest:(NSMutableURLRequest *)request {
     [request setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setValue:self.sdkConfiguration.projectId forHTTPHeaderField:@"X-EV-Project-UUID"];
-    [request setValue:@"ios experimental" forHTTPHeaderField:@"X-EV-SDK-Version-Name"];
+    [request setValue:@"ios" forHTTPHeaderField:@"X-EV-SDK-Platform"];
+    [request setValue:@"experimental" forHTTPHeaderField:@"X-EV-SDK-Version-Name"];
     [request setValue:self.sdkConfiguration.sdkVersion forHTTPHeaderField:@"X-EV-SDK-Version-Code"];
 }
 

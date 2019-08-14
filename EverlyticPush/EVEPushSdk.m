@@ -69,9 +69,15 @@
     [[self application] registerForRemoteNotifications];
 }
 
-- (void)subscribeUserWithEmailAddress:(NSString *)emailAddress completionHandler:(void (^)(BOOL, NSError *))completionHandler {
+- (void)subscribeUserWithUniqueId:(NSString *_Nullable)uniqueId emailAddress:(NSString *_Nullable)emailAddress completionHandler:(void (^)(BOOL, NSError *))completionHandler {
 
-    EVE_ContactData *contact = [[EVE_ContactData alloc] initWithEmail:emailAddress pushToken:EVEDefaults.fcmToken];
+    if (uniqueId == nil && emailAddress == nil) {
+        NSLog(@"Both uniqueId and email address are nil. Please provide a valid uniqueId, email, or both");
+        completionHandler(false, [NSError errorWithDomain:@"EverlyticPush" code:0 userInfo:@{@"message": @"Both uniqueId and email address are nil. Please provide a valid uniqueId, email, or both"}]);
+        return;
+    }
+
+    EVE_ContactData *contact = [[EVE_ContactData alloc] initWithEmail:emailAddress uniqueId:uniqueId pushToken:EVEDefaults.fcmToken];
     EVE_DeviceData *deviceData = [[EVE_DeviceData alloc] initWithId:EVEDefaults.deviceId];
     EVESubscriptionEvent *subscriptionEvent = [[EVESubscriptionEvent alloc]
             initWithPushProjectUuid:self.sdkConfiguration.projectId
@@ -135,8 +141,9 @@
     return [UIApplication sharedApplication];
 }
 
-static NSObject<EVENotificationSystemSettings> *_notificationSettings;
-- (NSObject<EVENotificationSystemSettings> *)notificationSettings {
+static NSObject <EVENotificationSystemSettings> *_notificationSettings;
+
+- (NSObject <EVENotificationSystemSettings> *)notificationSettings {
     if (_notificationSettings == nil) {
         if ([EVEHelpers iosVersionIsGreaterOrEqualTo:10]) {
             id delegate = [[EVENotificationCenterDelegate alloc] init];

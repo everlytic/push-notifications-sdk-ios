@@ -19,23 +19,35 @@
 
     id userInfo = response.notification.request.content.userInfo;
 
+    [EVEEventsHelpers storeDeliveryEventWithUserInfo:userInfo];
+    [EVEEventsHelpers storeNotificationInLogWithUserInfo:userInfo];
+
+    NSNumber *const messageId = @([userInfo[@"message_id"] intValue]);
     if ([response.actionIdentifier compare:UNNotificationDefaultActionIdentifier] == NSOrderedSame) {
-        NSNumber *const messageId = @([userInfo[@"message_id"] intValue]);
 
         [EVEEventsHelpers storeClickEventWithUserInfo:userInfo];
         [EVEDatabase inDatabase:^(FMDatabase *database) {
-            EVENotificationLog *log = [[EVENotificationLog alloc] initWithDatabase:database];
-            [log setNotificationByMessageId:messageId asRead:true];
+            [[[EVENotificationLog alloc] initWithDatabase:database]
+                    setNotificationByMessageId:messageId asRead:true];
         }];
-    }
-
-    if ([response.actionIdentifier compare:UNNotificationDismissActionIdentifier] == NSOrderedSame) {
+        /*
+         * We only do an upload for dismissals below, because the app opening will perform an upload
+         * for us automatically.
+         * */
+        completionHandler();
+    } else if ([response.actionIdentifier compare:UNNotificationDismissActionIdentifier] == NSOrderedSame) {
         NSLog(@"should store notification dismissal");
         [EVEEventsHelpers storeDismissEventWithUserInfo:userInfo];
-        [EVEEventsHelpers uploadPendingEventsWithCompletionHandler:nil];
+        [EVEDatabase inDatabase:^(FMDatabase *database) {
+            [[[EVENotificationLog alloc] initWithDatabase:database]
+                    setNotificationByMessageId:messageId asDismissed:true];
+        }];
+        [EVEEventsHelpers uploadPendingEventsWithCompletionHandler:^{
+            completionHandler();
+        }];
+    } else {
+        completionHandler();
     }
-
-    completionHandler();
 }
 
 @end

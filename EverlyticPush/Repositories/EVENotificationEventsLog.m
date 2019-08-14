@@ -103,7 +103,25 @@ NSString *const kLogDatetime = @"datetime";
 }
 
 - (NSArray<EVENotificationEvent *> *)pendingEvents {
-    id sql = [NSString stringWithFormat:@"SELECT * FROM `%@`;", kLogTableName];
+    id sql = [NSString stringWithFormat:@"SELECT "
+                                        "events.%@, "
+                                        "events.%@, "
+                                        "events.%@, "
+                                        "events.%@, "
+                                        "events.%@, "
+                                        "events.%@, "
+                                        "log.`return_data` "
+                                        "FROM `%@` as events "
+                                        "LEFT JOIN `notification_log` as log on events.%@=log.`message_id`",
+                                        kLogId,
+                                        kLogSubscriptionId,
+                                        kLogMessageId,
+                                        kLogDatetime,
+                                        kLogEventType,
+                                        kLogMetadata,
+                                        kLogTableName,
+                                        kLogMessageId
+    ];
 
     FMResultSet *result = [self.database executeQuery:sql];
 
@@ -122,6 +140,7 @@ NSString *const kLogDatetime = @"datetime";
             subscriptionId:@([result intForColumn:kLogSubscriptionId])
                  messageId:@([result intForColumn:kLogMessageId])
                   metadata:[EVEHelpers decodeJSONFromString:[result stringForColumn:kLogMetadata]]
+                returnData:[result stringForColumn:@"return_data"]
                   datetime:[[EVEHelpers iso8601DateFormatter] dateFromString:[result stringForColumn:kLogDatetime]]
         ];
 

@@ -18,6 +18,7 @@ static const int kCustomAttributePrefix = '$';
                                 actions:(NSDictionary *_Nullable)actions
                        customParameters:(NSDictionary *_Nullable)customParameters
                                 groupId:(NSNumber *_Nonnull)groupId
+                             returnData:(NSString *_Nullable)returnData
                              receivedAt:(NSDate *_Nullable)receivedAt
                                  readAt:(NSDate *_Nullable)readAt
                             dismissedAt:(NSDate *_Nullable)dismissedAt;
@@ -27,6 +28,7 @@ static const int kCustomAttributePrefix = '$';
 - (bool)setNotificationByMessageId:(NSNumber *)messageId asDismissed:(bool)asDismissed;
 
 - (id)publicNotificationHistory;
+
 - (NSNumber *)publicNotificationHistoryCount;
 
 - (bool)clearNotificationHistory;

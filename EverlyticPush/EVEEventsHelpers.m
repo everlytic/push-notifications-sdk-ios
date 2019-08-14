@@ -4,6 +4,7 @@
 #import "EVEApi.h"
 #import "EVENotificationEventsLog.h"
 #import "EVEDatabase.h"
+#import "EVENotificationLog.h"
 
 @implementation EVEEventsHelpers
 
@@ -22,9 +23,32 @@
     [self storeEventWithUserInfo:userInfo type:DISMISS];
 }
 
++ (void)storeNotificationInLogWithUserInfo:(NSDictionary *)userInfo {
+    NSNumber *const messageId = @([userInfo[@"message_id"] intValue]);
+    [EVEDatabase inDatabase:^(FMDatabase *database) {
+        EVENotificationLog *log = [[EVENotificationLog alloc] initWithDatabase:database];
+        [log insertNotificationWithMessageId:messageId
+                              subscriptionId:[EVEDefaults subscriptionId]
+                                   contactId:[EVEDefaults contactId]
+                                       title:userInfo[@"title"]
+                                        body:userInfo[@"body"]
+                                    metadata:@{}
+                                     actions:[EVENotificationLog decodeActions:userInfo]
+                            customParameters:[EVENotificationLog decodeCustomParameters:userInfo]
+                                     groupId:@0
+                                  returnData:userInfo[@"ev_return_data"]
+                                  receivedAt:[NSDate date]
+                                      readAt:nil
+                                 dismissedAt:nil
+        ];
+    }];
+}
+
 + (void)storeEventWithUserInfo:(NSDictionary *)userInfo type:(EVENotificationEventType)type {
     NSNumber *const messageId = @([userInfo[@"message_id"] intValue]);
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+    NSLog(@"%@", userInfo);
 
     EVENotificationEvent *event = [[EVENotificationEvent alloc]
             initWithId:nil
@@ -33,6 +57,7 @@
         subscriptionId:[EVEDefaults subscriptionId]
              messageId:messageId
               metadata:@{}
+              returnData:userInfo[@"ev_return_data"]
               datetime:nil
     ];
 

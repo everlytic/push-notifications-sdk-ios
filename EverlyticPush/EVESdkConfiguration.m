@@ -1,11 +1,15 @@
 #import "EVESdkConfiguration.h"
+#import "EverlyticPush.h"
+#import "GPBDictionary.h"
 
 @implementation EVESdkConfiguration
 NSString *kProject = @"p";
 NSString *kInstall = @"i";
 
 - (EVESdkConfiguration *)initWithProjectId:(NSString *)projectId installUrl:(NSURL *)url {
-    self.sdkVersion =
+
+    NSDictionary *bundle = [[NSBundle bundleForClass:[EverlyticPush class]] infoDictionary];
+    self.sdkVersion = bundle[@"CFBundleVersion"];
     self.projectId = projectId;
     self.installUrl = url;
     return self;

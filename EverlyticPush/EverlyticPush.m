@@ -17,10 +17,10 @@ static EVEPushSdk *sdk;
     NSLog(@"projectId=%@, url=%@", configuration.projectId, configuration.installUrl.absoluteString);
 //#endif
 
-    dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sdk = [[EVEPushSdk alloc] initWithConfiguration:configuration];
-    });
+//    dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+    sdk = [[EVEPushSdk alloc] initWithConfiguration:configuration];
+//    });
 
     [EVEDefaults setConfigurationString:configurationString];
     
@@ -46,8 +46,22 @@ static EVEPushSdk *sdk;
     NSString *emailTrimmed = [emailAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSLog(@"Should subscribe user with email=%@", emailAddress);
 
-    [sdk subscribeUserWithEmailAddress:emailTrimmed completionHandler:handler];
+    [sdk subscribeUserWithUniqueId:nil emailAddress:emailTrimmed completionHandler:handler];
 }
+
++ (void)subscribeUserWithUniqueId:(nonnull NSString *)uniqueId emailAddress:(nullable NSString *)emailAddress completionHandler:(void (^ _Nullable)(BOOL subscriptionSuccess, NSError *_Nullable error))handler {
+    if (sdk == nil) {
+        NSLog(@"Failed to subscribe user as the SDK is not initialized yet.");
+        return;
+    }
+
+    NSString *uniqueIdTrimmed = [uniqueId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *emailTrimmed = [emailAddress stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSLog(@"Should subscribe user with uniqueId=%@ email=%@", uniqueIdTrimmed, emailTrimmed);
+
+    [sdk subscribeUserWithUniqueId:uniqueIdTrimmed emailAddress:emailTrimmed completionHandler:handler];
+}
+
 
 + (void)unsubscribeUserWithCompletionHandler:(void (^ _Nonnull)(BOOL subscriptionSuccess, NSError *_Nullable error))handler {
     if (sdk == nil) {

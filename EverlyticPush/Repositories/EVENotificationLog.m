@@ -24,6 +24,7 @@
                                       @"  `custom_parameters` TEXT,"
                                       @"  `group_id` INTEGER DEFAULT 0,"
                                       @"  `raw_notification` TEXT,"
+                                      @"  `return_data` TEXT DEFAULT NULL,"
                                       @"  `received_at` TEXT NOT NULL,"
                                       @"  `read_at` TEXT DEFAULT NULL,"
                                       @"  `dismissed_at` TEXT DEFAULT NULL"
@@ -35,7 +36,7 @@
     return @{};
 }
 
-- (bool)insertNotificationWithMessageId:(NSNumber *_Nonnull)messageId subscriptionId:(NSNumber *_Nonnull)subscriptionId contactId:(NSNumber *_Nonnull)contactId title:(NSString *_Nullable)title body:(NSString *_Nonnull)body metadata:(NSDictionary *_Nullable)metadata actions:(NSDictionary *_Nullable)actions customParameters:(NSDictionary *_Nullable)customParameters groupId:(NSNumber *_Nonnull)groupId receivedAt:(NSDate *_Nullable)receivedAt readAt:(NSDate *_Nullable)readAt dismissedAt:(NSDate *_Nullable)dismissedAt {
+- (bool)insertNotificationWithMessageId:(NSNumber *_Nonnull)messageId subscriptionId:(NSNumber *_Nonnull)subscriptionId contactId:(NSNumber *_Nonnull)contactId title:(NSString *_Nullable)title body:(NSString *_Nonnull)body metadata:(NSDictionary *_Nullable)metadata actions:(NSDictionary *_Nullable)actions customParameters:(NSDictionary *_Nullable)customParameters groupId:(NSNumber *_Nonnull)groupId returnData:(NSString *_Nullable)returnData receivedAt:(NSDate *_Nullable)receivedAt readAt:(NSDate *_Nullable)readAt dismissedAt:(NSDate *_Nullable)dismissedAt {
     id sql =
             @"INSERT or REPLACE INTO `notification_log` "
             "("
@@ -51,9 +52,10 @@
             "`raw_notification`, "
             "`received_at`, "
             "`read_at`, "
-            "`dismissed_at`"
+            "`dismissed_at`, "
+            "`return_data`"
             ")"
-            @" VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            @" VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
     return [_database executeUpdate:sql,
                                     messageId,
@@ -68,7 +70,8 @@
                     nil,
                                     [receivedAt dateToIso8601String],
                                     [readAt dateToIso8601String],
-                                    [dismissedAt dateToIso8601String]
+                                    [dismissedAt dateToIso8601String],
+                                    returnData
     ];
 }
 

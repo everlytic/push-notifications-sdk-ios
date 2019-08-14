@@ -15,7 +15,7 @@
     };
 }
 
-- (instancetype)initWithId:(NSNumber *)id type:(EVENotificationEventType)type notificationCenterId:(NSString *)nfcId subscriptionId:(NSNumber *)subId messageId:(NSNumber *)msgId metadata:(NSDictionary *)meta datetime:(NSDate *_Nullable)date {
+- (instancetype)initWithId:(NSNumber *)id type:(EVENotificationEventType)type notificationCenterId:(NSString *)nfcId subscriptionId:(NSNumber *)subId messageId:(NSNumber *)msgId metadata:(NSDictionary *)meta returnData:(NSString *)returnData datetime:(NSDate *_Nullable)date {
     self.id = id;
     self.type = type;
     self.notification_center_id = nfcId;
@@ -23,6 +23,12 @@
     self.subscription_id = subId;
     self.metadata = meta;
     self.datetime = (date == nil) ? [NSDate date] : date;
+
+    if (returnData != nil) {
+        self.metadata = [self.metadata mutableCopy];
+        [self.metadata setValue:returnData forKey:@"ev_return_data"];
+    }
+
     return self;
 }
 

@@ -36,30 +36,12 @@
        fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
 
     NSMutableDictionary *mutableUserInfo = [userInfo mutableCopy];
+//    if (application.applicationState == UIApplicationStateBackground || application.applicationState == UIApplicationStateActive) {
+    [EVEEventsHelpers storeDeliveryEventWithUserInfo:userInfo];
+    [EVEEventsHelpers storeNotificationInLogWithUserInfo:userInfo];
 
-    NSNumber *const messageId = @([userInfo[@"message_id"] intValue]);
-
-    if (application.applicationState == UIApplicationStateBackground || application.applicationState == UIApplicationStateActive) {
-        [EVEEventsHelpers storeDeliveryEventWithUserInfo:userInfo];
-        [EVEDatabase inDatabase:^(FMDatabase *database) {
-            EVENotificationLog *log = [[EVENotificationLog alloc] initWithDatabase:database];
-            [log insertNotificationWithMessageId:messageId
-                                  subscriptionId:[EVEDefaults subscriptionId]
-                                       contactId:[EVEDefaults contactId]
-                                           title:userInfo[@"title"]
-                                            body:userInfo[@"body"]
-                                        metadata:@{}
-                                         actions:[EVENotificationLog decodeActions:userInfo]
-                                customParameters:[EVENotificationLog decodeCustomParameters:userInfo]
-                                         groupId:@0
-                                      receivedAt:[NSDate date]
-                                          readAt:nil
-                                     dismissedAt:nil
-            ];
-        }];
-
-        [EVEEventsHelpers uploadPendingEventsWithCompletionHandler:nil];
-    }
+    [EVEEventsHelpers uploadPendingEventsWithCompletionHandler:nil];
+//    }
 
 
     [EVEUIApplicationDelegate cleanUserInfo:mutableUserInfo];
@@ -89,6 +71,10 @@
 
 - (void)everlytic_applicationDidBecomeActive:(UIApplication *)application {
     NSLog(@"@selector(applicationDidBecomeActive:)");
+
+//    [EVEReachability reachabilityForInternetConnection].reachabilityBlock = ^(EVEReachability *reachability, SCNetworkConnectionFlags flags) {
+        [EVEEventsHelpers uploadPendingEventsWithCompletionHandler:nil];
+//    };
 
     if ([self respondsToSelector:@selector(everlytic_applicationDidBecomeActive:)]) {
         [self everlytic_applicationDidBecomeActive:application];

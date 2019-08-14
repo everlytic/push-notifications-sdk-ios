@@ -6,7 +6,8 @@
 
 @implementation EVE_ContactData
 
-- (EVE_ContactData *)initWithEmail:(NSString *)email pushToken:(NSString *)pushToken {
+- (EVE_ContactData *)initWithEmail:(NSString *)email uniqueId:(NSString *)uniqueId pushToken:(NSString *)pushToken {
+    self.uniqueId = uniqueId;
     self.email = email;
     self.pushToken = pushToken;
     return self;
@@ -14,10 +15,19 @@
 
 
 - (nonnull NSDictionary *)serializeAsDictionary {
-    return @{
-            @"email": self.email,
+    NSMutableDictionary *dictionary = [@{
             @"push_token": self.pushToken
-    };
+    } mutableCopy];
+
+    if (self.email != nil) {
+        dictionary[@"email"] = self.email;
+    }
+
+    if (self.uniqueId != nil) {
+        dictionary[@"unique_id"] = self.uniqueId;
+    }
+
+    return dictionary;
 }
 
 - (nonnull NSString *)serializeAsJson {

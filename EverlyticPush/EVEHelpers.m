@@ -11,7 +11,8 @@ NSString *const kAppGroupsLastPathComponent = @"everlyticpush";
     NSError *err = nil;
     id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
 
-    if (err) @throw err;
+//    if (err) @throw err;
+    NSLog(@"Would Throw Error: %@", err.description);
 
     return object;
 }

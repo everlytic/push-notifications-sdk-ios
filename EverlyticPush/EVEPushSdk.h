@@ -9,7 +9,7 @@
 
 - (void)promptForNotificationPermissionWithUserResponse:(void (^ _Nullable)(BOOL consentGranted))completionHandler;
 
-- (void)subscribeUserWithEmailAddress:(NSString *_Nonnull)emailAddress completionHandler:(void (^ _Nullable)(BOOL, NSError *_Nullable))completionHandler;
+- (void)subscribeUserWithUniqueId:(NSString *_Nullable)uniqueId emailAddress:(NSString *_Nullable)emailAddress completionHandler:(void (^)(BOOL, NSError *))completionHandler;
 
 - (void)unsubscribeUserWithCompletionHandler:(void(^_Nullable)(BOOL))completionHandler;
 
