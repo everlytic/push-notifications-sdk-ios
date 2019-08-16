@@ -2,7 +2,7 @@
 #import "EVESwizzleHelpers.h"
 
 BOOL injectSelector(Class newClass, SEL newSel, Class addToClass, SEL makeLikeSel) {
-
+    NSLog(@"injectSelector()");
     Method newMeth = class_getInstanceMethod(newClass, newSel);
     IMP imp = method_getImplementation(newMeth);
 
@@ -42,6 +42,7 @@ BOOL injectSelector(Class newClass, SEL newSel, Class addToClass, SEL makeLikeSe
 }
 
 void injectIntoClassHierarchy(SEL newSelector, SEL delegateSelector, NSArray *delegateSubclasses, Class newClass, Class delegateClass) {
+    NSLog(@"injectIntoClassHierarchy()");
     for(Class subclass in delegateSubclasses) {
         if (doesInstanceOverrideSelector(subclass, delegateSelector)) {
             injectSelector(newClass, newSelector, subclass, delegateSelector);
@@ -53,6 +54,7 @@ void injectIntoClassHierarchy(SEL newSelector, SEL delegateSelector, NSArray *de
 }
 
 NSArray *getSubclassesOfClass(Class parentClass) {
+    NSLog(@"getSubclassesOfClass()");
     int numClasses = objc_getClassList(NULL, 0);
     Class *classes = (Class*)malloc(sizeof(Class) * numClasses);
 
@@ -77,6 +79,7 @@ NSArray *getSubclassesOfClass(Class parentClass) {
 }
 
 Class getClassWithProtocolInHierarchy(Class baseClass, Protocol *searchProtocol) {
+    NSLog(@"getClassWithProtocolInHierarchy()");
     if (!class_conformsToProtocol(baseClass, searchProtocol)) {
         if ([baseClass superclass] == nil)
             return nil;
@@ -89,6 +92,7 @@ Class getClassWithProtocolInHierarchy(Class baseClass, Protocol *searchProtocol)
 }
 
 BOOL doesInstanceOverrideSelector(Class instance, SEL selector) {
+    NSLog(@"doesInstanceOverrideSelector()");
     Class instSuperClass = [instance superclass];
     return [instance instanceMethodForSelector: selector] != [instSuperClass instanceMethodForSelector: selector];
 }
