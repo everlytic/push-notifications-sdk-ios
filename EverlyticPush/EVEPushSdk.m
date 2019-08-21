@@ -7,7 +7,6 @@
 #import "Network/EVEHttp.h"
 #import "EVEApi.h"
 #import "EVEApiSubscription.h"
-#import <objc/runtime.h>
 #import "EVEUIApplicationDelegate.h"
 #import "EVENotificationEventsLog.h"
 #import "EVEDatabase.h"
@@ -77,6 +76,22 @@
         return;
     }
 
+    [self.notificationSettings getNotificationAuthorizationStatus:^(BOOL authorized) {
+        if (!authorized) {
+            [self.notificationSettings promptForNotifications:^(BOOL accepted) {
+                if (!accepted) {
+                    completionHandler(NO, [NSError errorWithDomain:@"Everlytic" code:0 userInfo:@{@"message" : @"User denied push notification permissions"}]);
+                } else {
+                    [self submitSubscriptionWithUniqueId:uniqueId emailAddress:emailAddress completionHandler:completionHandler];
+                }
+            }];
+        } else {
+            [self submitSubscriptionWithUniqueId:uniqueId emailAddress:emailAddress completionHandler:completionHandler];
+        }
+    }];
+}
+
+- (void)submitSubscriptionWithUniqueId:(NSString *)uniqueId emailAddress:(NSString *)emailAddress completionHandler:(void (^)(BOOL, NSError *))completionHandler {
     EVE_ContactData *contact = [[EVE_ContactData alloc] initWithEmail:emailAddress uniqueId:uniqueId pushToken:EVEDefaults.fcmToken];
     EVE_DeviceData *deviceData = [[EVE_DeviceData alloc] initWithId:EVEDefaults.deviceId];
     EVESubscriptionEvent *subscriptionEvent = [[EVESubscriptionEvent alloc]
@@ -100,9 +115,10 @@
     id devId = [EVEDefaults deviceId];
     id event = [[EVEUnsubscribeEvent alloc] initWithSubscriptionId:subId deviceId:devId];
 
+    [EVEDefaults clearSubscriptionDetails];
+
     [EVEDatabase inDatabase:^(FMDatabase *database) {
         EVENotificationLog *log = [[EVENotificationLog alloc] initWithDatabase:database];
-
         [log clearNotificationHistory];
     }];
 

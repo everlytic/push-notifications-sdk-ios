@@ -1,7 +1,6 @@
 #import "EVENotificationCenterDelegate.h"
 #import "EVEDatabase.h"
 #import "EVENotificationEventsLog.h"
-#import "EVEDefaults.h"
 #import "EVEEventsHelpers.h"
 #import "EVENotificationLog.h"
 
@@ -10,6 +9,7 @@
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
     NSLog(@"willPresentNotification: %@", notification);
+    [EVEEventsHelpers storeNotificationInLogWithUserInfo:notification.request.content.userInfo];
     completionHandler(UNNotificationPresentationOptionAlert);
 }
 
@@ -30,11 +30,6 @@
             [[[EVENotificationLog alloc] initWithDatabase:database]
                     setNotificationByMessageId:messageId asRead:true];
         }];
-        /*
-         * We only do an upload for dismissals below, because the app opening will perform an upload
-         * for us automatically.
-         * */
-        completionHandler();
     } else if ([response.actionIdentifier compare:UNNotificationDismissActionIdentifier] == NSOrderedSame) {
         NSLog(@"should store notification dismissal");
         [EVEEventsHelpers storeDismissEventWithUserInfo:userInfo];
@@ -42,12 +37,11 @@
             [[[EVENotificationLog alloc] initWithDatabase:database]
                     setNotificationByMessageId:messageId asDismissed:true];
         }];
-        [EVEEventsHelpers uploadPendingEventsWithCompletionHandler:^{
-            completionHandler();
-        }];
-    } else {
-        completionHandler();
     }
+
+    [EVEEventsHelpers uploadPendingEventsWithCompletionHandler:^{
+        completionHandler();
+    }];
 }
 
 @end

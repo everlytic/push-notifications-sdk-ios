@@ -1,7 +1,6 @@
 #import "EVEApi.h"
 #import "EVEUnsubscribeEvent.h"
 #import "EVEHttp.h"
-#import "EVESubscriptionEvent.h"
 #import "EVEApiSubscription.h"
 #import "EVEApiResponse.h"
 #import "EVENotificationEvent.h"

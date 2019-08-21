@@ -34,10 +34,16 @@
             request.content.launchImageName,
             request.content.userInfo
     );
+
+    [EverlyticNotificationServiceExtensionHandler didReceiveNotificationRequest:request withMutableNotificationContent:_bestAttemptContent];
+
     self.contentHandler(self.bestAttemptContent);
 }
 
 - (void)serviceExtensionTimeWillExpire {
+
+    [EverlyticNotificationServiceExtensionHandler serviceExtensionTimeWillExpireWithRequest:_request withMutableNotificationContent:_bestAttemptContent];
+
     self.contentHandler(self.bestAttemptContent);
 }
 

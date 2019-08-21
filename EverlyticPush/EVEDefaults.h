@@ -29,4 +29,5 @@
 + (void) setDbVersion:(NSNumber *)version;
 + (void) setConfigurationString:(NSString *)configurationString;
 
++ (void) clearSubscriptionDetails;
 @end

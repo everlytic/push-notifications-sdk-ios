@@ -1,5 +1,6 @@
 #import <UserNotifications/UserNotifications.h>
 #import "EVENotificationSystemSettings10.h"
+#import "EVEHelpers.h"
 
 @interface EVENotificationSystemSettings10 ()
 @property(strong, nonatomic) id <UNUserNotificationCenterDelegate> notificationDelegate;
@@ -30,7 +31,9 @@ NSString *const kEverlyticNotificationGeneral = @"everlytic-notification-general
     ];
 
     [self.notificationCenter setNotificationCategories:[[NSSet alloc] initWithArray:@[category]]];
-
+    [self.notificationCenter getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings *settings) {
+        settings.authorizationStatus;
+    }];
     [self.notificationCenter
             requestAuthorizationWithOptions:authOptions
                           completionHandler:^(BOOL granted, NSError *_Nullable error) {
@@ -42,6 +45,24 @@ NSString *const kEverlyticNotificationGeneral = @"everlytic-notification-general
                           }
     ];
 
+}
+
+- (void)getNotificationAuthorizationStatus:(void (^)(BOOL authorized))completionHandler {
+    [self.notificationCenter getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings *settings) {
+        BOOL authorized = NO;
+
+        if ([EVEHelpers iosVersionIsGreaterOrEqualTo:12]) {
+            if (settings.authorizationStatus == UNAuthorizationStatusProvisional) {
+                authorized = YES;
+            }
+        }
+
+        if (settings.authorizationStatus == UNAuthorizationStatusAuthorized) {
+            authorized = YES;
+        }
+
+        completionHandler(authorized);
+    }];
 }
 
 

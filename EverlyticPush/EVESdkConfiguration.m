@@ -1,6 +1,5 @@
 #import "EVESdkConfiguration.h"
 #import "EverlyticPush.h"
-#import "GPBDictionary.h"
 
 @implementation EVESdkConfiguration
 NSString *kProject = @"p";

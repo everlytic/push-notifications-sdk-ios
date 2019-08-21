@@ -21,5 +21,24 @@
     [[self application] registerUserNotificationSettings:settings];
 }
 
+- (void)getNotificationAuthorizationStatus:(void (^)(BOOL authorized))completionHandler {
+
+    BOOL authorized = NO;
+
+    if (([[self application] currentUserNotificationSettings].types & UIUserNotificationTypeAlert) != 0) {
+        authorized = YES;
+    }
+
+    if (([[self application] currentUserNotificationSettings].types & UIUserNotificationTypeSound) != 0) {
+        authorized = YES;
+    }
+
+    if (([[self application] currentUserNotificationSettings].types & UIUserNotificationTypeBadge) != 0) {
+        authorized = YES;
+    }
+
+    completionHandler(authorized);
+}
+
 
 @end

@@ -1,15 +1,9 @@
 #import <UIKit/UIKit.h>
 #import "EVEUIApplicationDelegate.h"
 #import "EVESwizzleHelpers.h"
-#import "EVEDatabase.h"
 #import "EVENotificationEventsLog.h"
-#import "EVEApiResponse.h"
-#import "EVEApi.h"
-#import "EVEHttp.h"
-#import "EVEDefaults.h"
 #import "EVENotificationLog.h"
 #import "EVEEventsHelpers.h"
-#import "EVEReachability.h"
 
 @implementation EVEUIApplicationDelegate
 #pragma mark - Method Swizzles

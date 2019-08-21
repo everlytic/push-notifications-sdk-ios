@@ -91,15 +91,25 @@ NSUserDefaults *sharedDefaults = nil;
     [self.defaults synchronize];
 }
 
++ (void)clearSubscriptionDetails {
+    NSUserDefaults * defaults = self.defaults;
 
-+ (NSUserDefaults *) defaults {
+    [defaults removeObjectForKey:kContactId];
+    [defaults removeObjectForKey:kContactEmail];
+    [defaults removeObjectForKey:kSubscriptionId];
+
+    [defaults synchronize];
+}
+
+
++ (NSUserDefaults *)defaults {
     if (sharedDefaults == nil) {
 #ifdef DEBUG
         NSLog(@"Init sharedDefaults");
 #endif
         sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:EVEHelpers.appGroupName];
     }
-    
+
     return sharedDefaults;
 }
 @end

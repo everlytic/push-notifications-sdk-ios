@@ -140,8 +140,6 @@
 		60390FA082C823F4EF3B56D4 /* EVEReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVEReachability.h; sourceTree = "<group>"; };
 		80A487D3F93D9837A1A9288D /* libPods-EverlyticPushTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EverlyticPushTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81EC5AC74519CDF84BBA6AA1 /* Pods-EverlyticPushTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EverlyticPushTests.release.xcconfig"; path = "Target Support Files/Pods-EverlyticPushTests/Pods-EverlyticPushTests.release.xcconfig"; sourceTree = "<group>"; };
-		9611E38522FAF53F00A48CC5 /* EverlyticPushLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EverlyticPushLibrary.h; sourceTree = "<group>"; };
-		9611E38622FAF53F00A48CC5 /* EverlyticPushLibrary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EverlyticPushLibrary.m; sourceTree = "<group>"; };
 		963A7F7622B90B1800533D27 /* EverlyticPush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EverlyticPush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		963A7F7922B90B1800533D27 /* EverlyticPush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EverlyticPush.h; sourceTree = "<group>"; };
 		963A7F7A22B90B1800533D27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -256,21 +254,11 @@
 			path = System;
 			sourceTree = "<group>";
 		};
-		9611E38422FAF53F00A48CC5 /* EverlyticPushLibrary */ = {
-			isa = PBXGroup;
-			children = (
-				9611E38522FAF53F00A48CC5 /* EverlyticPushLibrary.h */,
-				9611E38622FAF53F00A48CC5 /* EverlyticPushLibrary.m */,
-			);
-			path = EverlyticPushLibrary;
-			sourceTree = "<group>";
-		};
 		963A7F6C22B90B1800533D27 = {
 			isa = PBXGroup;
 			children = (
 				963A7F7822B90B1800533D27 /* EverlyticPush */,
 				963A7F8322B90B1800533D27 /* EverlyticPushTests */,
-				9611E38422FAF53F00A48CC5 /* EverlyticPushLibrary */,
 				963A7F7722B90B1800533D27 /* Products */,
 				2230CA74A8E84DAA2097DD71 /* Pods */,
 				FE817801A5E5A4DB7AF9383E /* Frameworks */,

@@ -14,7 +14,7 @@
 + (NSString *)createTableStatement {
     return [NSString stringWithFormat:@"CREATE TABLE `notification_log` ("
                                       @"  `_id` INTEGER PRIMARY KEY AUTOINCREMENT,"
-                                      @"  `message_id` INTEGER,"
+                                      @"  `message_id` INTEGER UNIQUE,"
                                       @"  `subscription_id` INTEGER,"
                                       @"  `contact_id` INTEGER,"
                                       @"  `title` TEXT,"
@@ -29,7 +29,7 @@
                                       @"  `read_at` TEXT DEFAULT NULL,"
                                       @"  `dismissed_at` TEXT DEFAULT NULL"
                                       @");"
-                                      @"CREATE UNIQUE INDEX idx_unq_message_id ON `notification_log` (`message_id`)"];
+                                      /*@"CREATE UNIQUE INDEX idx_unq_message_id ON `notification_log` (`message_id`)"*/];
 }
 
 + (NSDictionary<NSNumber *, NSArray<NSString *> *> *)migrations {
@@ -100,10 +100,13 @@
 
     FMResultSet *results = [_database executeQuery:sql];
 
+    NSLog(@"publicNotificationHistory(): result state is nil = %d", results == nil);
+
     NSMutableArray *notifications = [[NSMutableArray alloc] init];
     NSDateFormatter *const df = [EVEHelpers iso8601DateFormatter];
-
     while ([results next]) {
+        NSLog(@"publicNotificationHistory(): retrieved result");
+
         id messageId = @([results intForColumn:@"message_id"]);
         id title = [results stringForColumn:@"title"];
         id body = [results stringForColumn:@"body"];
@@ -126,6 +129,8 @@
     }
 
     [results close];
+
+    NSLog(@"publicNotificationHistory(): notifications in array: %lu", notifications.count);
 
     return notifications;
 }

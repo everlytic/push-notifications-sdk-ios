@@ -48,8 +48,10 @@
 }
 
 - (IBAction)notificationHistory:(id)sender {
-    [EverlyticPush notificationHistoryWithCompletionListener:^(NSArray<EverlyticNotification *> *notifications) {
 
+    NSLog(@"Notification count: %@", [EverlyticPush notificationHistoryCount]);
+
+    [EverlyticPush notificationHistoryWithCompletionListener:^(NSArray<EverlyticNotification *> *notifications) {
         if ([notifications count] < 1) {
             NSLog(@"[SANDBOX APP][HISTORY] Notification history is empty");
         }

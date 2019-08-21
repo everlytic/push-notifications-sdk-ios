@@ -1,10 +1,8 @@
 #import "EVENotificationEventsLog.h"
-#import "EVENotificationEvent.h"
 #import "FMDatabase.h"
 #import "NSDate+EVEDateFormatter.h"
 #import "EVEDefaults.h"
 #import "EVEHelpers.h"
-#import "FMResultSet.h"
 
 @interface EVENotificationEventsLog ()
 @property(strong, nonatomic) FMDatabase *database;
